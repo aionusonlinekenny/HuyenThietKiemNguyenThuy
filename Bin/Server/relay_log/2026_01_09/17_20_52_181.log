@@ -1,0 +1,56 @@
+
+*
+***** S3Relay Start (@ 2026/01/09 17:20:52.181) >>>>>
+*
+
+[2026/01/09 17:20:52] 1-- Initializing ...
+[2026/01/09 17:20:52] 2-- Create Channel: [Stock, GM] <00000000> GM
+[2026/01/09 17:20:52] 3-- Create Channel: [Stock] <00000001> WORLD
+[2026/01/09 17:20:52] 4-- friend timing update db: start
+[2026/01/09 17:20:52] 5-- relay server startup
+[2026/01/09 17:20:52] 6-- root client create: 192.168.254.53
+[2026/01/09 17:20:52] 7-- DBRole client create: 192.168.254.53
+[2026/01/09 17:20:52] 8-- root client close: 192.168.254.53
+[2026/01/09 17:20:52] 9-- gateway client create: 192.168.254.53
+[2026/01/09 17:20:52] 10-- host server startup
+[2026/01/09 17:20:52] 11-- tong server startup
+[2026/01/09 17:20:52] 12-- chat server startup
+[2026/01/09 17:20:52] 13-- SockThread start success
+[2026/01/09 17:20:52] 14-- tong database open ok!
+[2026/01/09 17:20:52] 15-- tongset init ok !
+[2026/01/09 17:20:52] 16-- Initialize OK
+[2026/01/09 17:21:01] 17-- host connect create: 192.168.254.5
+[2026/01/09 17:21:01] 18-- chat connect create: 192.168.254.5
+[2026/01/09 17:21:01] 19-- tong connect create: 192.168.254.5
+[2026/01/09 17:21:04] 20-- host connect create: 192.168.254.53
+[2026/01/09 17:21:04] 21-- chat connect create: 192.168.254.53
+[2026/01/09 17:21:04] 22-- tong connect create: 192.168.254.53
+[2026/01/09 17:21:04] 23-- host connect create: 192.168.254.2
+[2026/01/09 17:21:04] 24-- chat connect create: 192.168.254.2
+[2026/01/09 17:21:04] 25-- tong connect create: 192.168.254.2
+[2026/01/09 17:21:04] 26-- host connect create: 192.168.254.3
+[2026/01/09 17:21:04] 27-- chat connect create: 192.168.254.3
+[2026/01/09 17:21:04] 28-- tong connect create: 192.168.254.3
+[2026/01/09 17:21:07] 29-- host connect create: 192.168.254.4
+[2026/01/09 17:21:07] 30-- chat connect create: 192.168.254.4
+[2026/01/09 17:21:07] 31-- tong connect create: 192.168.254.4
+[2026/01/09 17:22:46] 32-- load someone: KennyMask
+[2026/01/09 17:22:46] 33-- player login: 123456 [KennyMask] (02FEA8C0, 00000000)
+[2026/01/09 17:22:46] 34-- Query ChannelID: \S from (02FEA8C0, 00000000)
+[2026/01/09 17:22:46] 35-- Create Channel: <00000002> \S50243776
+[2026/01/09 17:22:46] 36-- Query ChannelID: WORLD from (02FEA8C0, 00000000)
+[2026/01/09 17:22:46] 37-- Query ChannelID: \F1 from (02FEA8C0, 00000000)
+[2026/01/09 17:22:46] 38-- Create Channel: <00000003> \F1
+[2026/01/09 17:22:46] 39-- Query ChannelID: GM from (02FEA8C0, 00000000)
+[2026/01/09 17:22:46] 40-- Query ChannelID: \B from (02FEA8C0, 00000000)
+[2026/01/09 17:22:46] 41-- Create Channel: <00000004> \B50243776
+[2026/01/09 17:22:46] 42-- sync friend list: KennyMask (full)
+[2026/01/09 17:22:46] 43-- Subscribe Channel: 00000002 by (02FEA8C0,00000000)
+[2026/01/09 17:22:46] 44-- Subscribe Channel: 00000001 by (02FEA8C0,00000000)
+[2026/01/09 17:22:46] 45-- Subscribe Channel: 00000003 by (02FEA8C0,00000000)
+[2026/01/09 17:22:46] 46-- Subscribe Channel: GM <00000000> by (02FEA8C0,00000000)
+[2026/01/09 17:22:46] 47-- Subscribe Channel: 00000004 by (02FEA8C0,00000000)
+[2026/01/09 17:22:55] 48-- Destroy Channel: <00000002> \S50243776
+[2026/01/09 17:22:55] 49-- Destroy Channel: <00000003> \F1
+[2026/01/09 17:22:55] 50-- Destroy Channel: <00000004> \B50243776
+[2026/01/09 17:22:55] 51-- player logout: 123456
