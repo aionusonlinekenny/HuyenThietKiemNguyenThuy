@@ -5613,6 +5613,7 @@ int KCoreShell::CheckPositionBarrier(int nMapX, int nMapY)
 
 // Get magic attribute info for equipment
 // Returns TRUE if attribute exists, FALSE if empty slot
+// FIX: Access nMin/nMax directly from m_aryMagicAttrib (not via GetMagicAttrib which only returns nValue[])
 BOOL KCoreShell::GetItemMagicAttribInfo(unsigned int uItemId, int nSlot, int* pnType, int* pnValue, int* pnMin, int* pnMax)
 {
 	// Validate parameters
@@ -5626,19 +5627,18 @@ BOOL KCoreShell::GetItemMagicAttribInfo(unsigned int uItemId, int nSlot, int* pn
 	if (Item[uItemId].GetGenre() < 0)
 		return FALSE;
 
-	// Get attribute type
-	int nType = Item[uItemId].GetMagicAttrib(nSlot, 0);
+	// Get attribute type - access directly from m_aryMagicAttrib (which is public)
+	int nType = Item[uItemId].m_aryMagicAttrib[nSlot].nAttribType;
 	if (nType <= 0)
 		return FALSE; // Empty attribute slot
 
-	// Get values: GetMagicAttrib(slot, type) where type: 0=Type, 1=Value[0], 2=Value[1], 3=Value[2]
-	// nValue[0] = current value
-	// nValue[1] = min value
-	// nValue[2] = max value
+	// FIX: Access nMin/nMax directly from struct, NOT via GetMagicAttrib()
+	// GetMagicAttrib(slot, 2/3) returns nValue[1]/nValue[2], NOT nMin/nMax!
+	// nMin/nMax are stored separately in KMagicAttrib struct from MagicAttrib.txt
 	*pnType = nType;
-	*pnValue = Item[uItemId].GetMagicAttrib(nSlot, 1);  // Current value
-	*pnMin = Item[uItemId].GetMagicAttrib(nSlot, 2);    // Min value
-	*pnMax = Item[uItemId].GetMagicAttrib(nSlot, 3);    // Max value
+	*pnValue = Item[uItemId].m_aryMagicAttrib[nSlot].nValue[0];  // Current value
+	*pnMin = Item[uItemId].m_aryMagicAttrib[nSlot].nMin;         // Min value from MagicAttrib.txt
+	*pnMax = Item[uItemId].m_aryMagicAttrib[nSlot].nMax;         // Max value from MagicAttrib.txt
 
 	return TRUE;
 }
