@@ -1,6 +1,7 @@
 #include "KCore.h"
 #include "GameDataDef.h"
 #include "CoreShell.h"
+#include "KItemGenerator.h"
 
 #include "CoreDrawGameObj.h"
 #include "ImgRef.h"
