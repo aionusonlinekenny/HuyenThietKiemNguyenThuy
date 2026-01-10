@@ -102,6 +102,8 @@ public:
 	int 	GetSeriesItem(unsigned int uId );
 	int 	GetNumStack(unsigned int uId );
 	int 	CheckPositionBarrier(int nMapX, int nMapY);
+	BOOL 	GetItemMagicAttribInfo(unsigned int uItemId, int nSlot, int* pnType, int* pnValue, int* pnMin, int* pnMax);
+	int 	GetMagicAttribMaxValue(int nAttribType, int nSeries, int nLevel);
 };
 
 static KCoreShell	g_CoreShell;
@@ -568,19 +570,19 @@ int	KCoreShell::GetGameData(unsigned int uDataId, unsigned int uParam, int nPara
 			switch(pNpc->m_Series)
 			{
 				case series_water:
-					strcpy(pInfo->StatusDesc, "HÖ Thñy");
+					strcpy(pInfo->StatusDesc, "Hï¿½ Thï¿½y");
 					break;
 				case series_wood:
-					strcpy(pInfo->StatusDesc, "HÖ Méc");
+					strcpy(pInfo->StatusDesc, "Hï¿½ Mï¿½c");
 					break;
 				case series_metal:
-					strcpy(pInfo->StatusDesc, "HÖ Kim");
+					strcpy(pInfo->StatusDesc, "Hï¿½ Kim");
 					break;
 				case series_fire:
-					strcpy(pInfo->StatusDesc, "HÖ Háa");
+					strcpy(pInfo->StatusDesc, "Hï¿½ Hï¿½a");
 					break;
 				case series_earth:
-					strcpy(pInfo->StatusDesc, "HÖ Thæ ");
+					strcpy(pInfo->StatusDesc, "Hï¿½ Thï¿½ ");
 					break;
 			}
 
@@ -764,7 +766,7 @@ int	KCoreShell::GetGameData(unsigned int uDataId, unsigned int uParam, int nPara
 		nRet = 0;
 		if (uParam)
 		{
-			// TODO?????û????????????
+			// TODO?????ï¿½????????????
 			if (nParam == 1)
 				break;
 
@@ -3005,7 +3007,7 @@ int	KCoreShell::OperationRequest(unsigned int uOper, unsigned int uParam, int nP
 					break;
 				case UOC_BUILD_ITEM://TrembleItem by kinnox;
 					{
-						// TODO:???û???????
+						// TODO:???ï¿½???????
 						if (pObject2->Region.h == 1)
 							break;
 						P2.nPlace = pos_builditem;
@@ -3304,7 +3306,7 @@ int	KCoreShell::OperationRequest(unsigned int uOper, unsigned int uParam, int nP
 	case GOI_SET_SEND_CHAT_CHANNEL:
 		if (uParam)
 		{
-			KUiChatChannel* pChannelInfo = (KUiChatChannel*)uParam;// pChannelInfo ????õ?????????
+			KUiChatChannel* pChannelInfo = (KUiChatChannel*)uParam;// pChannelInfo ????ï¿½?????????
 			Player[CLIENT_PLAYER_INDEX].m_cChat.SetCurChannel(pChannelInfo->nChannelNo, pChannelInfo->uChannelId, pChannelInfo->nChannelIndex);
 		}
 		break;
@@ -4585,7 +4587,7 @@ int KCoreShell::SystemMessages(unsigned int uDataId, unsigned int uParam, int nP
 	switch(uDataId)
 	{	
 	case GSM_FIGHT_MODE_ON:
-		l_pDataChangedNotifyFunc->ChannelMessageArrival(0, "HÖ thèng", MSG_FIGHT_MODE_ON, 
+		l_pDataChangedNotifyFunc->ChannelMessageArrival(0, "Hï¿½ thï¿½ng", MSG_FIGHT_MODE_ON, 
 														strlen(MSG_FIGHT_MODE_ON), TRUE); 
 		break;
 	case GSM_FEATURE_BUIDING:
@@ -4626,16 +4628,16 @@ int KCoreShell::SystemMessages(unsigned int uDataId, unsigned int uParam, int nP
 				i++;
 			}
 #endif
-			l_pDataChangedNotifyFunc->ChannelMessageArrival(0, "HÖ thèng", MSG_FEATURE_BUIDING, 
+			l_pDataChangedNotifyFunc->ChannelMessageArrival(0, "Hï¿½ thï¿½ng", MSG_FEATURE_BUIDING, 
 															strlen(MSG_FEATURE_BUIDING), TRUE); 
 		}
 		break;
 	case GSM_PLAYER_RIDEHORSE:
-		l_pDataChangedNotifyFunc->ChannelMessageArrival(0, "HÖ thèng", MSG_PLAYER_RIDEHORSE, 
+		l_pDataChangedNotifyFunc->ChannelMessageArrival(0, "Hï¿½ thï¿½ng", MSG_PLAYER_RIDEHORSE, 
 															strlen(MSG_PLAYER_RIDEHORSE), TRUE); 
 		break;
 	case GSM_MAP_TYPE_ERROR:
-		l_pDataChangedNotifyFunc->ChannelMessageArrival(0, "HÖ thèng", MSG_MAP_TYPE_ERROR, 
+		l_pDataChangedNotifyFunc->ChannelMessageArrival(0, "Hï¿½ thï¿½ng", MSG_MAP_TYPE_ERROR, 
 															strlen(MSG_MAP_TYPE_ERROR), TRUE); 
 		break;
 	default:
@@ -5607,5 +5609,55 @@ int KCoreShell::CheckPositionBarrier(int nMapX, int nMapY)
 	// Get barrier at position
 	// Returns 0 if no barrier (Obstacle_NULL), >0 if has barrier
 	return SubWorld[nSubWorldIndex].GetBarrier(nMapX, nMapY);
+}
+
+// Get magic attribute info for equipment
+// Returns TRUE if attribute exists, FALSE if empty slot
+BOOL KCoreShell::GetItemMagicAttribInfo(unsigned int uItemId, int nSlot, int* pnType, int* pnValue, int* pnMin, int* pnMax)
+{
+	// Validate parameters
+	if (uItemId == 0 || uItemId >= MAX_ITEM || nSlot < 0 || nSlot >= 6)
+		return FALSE;
+
+	if (!pnType || !pnValue || !pnMin || !pnMax)
+		return FALSE;
+
+	// Check if item exists by checking genre
+	if (Item[uItemId].GetGenre() < 0)
+		return FALSE;
+
+	// Get attribute type
+	int nType = Item[uItemId].GetMagicAttrib(nSlot, 0);
+	if (nType <= 0)
+		return FALSE; // Empty attribute slot
+
+	// Get values: GetMagicAttrib(slot, type) where type: 0=Type, 1=Value[0], 2=Value[1], 3=Value[2]
+	// nValue[0] = current value
+	// nValue[1] = min value
+	// nValue[2] = max value
+	*pnType = nType;
+	*pnValue = Item[uItemId].GetMagicAttrib(nSlot, 1);  // Current value
+	*pnMin = Item[uItemId].GetMagicAttrib(nSlot, 2);    // Min value
+	*pnMax = Item[uItemId].GetMagicAttrib(nSlot, 3);    // Max value
+
+	return TRUE;
+}
+// Get max value for an attribute type from the definition table
+// Returns the GLOBAL MAX value for this attribute type across ALL levels
+// This uses the existing GetGlobalMinMax function which scans all records
+// Returns 0 if not found or error
+int KCoreShell::GetMagicAttribMaxValue(int nAttribType, int nSeries, int nLevel)
+{
+	if (nAttribType <= 0)
+		return 0;
+
+	// Use the existing GetGlobalMinMax function which scans all magic attribute
+	// records and returns the global min/max across all levels for this attribute type
+	// This is the same function used when generating blue equipment
+	int nGlobalMin = 0, nGlobalMax = 0;
+	ItemGen.GetGlobalMinMax(nAttribType, nGlobalMin, nGlobalMax);
+
+	// Return the global max value
+	return nGlobalMax;
 }
 //
