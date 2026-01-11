@@ -1249,16 +1249,11 @@ UINT CGamePlayer::WaitForAccPwd()
                              m_lnIdentityID, accBuf);
 
                     _VerifyAccount_ToPlayer(LOGIN_A_LOGIN | LOGIN_R_ACCOUNT_EXIST, 0);
-										 
-																  
-								 
-			 
+                    LoginLog("[WaitForAccPwd][ID=%ld] Duplicate login rejected for \"%s\" - error sent to client",
+                             m_lnIdentityID, accBuf);
 
-                    if (m_pPlayerServer)
-                    {
-                        m_pPlayerServer->ShutdownClient(m_lnIdentityID);
-                        LoginLog("[WaitForAccPwd][ID=%ld] Client shutdown - duplicate login attempt", m_lnIdentityID);
-                    }
+                    // DO NOT call ShutdownClient() here - it closes connection before message reaches client
+                    // Let enumError + Inactive() handle cleanup gracefully
 
                     // KH�NG x�a m_sAccountName d? Inactive() c� th? cleanup n?u c?n
                     SAFE_RELEASE(pRetBuffer);
@@ -1420,14 +1415,11 @@ UINT CGamePlayer::VerifyAccount()
 				{
 					nQueryResult |= LOGIN_R_ACCOUNT_EXIST;
 					_VerifyAccount_ToPlayer(nQueryResult, 0);
+					LoginLog("[VerifyAccount][ID=%ld] Account \"%s\" already online - error sent to client",
+							 m_lnIdentityID, m_sAccountName.c_str());
 
-					// Shutdown client immediately - account already online
-					if (m_pPlayerServer)
-					{
-						m_pPlayerServer->ShutdownClient(m_lnIdentityID);
-						LoginLog("[VerifyAccount][ID=%ld] Client shutdown - account already online \"%s\"",
-								 m_lnIdentityID, m_sAccountName.c_str());
-					}
+					// DO NOT call ShutdownClient() here - it closes connection before message reaches client
+					// Let enumError + Inactive() handle cleanup gracefully
 
 					if (m_bHasTempLock)
 					{
