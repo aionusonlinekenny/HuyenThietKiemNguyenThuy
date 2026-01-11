@@ -440,7 +440,7 @@ void KLogin::ProcessAccountLoginResponse(KLoginStructHead* pResponse)
 					m_Status = LL_S_WAIT_INPUT_ACCOUNT;
 					break;
 				case LOGIN_R_ACCOUNT_EXIST:
-					eResult = LL_R_ACCOUNT_LOCKED;
+					eResult = LL_R_ACCOUNT_IN_USE;  // Account đang được sử dụng
 					m_Status = LL_S_WAIT_INPUT_ACCOUNT;
 					break;
 				case LOGIN_R_FREEZE:

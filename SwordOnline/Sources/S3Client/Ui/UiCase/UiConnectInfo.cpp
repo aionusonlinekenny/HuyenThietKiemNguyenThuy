@@ -382,6 +382,10 @@ void KUiConnectInfo::Breathe()
 		SetInfoMsg(CI_MI_ACCOUNT_LOCKED);
 		m_nDesireLoginStatus = CI_NS_LOGIN_WND;
 		break;
+	case LL_R_ACCOUNT_IN_USE:
+		SetInfoMsg(CI_MI_ACCOUNT_IN_USE);
+		m_nDesireLoginStatus = CI_NS_LOGIN_WND;
+		break;
 	case LL_R_ACCOUNT_FREEZE:
 		SetInfoMsg(CI_MI_ACCOUNT_FREEZE);
 		m_nDesireLoginStatus = CI_NS_LOGIN_WND;
