@@ -420,11 +420,11 @@ label_retry:
 int	KPlayer::LoadPlayerItemList(BYTE * pRoleBuffer , BYTE* &pItemBuffer, unsigned int &nParam)
 {
 	KASSERT(pRoleBuffer);
-	
+
 	int nItemCount = ((TRoleData *)pRoleBuffer)->nItemCount;
 	TDBItemData* pItemData = (TDBItemData *)pItemBuffer;
-	
-	if(nItemCount == 0) 
+
+	if(nItemCount == 0)
 		return 1;
 
 	if(nParam != 0)
@@ -438,29 +438,29 @@ int	KPlayer::LoadPlayerItemList(BYTE * pRoleBuffer , BYTE* &pItemBuffer, unsigne
 	int nItemY = 0;
 	int nBegin = nParam;
 	int nEnd = nParam + DBLOADPERTIME_ITEM;
-	
+
 	if(nEnd > nItemCount)
 		nEnd = nItemCount;
 
-	nParam = nEnd;		
-	
-	KItem NewItem;	
+	nParam = nEnd;
+
+	KItem NewItem;
 	int i;
 	for(i = nBegin ; i < nEnd; i ++)
-	{	
+	{
 		ZeroMemory(&NewItem, sizeof(KItem));
-		
+
 		NewItem.m_CommonAttrib.cGenre			= (char)pItemData->igenre;
 		NewItem.m_CommonAttrib.nDetailType		= (short)pItemData->idetailtype;
 		NewItem.m_CommonAttrib.bLevel			= (BYTE)pItemData->ilevel;
 		NewItem.m_CommonAttrib.cSeries			= (char)pItemData->iseries;
 		NewItem.m_wRecord						= (WORD)pItemData->irecord;
-		
+
 		nLocal									= pItemData->ilocal;
 		nItemX									= pItemData->ix;
 		nItemY									= pItemData->iy;
 
-		//	
+		//
 		NewItem.m_GeneratorParam.dwRandomSeed		= pItemData->irandseed;
 		NewItem.m_GeneratorParam.nGeneratorLevel[0] = pItemData->imagiclevel1;
 		NewItem.m_GeneratorParam.nGeneratorLevel[1] = pItemData->imagiclevel2;
@@ -470,7 +470,19 @@ int	KPlayer::LoadPlayerItemList(BYTE * pRoleBuffer , BYTE* &pItemBuffer, unsigne
 		NewItem.m_GeneratorParam.nGeneratorLevel[5] = pItemData->imagiclevel6;
 		NewItem.m_GeneratorParam.nLuck				= pItemData->ilucky;
 		NewItem.m_GeneratorParam.nVersion			= pItemData->iversion;
-		
+
+		// Save khoang thach attributes BEFORE Gen_ExistScript to prevent overwriting
+		// Read from generator levels (imagiclevel1-4) since that's where SavePlayerItemList stores them
+		int nSavedAttribType = 0, nSavedMin = 0, nSavedMax = 0, nSavedValue = 0;
+		BOOL bIsKhoangThach = (pItemData->igenre == 7 && pItemData->idetailtype >= 146 && pItemData->idetailtype <= 151);
+		if (bIsKhoangThach)
+		{
+			nSavedAttribType = pItemData->imagiclevel1;
+			nSavedMin = pItemData->imagiclevel2;
+			nSavedMax = pItemData->imagiclevel3;
+			nSavedValue = pItemData->imagiclevel4;
+		}
+
 		BOOL bGetEquiptResult = 0;
 		switch(pItemData->igenre)
 		{
@@ -478,8 +490,8 @@ int	KPlayer::LoadPlayerItemList(BYTE * pRoleBuffer , BYTE* &pItemBuffer, unsigne
 				bGetEquiptResult = ItemGen.Gen_ExistEquipment(
 						NewItem.m_wRecord,
 						NewItem.m_CommonAttrib.nDetailType,
-						NewItem.m_CommonAttrib.cSeries,					
-						NewItem.m_GeneratorParam.nGeneratorLevel, 
+						NewItem.m_CommonAttrib.cSeries,
+						NewItem.m_GeneratorParam.nGeneratorLevel,
 						NewItem.m_GeneratorParam.nLuck,
 						NewItem.m_GeneratorParam.nVersion,
 						&NewItem);
@@ -489,10 +501,55 @@ int	KPlayer::LoadPlayerItemList(BYTE * pRoleBuffer , BYTE* &pItemBuffer, unsigne
 						NewItem.m_wRecord,
 						NewItem.m_CommonAttrib.nDetailType,
 						NewItem.m_CommonAttrib.cSeries,
-						NewItem.m_GeneratorParam.nGeneratorLevel, 
+						NewItem.m_GeneratorParam.nGeneratorLevel,
 						NewItem.m_GeneratorParam.nLuck,
 						NewItem.m_GeneratorParam.nVersion,
 						&NewItem);
+
+				// CRITICAL FIX: Decode ALL 6 purple item attributes from iparam/imagiclevel
+				// luck=1000000000: Newly created purple with all Type=53 empty slots
+				// luck=1000000001: Enchased purple with some slots filled
+				// Both use iparam/imagiclevel encoding for attribute storage
+				// Encoding: iparam[i] = (type << 16) | value, imagiclevel[i] = (min << 16) | max
+				if (NewItem.m_GeneratorParam.nLuck >= 1000000000)
+				{
+					// Restore ALL 6 attributes from iparam1-6 and imagiclevel1-6
+					for (int s = 0; s < 6; s++)
+					{
+						int nTypeValue = 0;
+						int nMinMax = 0;
+
+						// Read iparam and imagiclevel based on slot index
+						switch(s)
+						{
+							case 0: nTypeValue = pItemData->iparam1; nMinMax = pItemData->imagiclevel1; break;
+							case 1: nTypeValue = pItemData->iparam2; nMinMax = pItemData->imagiclevel2; break;
+							case 2: nTypeValue = pItemData->iparam3; nMinMax = pItemData->imagiclevel3; break;
+							case 3: nTypeValue = pItemData->iparam4; nMinMax = pItemData->imagiclevel4; break;
+							case 4: nTypeValue = pItemData->iparam5; nMinMax = pItemData->imagiclevel5; break;
+							case 5: nTypeValue = pItemData->iparam6; nMinMax = pItemData->imagiclevel6; break;
+						}
+
+						// Decode type and value from iparam
+						int nType = (nTypeValue >> 16) & 0xFFFF;
+						int nValue = nTypeValue & 0xFFFF;
+
+						// Decode min and max from imagiclevel
+						int nMin = (nMinMax >> 16) & 0xFFFF;
+						int nMax = nMinMax & 0xFFFF;
+
+						// Only restore if attribute type is valid
+						if (nType > 0)
+						{
+							NewItem.m_aryMagicAttrib[s].nAttribType = nType;
+							NewItem.m_aryMagicAttrib[s].nMin = (short)nMin;
+							NewItem.m_aryMagicAttrib[s].nMax = (short)nMax;
+							NewItem.m_aryMagicAttrib[s].nValue[0] = nValue;
+							NewItem.m_aryMagicAttrib[s].nValue[1] = 0;
+							NewItem.m_aryMagicAttrib[s].nValue[2] = 0;
+						}
+					}
+				}
 				break;
 			case item_goldequip:
 				bGetEquiptResult = ItemGen.Gen_GoldEquipment(NewItem.m_wRecord, NewItem.m_CommonAttrib.cSeries, &NewItem);
@@ -506,16 +563,16 @@ int	KPlayer::LoadPlayerItemList(BYTE * pRoleBuffer , BYTE* &pItemBuffer, unsigne
 						-1,
 						NewItem.m_CommonAttrib.cSeries,
 						0,
-						NewItem.m_GeneratorParam.nGeneratorLevel, 
+						NewItem.m_GeneratorParam.nGeneratorLevel,
 						NewItem.m_GeneratorParam.nLuck,
 						NewItem.m_GeneratorParam.nVersion,
 						FALSE,
 						&NewItem);
 				break;
-			case item_medicine:			
+			case item_medicine:
 				bGetEquiptResult = ItemGen.Gen_ExistMedicine(NewItem.m_wRecord, &NewItem);
 				break;
-			case item_task:				
+			case item_task:
 				bGetEquiptResult = ItemGen.Gen_ExistQuest(NewItem.m_wRecord, &NewItem);
 				break;
 			case item_script:
@@ -530,7 +587,7 @@ int	KPlayer::LoadPlayerItemList(BYTE * pRoleBuffer , BYTE* &pItemBuffer, unsigne
 
 		if(pItemData->idurability)
 			NewItem.SetDurability(pItemData->idurability);
-		
+
 		if(pItemData->iexpiredtime)
 		{
 			NewItem.SetTime(pItemData->iexpiredtime);
@@ -540,28 +597,43 @@ int	KPlayer::LoadPlayerItemList(BYTE * pRoleBuffer , BYTE* &pItemBuffer, unsigne
 			NewItem.SetBindState(pItemData->ibindstate);
 			if( NewItem.CheckVaildTime(TRUE) == FALSE )
 				NewItem.SetBindState(0);
-			
+
 		}
 		if(pItemData->ishopprice)
 			NewItem.SetPlayerShopPrice(pItemData->ishopprice);
 
+		// Restore magic attribute data for khoang thach items - use saved values from BEFORE Gen_ExistScript
+		if (bIsKhoangThach)
+		{
+			NewItem.m_aryMagicAttrib[0].nAttribType = nSavedAttribType;
+			NewItem.m_aryMagicAttrib[0].nMin = (short)nSavedMin;
+			NewItem.m_aryMagicAttrib[0].nMax = (short)nSavedMax;
+			NewItem.m_aryMagicAttrib[0].nValue[0] = nSavedValue;
+			NewItem.m_aryMagicAttrib[0].nValue[1] = 0;
+			NewItem.m_aryMagicAttrib[0].nValue[2] = 0;
+
+			g_DebugLog("[KHOANG LOAD] Detail=%d, AttribType=%d, Min=%d, Max=%d, Value=%d",
+				pItemData->idetailtype, nSavedAttribType, nSavedMin, nSavedMax, nSavedValue);
+		}
+
 		pItemData++;
-		
+
 		if( NewItem.GetTime() )
 			if( NewItem.CheckVaildTime() == FALSE )
 				continue;
 
 		const int nGameIndex = ItemSet.Add(&NewItem);
-		if( (nGameIndex <= 0) || (nGameIndex >= MAX_ITEM) ) 
+		if( (nGameIndex <= 0) || (nGameIndex >= MAX_ITEM) )
 			continue ;
-		m_ItemList.Add(nGameIndex, nLocal, nItemX, nItemY);		
+		m_ItemList.Add(nGameIndex, nLocal, nItemX, nItemY);
+		m_ItemList.SyncItem(nGameIndex, FALSE, nLocal, nItemX, nItemY);
 	}
 
 	pItemBuffer	= (BYTE*)pItemData;
 
 	if(nParam >= nItemCount)
 		return 1;
-	else 
+	else
 		return 0;
 }
 
@@ -892,7 +964,7 @@ int	KPlayer::SavePlayerItemList(BYTE * pRoleBuffer)
 		if(nIdx == 0 )
 			break;
 		nItemIndex = m_ItemList.m_Items[nIdx].nIdx;
-		
+
 		pItemData->igenre =  Item[nItemIndex].GetGenre();
 		pItemData->idetailtype =  Item[nItemIndex].GetDetailType();
 		pItemData->ilevel =  Item[nItemIndex].GetLevel();
@@ -902,30 +974,88 @@ int	KPlayer::SavePlayerItemList(BYTE * pRoleBuffer)
 		pItemData->iy =  m_ItemList.m_Items[nIdx].nY;
 		pItemData->iversion = Item[nItemIndex].GetGeneratorParam()->nVersion;
 		pItemData->irandseed = Item[nItemIndex].GetGeneratorParam()->dwRandomSeed;
-		pItemData->imagiclevel1 =  Item[nItemIndex].GetGeneratorParam()->nGeneratorLevel[0];
-		pItemData->imagiclevel2 =  Item[nItemIndex].GetGeneratorParam()->nGeneratorLevel[1];
-		pItemData->imagiclevel3 =  Item[nItemIndex].GetGeneratorParam()->nGeneratorLevel[2];
-		pItemData->imagiclevel4 =  Item[nItemIndex].GetGeneratorParam()->nGeneratorLevel[3];
-		pItemData->imagiclevel5 =  Item[nItemIndex].GetGeneratorParam()->nGeneratorLevel[4];
-		pItemData->imagiclevel6 =  Item[nItemIndex].GetGeneratorParam()->nGeneratorLevel[5];
-		pItemData->ilucky = 	 Item[nItemIndex].GetGeneratorParam()->nLuck;
+
+		// CRITICAL: Set luck BEFORE checking it in conditions below!
+		pItemData->ilucky = Item[nItemIndex].GetGeneratorParam()->nLuck;
+
+		// SPECIAL CASE 1: Khoang thach - store magic attributes in generator levels (syncs to client!)
+		if (pItemData->igenre == 7 && pItemData->idetailtype >= 146 && pItemData->idetailtype <= 151)
+		{
+			pItemData->imagiclevel1 = Item[nItemIndex].m_aryMagicAttrib[0].nAttribType;
+			pItemData->imagiclevel2 = Item[nItemIndex].m_aryMagicAttrib[0].nMin;
+			pItemData->imagiclevel3 = Item[nItemIndex].m_aryMagicAttrib[0].nMax;
+			pItemData->imagiclevel4 = Item[nItemIndex].m_aryMagicAttrib[0].nValue[0];
+			pItemData->imagiclevel5 = Item[nItemIndex].m_GeneratorParam.nGeneratorLevel[4];  // Series
+			pItemData->imagiclevel6 = Item[nItemIndex].m_GeneratorParam.nGeneratorLevel[5];  // Unused
+
+			g_DebugLog("[KHOANG SAVE] Detail=%d, GenLvl=%d,%d,%d,%d,%d,%d (will sync to client)",
+				pItemData->idetailtype, pItemData->imagiclevel1, pItemData->imagiclevel2,
+				pItemData->imagiclevel3, pItemData->imagiclevel4, pItemData->imagiclevel5,
+				pItemData->imagiclevel6);
+		}
+		// SPECIAL CASE 2: Custom purple items (luck >= 1000000000) - save ALL 6 attributes
+		// luck=1000000000: Newly created purple item with all Type=53 empty slots
+		// luck=1000000001: Enchased purple item with some slots filled
+		// Both need to be saved so purple items persist across logout/login
+		else if (pItemData->igenre == item_purpleequip && pItemData->ilucky >= 1000000000)
+		{
+			// Save ALL 6 magic attributes using iparam1-6 and imagiclevel1-6
+			// Encoding: iparam[i] = (type << 16) | value, imagiclevel[i] = (min << 16) | max
+			for (int t = 0; t < 6; t++)
+			{
+				int nType = Item[nItemIndex].m_aryMagicAttrib[t].nAttribType;
+				int nMin = Item[nItemIndex].m_aryMagicAttrib[t].nMin;
+				int nMax = Item[nItemIndex].m_aryMagicAttrib[t].nMax;
+				int nValue = Item[nItemIndex].m_aryMagicAttrib[t].nValue[0];
+
+				int nTypeValue = (nType << 16) | (nValue & 0xFFFF);
+				int nMinMax = (nMin << 16) | (nMax & 0xFFFF);
+
+				// Save to iparam and imagiclevel based on slot index
+				switch(t)
+				{
+					case 0: pItemData->iparam1 = nTypeValue; pItemData->imagiclevel1 = nMinMax; break;
+					case 1: pItemData->iparam2 = nTypeValue; pItemData->imagiclevel2 = nMinMax; break;
+					case 2: pItemData->iparam3 = nTypeValue; pItemData->imagiclevel3 = nMinMax; break;
+					case 3: pItemData->iparam4 = nTypeValue; pItemData->imagiclevel4 = nMinMax; break;
+					case 4: pItemData->iparam5 = nTypeValue; pItemData->imagiclevel5 = nMinMax; break;
+					case 5: pItemData->iparam6 = nTypeValue; pItemData->imagiclevel6 = nMinMax; break;
+				}
+			}
+		}
+		else
+		{
+			pItemData->imagiclevel1 =  Item[nItemIndex].GetGeneratorParam()->nGeneratorLevel[0];
+			pItemData->imagiclevel2 =  Item[nItemIndex].GetGeneratorParam()->nGeneratorLevel[1];
+			pItemData->imagiclevel3 =  Item[nItemIndex].GetGeneratorParam()->nGeneratorLevel[2];
+			pItemData->imagiclevel4 =  Item[nItemIndex].GetGeneratorParam()->nGeneratorLevel[3];
+			pItemData->imagiclevel5 =  Item[nItemIndex].GetGeneratorParam()->nGeneratorLevel[4];
+			pItemData->imagiclevel6 =  Item[nItemIndex].GetGeneratorParam()->nGeneratorLevel[5];
+		}
+
 		pItemData->idurability = Item[nItemIndex].GetDurability();
 		//
 		pItemData->irecord			= Item[nItemIndex].GetRecord();
 		//
-		pItemData->iparam1			= Item[nItemIndex].GetParam1();
+		// CRITICAL: Do NOT overwrite iparam1-6 for custom purple items! They store magic attributes.
+		// Exclude BOTH newly created (luck=1000000000) and enchased (luck=1000000001) purple items.
+		if (pItemData->igenre != item_purpleequip ||
+		    (pItemData->ilucky != 1000000000 && pItemData->ilucky != 1000000001))
+		{
+			pItemData->iparam1		= Item[nItemIndex].GetParam1();
+		}
 		//
 		pItemData->ibindstate		= Item[nItemIndex].GetBindState();
 		//
 		pItemData->iexpiredtime		= Item[nItemIndex].GetTime();
 		pItemData->ishopprice		= Item[nItemIndex].GetPlayerShopPrice();
-		
+
 		pItemData++;
 		nItemCount++;
 	}
-	
+
 	pRoleData->nItemCount = nItemCount;
-	
+
 	pRoleData->dwFriendOffset = (BYTE*)pItemData - (BYTE*)pRoleData;
 	pRoleData->dwDataLen = (BYTE*)pItemData - (BYTE*)pRoleBuffer;
 	return 1;
