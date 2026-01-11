@@ -192,13 +192,13 @@ void KUiUpgradeAttrib::LoadScheme(const char* pScheme)
 		m_pSelf->m_BtnClose.Init(&Ini, "CloseBtn");
 		m_pSelf->m_BtnClose.SetLabel("");  // Set button label
 		m_pSelf->m_TextPercent.Init(&Ini, "TextPercent");
-		m_pSelf->m_TextPercent.SetText("TÃ» lÃ–: ");  // Set initial text
+		m_pSelf->m_TextPercent.SetText("Tû LÖ: ");  // Set initial text
 
 		// Initialize slot labels
 		m_pSelf->m_EquipmentLabel.Init(&Ini, "EquipmentLabel");
 		m_pSelf->m_MaterialLabel.Init(&Ini, "MaterialLabel");
 		m_pSelf->m_TextGuide.Init(&Ini, "TextGuide");
-		m_pSelf->m_TextGuide.SetText("Â§Ã†t trang bÃ xanh vÂµo sÃ xem thuÃ©c tÃnh");
+		m_pSelf->m_TextGuide.SetText("§Æt trang bŞ vµo ®Ó xem thuéc tİnh.");
 
 		// NEW: Initialize attribute selection buttons
 		char szBtnName[32];
@@ -253,7 +253,7 @@ int KUiUpgradeAttrib::WndProc(unsigned int uMsg, unsigned int uParam, int nParam
 				{
 					g_DebugLog("[CLIENT] Validation passed, showing confirmation dialog");
 					if (m_EffectTime) break;
-					UIMessageBox("BÂ¹n cÃ£ chÂ¾c muÃ¨n nÂ©ng cÃŠp trang bÃ nÂµy?", this, "XÂ¸c nhÃ‹n", "HÃ±y bÃ¡", ISP_DO_EVENT);
+					UIMessageBox("B¹n cã ch¾c lµ muèn n©ng thuéc tİnh nµy?", this, "§ång ı", "Hñy bá", ISP_DO_EVENT);
 				}
 				else
 				{
@@ -275,7 +275,7 @@ int KUiUpgradeAttrib::WndProc(unsigned int uMsg, unsigned int uParam, int nParam
 			g_DebugLog("[UPGRADE-ATTRIB] Enter pressed, attempting upgrade");
 			if (ValidateUpgradeReady())
 			{
-				UIMessageBox("BÂ¹n cÃ£ chÂ¾c muÃ¨n nÂ©ng cÃŠp trang bÃ nÂµy?", this, "XÂ¸c nhÃ‹n", "HÃ±y bÃ¡", ISP_DO_EVENT);
+				UIMessageBox("B¹n cã ch¾c lµ muèn n©ng thuéc tİnh nµy?", this, "§ång ı", "Hñy bá", ISP_DO_EVENT);
 			}
 			return 1;
 		}
@@ -328,7 +328,7 @@ BOOL KUiUpgradeAttrib::ValidateUpgradeReady()
 	m_UpgradeSlot[SLOT_EQUIPMENT].GetObject(pObj);
 	if (pObj.uId == 0)
 	{
-		strcpy(szWarning, "ChÂ­a Â®Ã†t trang bÃ vÂµo!");
+		strcpy(szWarning, "Ch­a cã trang bŞ nµo!");
 		nLen = strlen(szWarning);
 		KUiMsgCentrePad::SystemMessageArrival(szWarning, nLen);
 		return FALSE;
@@ -860,13 +860,13 @@ void KUiUpgradeAttrib::UpdateSuccessRateDisplay()
 	m_UpgradeSlot[SLOT_EQUIPMENT].GetObject(obj);
 	if (obj.uId == 0)
 	{
-		m_TextPercent.SetText("TÃ» lÃ–: 0%");
+		m_TextPercent.SetText("Tû LÖ: 0%");
 		return;
 	}
 
 	int nRate = CalculateSuccessRate();
 	char szText[128];
-	sprintf(szText, "TÃ» lÃ–: %d%%", nRate);
+	sprintf(szText, "Tû LÖ: %d%%", nRate);
 	m_TextPercent.SetText(szText);
 	//g_DebugLog("[UPGRADE-ATTRIB] Updated success rate display: %s", szText);
 }
@@ -972,7 +972,7 @@ void KUiUpgradeAttrib::DisplayAttributeList()
 
 	if (m_nAttributeCount == 0)
 	{
-		m_TextGuide.SetText("Trang bÃ nÂµy khÂ«ng cÃ£ thuÃ©c tÃnh magic!");
+		m_TextGuide.SetText("Trang bŞ nµy kh«ng cã thuéc tİnh!");
 		return;
 	}
 
@@ -1007,7 +1007,7 @@ void KUiUpgradeAttrib::DisplayAttributeList()
 		//g_DebugLog("[UPGRADE-ATTRIB] Button %d: %s, canUpgrade=%d", j, szLabel, m_Attributes[j].bCanUpgrade);
 	}
 
-	m_TextGuide.SetText("ChÃ¤n thuÃ©c tÃnh muÃ¨n nÂ©ng cÃŠp:");
+	m_TextGuide.SetText("Chän thuéc tİnh muèn n©ng cÊp:");
 }
 
 /*********************************************************************
@@ -1040,7 +1040,7 @@ void KUiUpgradeAttrib::OnSelectAttribute(int nSlot)
 	}
 
 	char szText[128];
-	sprintf(szText, "Â§Â· chÃ¤n: %d -> %d", m_Attributes[nSlot].nValue, m_Attributes[nSlot].nNewValue);
+	sprintf(szText, "B¹n chän thuéc tİnh: %d -> %d", m_Attributes[nSlot].nValue, m_Attributes[nSlot].nNewValue);
 	m_TextGuide.SetText(szText);
 }
 
@@ -1061,5 +1061,5 @@ void KUiUpgradeAttrib::ClearAttributeList()
 		m_BtnAttrib[i].Hide();
 	}
 
-	m_TextGuide.SetText("Â§Ã†t trang bÃ xanh vÂµo Â®Ã“ xem thuÃ©c tÃnh:");
+	m_TextGuide.SetText("§Æt trang bŞ vµo ®Ó xem thuéc tİnh:");
 }

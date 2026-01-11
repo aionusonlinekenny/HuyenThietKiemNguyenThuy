@@ -2928,7 +2928,7 @@ void KItemList::ExchangeItem(ItemPos* SrcPos, ItemPos* DesPos)
 		break;
 	//
 	case pos_builditem: //TrembleItem by kinnox;
-		if (Player[this->m_PlayerIdx].CheckTrading())	// 如果正在交易
+		if (Player[this->m_PlayerIdx].CheckTrading())
 			return;
 		if (SrcPos->nX < 0 || SrcPos->nX >= MAX_PART_BUILD || DesPos->nX < 0 || DesPos->nX >= MAX_PART_BUILD)
 			return;
@@ -2941,9 +2941,14 @@ void KItemList::ExchangeItem(ItemPos* SrcPos, ItemPos* DesPos)
 				if (nEquipIdx1)
 				{
 					UnBuildItem(nEquipIdx1, SrcPos->nX);
+				nListIdx = FindSame(nEquipIdx1);
+					m_Hand = nEquipIdx1;
+					m_Items[nListIdx].nPlace = pos_hand;
 				}
-				m_Hand = nEquipIdx1;
-				m_Items[FindSame(nEquipIdx1)].nPlace = pos_hand;
+				else
+				{
+					m_Hand = 0;
+				}
 #ifdef _SERVER
 				g_pServer->PackDataToClient(Player[m_PlayerIdx].m_nNetConnectIdx, (BYTE*)&sMove, sizeof(PLAYER_MOVE_ITEM_SYNC));
 #endif
@@ -2958,13 +2963,16 @@ void KItemList::ExchangeItem(ItemPos* SrcPos, ItemPos* DesPos)
 			if (nEquipIdx1)
 			{
 				UnBuildItem(nEquipIdx1, SrcPos->nX);
-			}
-			m_Hand = nEquipIdx1;
-			m_Items[FindSame(nEquipIdx1)].nPlace = pos_hand;
+				nListIdx = FindSame(nEquipIdx1);
+				if(nListIdx <= 0)
+					return;
+				m_Hand = nEquipIdx1;
+				m_Items[nListIdx].nPlace = pos_hand;
 #ifdef _SERVER
-			g_pServer->PackDataToClient(Player[m_PlayerIdx].m_nNetConnectIdx, (BYTE*)&sMove, sizeof(PLAYER_MOVE_ITEM_SYNC));
-#endif		
-			
+				g_pServer->PackDataToClient(Player[m_PlayerIdx].m_nNetConnectIdx, (BYTE*)&sMove, sizeof(PLAYER_MOVE_ITEM_SYNC));
+#endif
+   
+			}
 		}
 		break;
 	//

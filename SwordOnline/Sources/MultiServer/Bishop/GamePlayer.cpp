@@ -59,14 +59,14 @@ static bool AcquireTempLock(const std::string &acc)
     OnlineGameLib::Win32::CCriticalSection::Owner lk1(g_csActiveAccounts);
     OnlineGameLib::Win32::CCriticalSection::Owner lk2(g_csTempAccounts);
 
-    // N?u dã ACTIVE và không ph?i dang transfer -> không cho TEMP m?i
+    // N?u d? ACTIVE v? kh?ng ph?i dang transfer -> kh?ng cho TEMP m?i
     bool alreadyOnline = (g_ActiveAccounts.find(acc) != g_ActiveAccounts.end());
     bool inTransfer    = CGameServer::IsInTransfer(acc.c_str());
 
     if (alreadyOnline && !inTransfer)
         return false;
 
-    // N?u dã có TEMP pending (login song song) -> t? ch?i
+    // N?u d? c? TEMP pending (login song song) -> t? ch?i
     if (g_TempAccounts.find(acc) != g_TempAccounts.end())
         return false;
 
@@ -554,16 +554,32 @@ bool CGamePlayer::Inactive()
         ::InterlockedExchangeAdd( &m_lnWorkingCounts, -1 );
 
         // Release g_ActiveAccounts lock (Bishop connection closed = player disconnected)
+        // CRITICAL: During transfer, the NEW session should inherit the lock, not release it!
         {
             OnlineGameLib::Win32::CCriticalSection::Owner lk(g_csActiveAccounts);
+            bool isTransferring = CGameServer::IsInTransfer(m_sAccountName.c_str());
+
             if (m_bOwnsActiveLock)
             {
-                g_ActiveAccounts.erase(m_sAccountName);
-                m_bOwnsActiveLock = false;
-                LoginLog("[Inactive][ID=%ld] ACTIVE lock REMOVED for \"%s\" (player on GS)",
-                         m_lnIdentityID, m_sAccountName.c_str());
+                if (isTransferring)
+                {
+                    // Transfer in progress - keep ACTIVE lock for new session to inherit
+                    // New session already has m_bOwnsActiveLock = true (inherit mode)
+                    // Don't erase from g_ActiveAccounts!
+                    LoginLog("[Inactive][ID=%ld] ACTIVE lock KEPT for \"%s\" (transfer in progress - new session will inherit)",
+                             m_lnIdentityID, m_sAccountName.c_str());
+                    // Clear our ownership flag but don't erase from set
+                    m_bOwnsActiveLock = false;
+                }
+                else
+                {
+                    // Normal disconnect - release the lock
+                    g_ActiveAccounts.erase(m_sAccountName);
+                    m_bOwnsActiveLock = false;
+                    LoginLog("[Inactive][ID=%ld] ACTIVE lock REMOVED for \"%s\" (player on GS)",
+                             m_lnIdentityID, m_sAccountName.c_str());
+                }
             }
-   
         }
 
         // Release TEMP lock if exists
@@ -680,13 +696,26 @@ bool CGamePlayer::Inactive()
     ::InterlockedExchangeAdd( &m_lnWorkingCounts, -1 );
 
     // ACTIVE-LOCK: ch? owner m?i du?c xo?
+    // CRITICAL: During transfer, keep lock for new session to inherit
     {
         OnlineGameLib::Win32::CCriticalSection::Owner lk(g_csActiveAccounts);
+        bool isTransferring = CGameServer::IsInTransfer(m_sAccountName.c_str());
+
         if (m_bOwnsActiveLock)
         {
-            g_ActiveAccounts.erase(m_sAccountName);
-            m_bOwnsActiveLock = false;
-            LoginLog("[Inactive][ID=%ld] ACTIVE lock REMOVED for \"%s\" (owner)", m_lnIdentityID, m_sAccountName.c_str());
+            if (isTransferring)
+            {
+                // Transfer in progress - keep ACTIVE lock for new session
+                LoginLog("[Inactive][ID=%ld] ACTIVE lock KEPT for \"%s\" (transfer in progress)",
+                         m_lnIdentityID, m_sAccountName.c_str());
+                m_bOwnsActiveLock = false;  // Clear flag but don't erase from set
+            }
+            else
+            {
+                g_ActiveAccounts.erase(m_sAccountName);
+                m_bOwnsActiveLock = false;
+                LoginLog("[Inactive][ID=%ld] ACTIVE lock REMOVED for \"%s\" (owner)", m_lnIdentityID, m_sAccountName.c_str());
+            }
         }
         else
         {
@@ -821,14 +850,26 @@ bool CGamePlayer::Run()
             }
 			// FIX: Reset timer to prevent spam - this timeout block should only run ONCE
             m_dwTaskBeginTimer = 0;
-            // ACTIVE-LOCK:
+            // ACTIVE-LOCK: Release only if not transferring
             {
                 OnlineGameLib::Win32::CCriticalSection::Owner lk(g_csActiveAccounts);
+                bool isTransferring = CGameServer::IsInTransfer(m_sAccountName.c_str());
+
                 if (m_bOwnsActiveLock)
                 {
-                    g_ActiveAccounts.erase(m_sAccountName);
-                    m_bOwnsActiveLock = false;
-                    LoginLog("[Run-Timeout][ID=%ld] ACTIVE lock REMOVED for \"%s\" (owner)", m_lnIdentityID, m_sAccountName.c_str());
+                    if (isTransferring)
+                    {
+                        // Transfer in progress - keep ACTIVE lock for new session
+                        LoginLog("[Run-Timeout][ID=%ld] ACTIVE lock KEPT for \"%s\" (transfer in progress)",
+                                 m_lnIdentityID, m_sAccountName.c_str());
+                        m_bOwnsActiveLock = false;
+                    }
+                    else
+                    {
+                        g_ActiveAccounts.erase(m_sAccountName);
+                        m_bOwnsActiveLock = false;
+                        LoginLog("[Run-Timeout][ID=%ld] ACTIVE lock REMOVED for \"%s\" (owner)", m_lnIdentityID, m_sAccountName.c_str());
+                    }
                 }
                 else
                 {
@@ -836,7 +877,7 @@ bool CGamePlayer::Run()
                 }
             }
 
-            // TEMP-LOCK: n?u còn thì x?
+            // TEMP-LOCK: n?u c?n th? x?
             if (m_bHasTempLock)
             {
                 ReleaseTempLock(m_sAccountName);
@@ -844,8 +885,9 @@ bool CGamePlayer::Run()
                 LoginLog("[Run-Timeout][ID=%ld] TEMP lock REMOVED for \"%s\"", m_lnIdentityID, m_sAccountName.c_str());
             }
 
-            // Safe-lock v?i AccServer
-            ReleaseLoginLockSafe(m_sAccountName);
+            // CRITICAL FIX: Removed ReleaseLoginLockSafe() call here!
+            // ACTIVE lock was already handled above (line 823-836) with proper m_bOwnsActiveLock check.
+            // Calling it again unconditionally would remove another session's lock!
 			CGameServer::EndTransfer(m_sAccountName.c_str());
             return false;
         }
@@ -1093,7 +1135,7 @@ UINT CGamePlayer::WaitForAccPwd()
 
     if (!pLAI)
     {
-        // Không có LOGIN_R_PACKET_ERROR -> dùng LOGIN_R_TIMEOUT
+        // Kh?ng c? LOGIN_R_PACKET_ERROR -> d?ng LOGIN_R_TIMEOUT
         LoginLog("[WaitForAccPwd][ID=%ld] Invalid login packet (pLAI=null)", m_lnIdentityID);
         _VerifyAccount_ToPlayer(nQueryResult | LOGIN_R_TIMEOUT, 0);
 
@@ -1136,7 +1178,7 @@ UINT CGamePlayer::WaitForAccPwd()
     }
 
     // ---- L?Y PASSWORD: KSG_PASSWORD -> szPassword ----
-    // L?u vào m_sPassword (d? án c?a b?n ?ang dùng string này ? b??c VerifyAccount ?? build payload)
+    // L?u v?o m_sPassword (d? ?n c?a b?n ?ang d?ng string n?y ? b??c VerifyAccount ?? build payload)
     m_sPassword = (const char*)pLAI->Password.szPassword;
 
     LoginLog("[WaitForAccPwd][ID=%ld] Received login: account=\"%s\"", m_lnIdentityID, accBuf);
@@ -1155,7 +1197,7 @@ UINT CGamePlayer::WaitForAccPwd()
     {
         if (accBuf[0] != '\0')
         {
-            // L?U STATE TR??C ?? n?u client r?t gi?a ch?ng, Inactive() còn d?n ???c
+            // L?U STATE TR??C ?? n?u client r?t gi?a ch?ng, Inactive() c?n d?n ???c
             m_sAccountName = accBuf;
             m_sLicense     = licBuf;
             m_bUseSuperPassword = false;
@@ -1164,14 +1206,15 @@ UINT CGamePlayer::WaitForAccPwd()
             std::string _acc(accBuf);
             if (!AcquireTempLock(_acc))
             {
-                // TEMP-LOCK failed - có th? là leaked lock t? session cu
-                // Th? cleanup và retry m?t l?n
+                // TEMP-LOCK failed - c? th? l? leaked lock t? session cu
+                // Th? cleanup v? retry m?t l?n
                 LoginLog("[WaitForAccPwd][ID=%ld] TEMP-LOCK FAILED for \"%s\" - attempting FULL recovery",
                          m_lnIdentityID, accBuf);
 
-                // Force cleanup potential leaked TEMP lock
+                // Force cleanup potential leaked TEMP lock only
+                // CRITICAL FIX: Do NOT call ReleaseLoginLockSafe() here!
+                // This would remove ACTIVE lock of ANOTHER session that is legitimately online!
                 ReleaseTempLock(_acc);
-ReleaseLoginLockSafe(_acc);  // Force cleanup ACTIVE lock
 
                 // Also detach from all GameServers (account might be stuck there)
                 for (int gsId = 1; gsId <= 5; gsId++)
@@ -1193,31 +1236,26 @@ ReleaseLoginLockSafe(_acc);  // Force cleanup ACTIVE lock
                 // Retry acquire TEMP lock
                 if (AcquireTempLock(_acc))
                 {
-                    // Recovery thành công - leak dã du?c cleanup!
+                    // Recovery th?nh c?ng - leak d? du?c cleanup!
                     m_bHasTempLock = true;
                     LoginLog("[WaitForAccPwd][ID=%ld] TEMP-LOCK recovered for \"%s\" - continuing login",
                              m_lnIdentityID, accBuf);
-                    // Ti?p t?c login flow bình thu?ng (không return enumError)
+                    // Ti?p t?c login flow b?nh thu?ng (kh?ng return enumError)
                 }
                 else
                 {
-                    // V?n fail sau recovery ? th?c s? duplicate (account dang ACTIVE ? session khác)
+                    // V?n fail sau recovery ? th?c s? duplicate (account dang ACTIVE ? session kh?c)
                     LoginLog("[WaitForAccPwd][ID=%ld] TEMP-LOCK FAILED for \"%s\" -> duplicate/pending (after recovery)",
                              m_lnIdentityID, accBuf);
 
-                    _VerifyAccount_ToPlayer(LOGIN_A_LOGIN | LOGIN_R_ACCOUNT_OR_PASSWORD_ERROR, 0);
-										 
-																  
-								 
-			 
+                    _VerifyAccount_ToPlayer(LOGIN_A_LOGIN | LOGIN_R_ACCOUNT_EXIST, 0);
+                    LoginLog("[WaitForAccPwd][ID=%ld] Duplicate login rejected for \"%s\" - error sent to client",
+                             m_lnIdentityID, accBuf);
 
-                    if (m_pPlayerServer)
-                    {
-                        m_pPlayerServer->ShutdownClient(m_lnIdentityID);
-                        LoginLog("[WaitForAccPwd][ID=%ld] Client shutdown - duplicate login attempt", m_lnIdentityID);
-                    }
+                    // DO NOT call ShutdownClient() here - it closes connection before message reaches client
+                    // Let enumError + Inactive() handle cleanup gracefully
 
-                    // KHÔNG xóa m_sAccountName d? Inactive() có th? cleanup n?u c?n
+                    // KH?NG x?a m_sAccountName d? Inactive() c? th? cleanup n?u c?n
                     SAFE_RELEASE(pRetBuffer);
                     m_theDataQueue[enumOwnerPlayer].Detach(c2s_login);
                     return enumError;
@@ -1225,7 +1263,7 @@ ReleaseLoginLockSafe(_acc);  // Force cleanup ACTIVE lock
             }
             else
             {
-                // TEMP-LOCK thành công ngay l?n d?u
+                // TEMP-LOCK th?nh c?ng ngay l?n d?u
                 m_bHasTempLock = true;
                 LoginLog("[WaitForAccPwd][ID=%ld] TEMP-LOCK OK for \"%s\"", m_lnIdentityID, accBuf);
             }
@@ -1238,7 +1276,7 @@ ReleaseLoginLockSafe(_acc);  // Force cleanup ACTIVE lock
         }
         else
         {
-            // Không có LOGIN_R_ACCOUNT_ERROR -> dùng LOGIN_R_ACCOUNT_OR_PASSWORD_ERROR
+            // Kh?ng c? LOGIN_R_ACCOUNT_ERROR -> d?ng LOGIN_R_ACCOUNT_OR_PASSWORD_ERROR
             nQueryResult |= LOGIN_R_ACCOUNT_OR_PASSWORD_ERROR;
             _VerifyAccount_ToPlayer(nQueryResult, 0);
             LoginLog("[WaitForAccPwd][ID=%ld] Empty account name", m_lnIdentityID);
@@ -1290,9 +1328,9 @@ UINT CGamePlayer::QueryAccPwd()
     userlogin.Size    = sizeof( KAccountUserLoginInfo );
     userlogin.Type    = m_bUseSuperPassword ? AccountUserVerify : AccountUserLoginInfo;
     userlogin.Version = ACCOUNT_CURRENT_VERSION;
-    userlogin.Operate = m_lnIdentityID; // flow chu?n d? án
+    userlogin.Operate = m_lnIdentityID; // flow chu?n d? ?n
 
-    // copy an toàn (VC6)
+    // copy an to?n (VC6)
     int nMinLen;
 
     nMinLen = sizeof( userlogin.Account ) - 1;
@@ -1320,7 +1358,7 @@ UINT CGamePlayer::QueryAccPwd()
     if (nMinLen > 0) memcpy( userlogin.License, m_sLicense.c_str(), nMinLen );
     userlogin.License[nMinLen] = '\0';
 
-    // Log gói g?i (không log password)
+    // Log g?i g?i (kh?ng log password)
     LoginLog("[QueryAccPwd][ID=%ld] Send to AccServer: Type=%d Ver=%d Operate=%lu Acc=\"%s\" passLen=%d licLen=%d",
              m_lnIdentityID, (int)userlogin.Type, (int)userlogin.Version, (unsigned long)userlogin.Operate,
              userlogin.Account, (int)strlen(userlogin.Password), (int)strlen(userlogin.License));
@@ -1377,14 +1415,11 @@ UINT CGamePlayer::VerifyAccount()
 				{
 					nQueryResult |= LOGIN_R_ACCOUNT_EXIST;
 					_VerifyAccount_ToPlayer(nQueryResult, 0);
+					LoginLog("[VerifyAccount][ID=%ld] Account \"%s\" already online - error sent to client",
+							 m_lnIdentityID, m_sAccountName.c_str());
 
-					// Shutdown client immediately - account already online
-					if (m_pPlayerServer)
-					{
-						m_pPlayerServer->ShutdownClient(m_lnIdentityID);
-						LoginLog("[VerifyAccount][ID=%ld] Client shutdown - account already online \"%s\"",
-								 m_lnIdentityID, m_sAccountName.c_str());
-					}
+					// DO NOT call ShutdownClient() here - it closes connection before message reaches client
+					// Let enumError + Inactive() handle cleanup gracefully
 
 					if (m_bHasTempLock)
 					{
@@ -1404,11 +1439,35 @@ UINT CGamePlayer::VerifyAccount()
 					m_bHasTempLock = false;
 				}
 
-				g_ActiveAccounts.insert(m_sAccountName);
-				m_bOwnsActiveLock = true;
+				// CRITICAL FIX for Transfer: Check insert result!
+				// During transfer, insert may fail because old session still holds the lock.
+				// We need to handle this properly to avoid lock ownership issues.
+				std::pair<std::set<std::string>::iterator, bool> insertResult = g_ActiveAccounts.insert(m_sAccountName);
 
-				LoginLog("[VerifyAccount][ID=%ld] \"%s\" LOCKED ACTIVE (owner=1)",
-						m_lnIdentityID, m_sAccountName.c_str());
+				if (insertResult.second)
+				{
+					// Insert succeeded - we now own the lock
+					m_bOwnsActiveLock = true;
+					LoginLog("[VerifyAccount][ID=%ld] \"%s\" LOCKED ACTIVE (owner=1, new insert)",
+							m_lnIdentityID, m_sAccountName.c_str());
+				}
+				else if (inTransfer)
+				{
+					// Insert failed but we're transferring - old session still holds lock
+					// We'll inherit ownership when old session releases in Inactive()
+					// For now, mark as owner since we're the "new" session taking over
+					m_bOwnsActiveLock = true;
+					LoginLog("[VerifyAccount][ID=%ld] \"%s\" TRANSFER mode - will inherit ACTIVE lock from old session",
+							m_lnIdentityID, m_sAccountName.c_str());
+				}
+				else
+				{
+					// Insert failed and NOT transferring - this is unexpected!
+					// Another session has the lock - we should not have gotten here
+					m_bOwnsActiveLock = false;
+					LoginLog("[VerifyAccount][ID=%ld] WARNING: \"%s\" insert failed but not in transfer! (race condition?)",
+							m_lnIdentityID, m_sAccountName.c_str());
+				}
 
 				nQueryResult |= LOGIN_R_SUCCESS;
 				nNextTask     = enumToNextTask;
@@ -1420,7 +1479,8 @@ UINT CGamePlayer::VerifyAccount()
             LoginLog("[VerifyAccount][ID=%ld] Failed: name/password error for \"%s\"",
                      m_lnIdentityID, m_sAccountName.c_str());
             m_bAutoUnlockAccount = false;
-            ReleaseLoginLockSafe(m_sAccountName);
+            // CRITICAL FIX: Do NOT call ReleaseLoginLockSafe() - this session never acquired ACTIVE lock!
+            // Calling it would remove another session's lock that is legitimately online.
             if (m_bHasTempLock) { ReleaseTempLock(m_sAccountName); m_bHasTempLock = false; }
             break;
 
@@ -1429,7 +1489,7 @@ UINT CGamePlayer::VerifyAccount()
             LoginLog("[VerifyAccount][ID=%ld] Failed: account already exists/online \"%s\"",
                      m_lnIdentityID, m_sAccountName.c_str());
             m_bAutoUnlockAccount = false;
-            ReleaseLoginLockSafe(m_sAccountName);
+            // CRITICAL FIX: Do NOT call ReleaseLoginLockSafe() - this session never acquired ACTIVE lock!
             if (m_bHasTempLock) { ReleaseTempLock(m_sAccountName); m_bHasTempLock = false; }
             break;
 
@@ -1437,7 +1497,7 @@ UINT CGamePlayer::VerifyAccount()
             nQueryResult |= LOGIN_R_TIMEOUT;
             LoginLog("[VerifyAccount][ID=%ld] Failed: nodeposit \"%s\"", m_lnIdentityID, m_sAccountName.c_str());
             m_bAutoUnlockAccount = false;
-            ReleaseLoginLockSafe(m_sAccountName);
+            // CRITICAL FIX: Do NOT call ReleaseLoginLockSafe() - this session never acquired ACTIVE lock!
             if (m_bHasTempLock) { ReleaseTempLock(m_sAccountName); m_bHasTempLock = false; }
             break;
 
@@ -1445,7 +1505,7 @@ UINT CGamePlayer::VerifyAccount()
             nQueryResult |= LOGIN_R_LOCKED;
             LoginLog("[VerifyAccount][ID=%ld] Failed: access denied \"%s\"", m_lnIdentityID, m_sAccountName.c_str());
             m_bAutoUnlockAccount = false;
-            ReleaseLoginLockSafe(m_sAccountName);
+            // CRITICAL FIX: Do NOT call ReleaseLoginLockSafe() - this session never acquired ACTIVE lock!
             if (m_bHasTempLock) { ReleaseTempLock(m_sAccountName); m_bHasTempLock = false; }
             break;
 
@@ -1453,7 +1513,7 @@ UINT CGamePlayer::VerifyAccount()
             nQueryResult |= LOGIN_R_TIMEOUT;
             LoginLog("[VerifyAccount][ID=%ld] Failed: address/port \"%s\"", m_lnIdentityID, m_sAccountName.c_str());
             m_bAutoUnlockAccount = false;
-            ReleaseLoginLockSafe(m_sAccountName);
+            // CRITICAL FIX: Do NOT call ReleaseLoginLockSafe() - this session never acquired ACTIVE lock!
             if (m_bHasTempLock) { ReleaseTempLock(m_sAccountName); m_bHasTempLock = false; }
             break;
 
@@ -1461,7 +1521,7 @@ UINT CGamePlayer::VerifyAccount()
             nQueryResult |= LOGIN_R_FREEZE;
             LoginLog("[VerifyAccount][ID=%ld] Failed: account freeze \"%s\"", m_lnIdentityID, m_sAccountName.c_str());
             m_bAutoUnlockAccount = false;
-            ReleaseLoginLockSafe(m_sAccountName);
+            // CRITICAL FIX: Do NOT call ReleaseLoginLockSafe() - this session never acquired ACTIVE lock!
             if (m_bHasTempLock) { ReleaseTempLock(m_sAccountName); m_bHasTempLock = false; }
             break;
 
@@ -1469,7 +1529,7 @@ UINT CGamePlayer::VerifyAccount()
             nQueryResult |= LOGIN_R_LOCKED;
             LoginLog("[VerifyAccount][ID=%ld] Failed: connect locked \"%s\"", m_lnIdentityID, m_sAccountName.c_str());
             m_bAutoUnlockAccount = false;
-            ReleaseLoginLockSafe(m_sAccountName);
+            // CRITICAL FIX: Do NOT call ReleaseLoginLockSafe() - this session never acquired ACTIVE lock!
             if (m_bHasTempLock) { ReleaseTempLock(m_sAccountName); m_bHasTempLock = false; }
             break;
 
@@ -1477,7 +1537,7 @@ UINT CGamePlayer::VerifyAccount()
             nQueryResult |= LOGIN_R_BANED;
             LoginLog("[VerifyAccount][ID=%ld] Failed: banned \"%s\"", m_lnIdentityID, m_sAccountName.c_str());
             m_bAutoUnlockAccount = false;
-            ReleaseLoginLockSafe(m_sAccountName);
+            // CRITICAL FIX: Do NOT call ReleaseLoginLockSafe() - this session never acquired ACTIVE lock!
             if (m_bHasTempLock) { ReleaseTempLock(m_sAccountName); m_bHasTempLock = false; }
             break;
 
@@ -1486,7 +1546,7 @@ UINT CGamePlayer::VerifyAccount()
             LoginLog("[VerifyAccount][ID=%ld] Failed: unknown(%d) \"%s\"",
                      m_lnIdentityID, nResult, m_sAccountName.c_str());
             m_bAutoUnlockAccount = false;
-            ReleaseLoginLockSafe(m_sAccountName);
+            // CRITICAL FIX: Do NOT call ReleaseLoginLockSafe() - this session never acquired ACTIVE lock!
             if (m_bHasTempLock) { ReleaseTempLock(m_sAccountName); m_bHasTempLock = false; }
             break;
         }
@@ -1852,7 +1912,7 @@ UINT CGamePlayer::DelRole_WaitForVerify()
 
             SendDataToPlayer( m_pPlayerServer, m_lnIdentityID, ( const void * )&ndrr, sizeof( tagNewDelRoleResponse ) );
 
-            nNextTask = enumSelAddDelRole;  // ±íÊ¾Õâ´ÎµÄ¶¯×÷Íê³É£¬½øÈëÏÂÒ»¸öµÈ´ýÁ÷³Ì
+            nNextTask = enumSelAddDelRole;  // ?????eK?????????????h?????????
         }
 
 		SAFE_RELEASE( pRetBuffer );
@@ -2369,11 +2429,11 @@ bool CGamePlayer::_SyncRoleInfo_ToGameServer(const void *pData, size_t dataLengt
         return false;
     }
 
-    // --- N?u dang ? GS khác và sang GS m?i: dánh d?u transfer & b?o GS cu logic-logout ---
+    // --- N?u dang ? GS kh?c v? sang GS m?i: d?nh d?u transfer & b?o GS cu logic-logout ---
     if (oldServerId != -1 && oldServerId != (int)pGServer->GetID())
     {
 		beganTransfer = true;
-        // Ðánh d?u transfer d? _NotifyLeaveGame không FreezeMoney
+        // ??nh d?u transfer d? _NotifyLeaveGame kh?ng FreezeMoney
         CGameServer::BeginTransfer(m_sAccountName.c_str());
 
         IGServer *pOld = CGameServer::GetServer(oldServerId);
@@ -2385,7 +2445,7 @@ bool CGamePlayer::_SyncRoleInfo_ToGameServer(const void *pData, size_t dataLengt
 
             if (szRole && szRole[0])
             {
-                // B?o GS cu ?logic logout? (g? entity), KHÔNG ph?i logout PaySys
+                // B?o GS cu ?logic logout? (g? entity), KH?NG ph?i logout PaySys
                 pOld->DispatchTask(CGameServer::enumPlayerLogicLogout,
                                    szRole, (int)strlen(szRole) + 1);
 
@@ -2404,7 +2464,7 @@ bool CGamePlayer::_SyncRoleInfo_ToGameServer(const void *pData, size_t dataLengt
         }
     }
 
-    // --- Ch?n login trùng trong cùng GS ---
+    // --- Ch?n login tr?ng trong c?ng GS ---
     {
         const char *szAcc = pRoleData->BaseInfo.caccname;
         int nExistingGS = CGameServer::FindServerByAccount(szAcc);
@@ -2414,17 +2474,17 @@ bool CGamePlayer::_SyncRoleInfo_ToGameServer(const void *pData, size_t dataLengt
 
         if (nExistingGS != -1 && nExistingGS == (int)pGServer->GetID())
         {
-            // Duplicate session trên cùng GS ? ch?n
+            // Duplicate session tr?n c?ng GS ? ch?n
             LoginLog("[_SyncRoleInfo][ID=%ld] ERROR: Duplicate session detected - \"%s\" already on GS%d",
                      m_lnIdentityID, szAcc, nExistingGS);
 			if (beganTransfer)
                 CGameServer::EndTransfer(m_sAccountName.c_str());
             return false;
         }
-        // nExistingGS == -1  ho?c dang ? GS khác (dang transfer) ? cho phép
+        // nExistingGS == -1  ho?c dang ? GS kh?c (dang transfer) ? cho ph?p
     }
 
-    // Ki?m tra attach h?p l? (bCheck = true ch? ki?m tra, không ghi danh)
+    // Ki?m tra attach h?p l? (bCheck = true ch? ki?m tra, kh?ng ghi danh)
     LoginLog("[_SyncRoleInfo][ID=%ld] Checking if can attach \"%s\" to GS%d...",
              m_lnIdentityID, pRoleData->BaseInfo.caccname, (int)pGServer->GetID());
 
@@ -2467,7 +2527,7 @@ bool CGamePlayer::_SyncRoleInfo_ToGameServer(const void *pData, size_t dataLengt
     LoginLog("[_SyncRoleInfo][ID=%ld] DispatchTask SUCCESS - GS%d received role data",
              m_lnIdentityID, (int)pGServer->GetID());
 
-    // GS m?i dã nh?n role ? b? c? transfer
+    // GS m?i d? nh?n role ? b? c? transfer
     // CRITICAL FIX: Actually attach account to new GS
     // Earlier Attach(..., true) only checked, didn't insert
     // Now we need to actually attach with bCheck=false
@@ -2504,7 +2564,7 @@ UINT CGamePlayer::WaitForGameSvrPermit()
             LoginLog("[WaitForGameSvrPermit][ID=%ld] GameServer ACCEPTED login for \"%s\"",
                      m_lnIdentityID, m_sAccountName.c_str());
 
-            // GS cho phép -> chuy?n b??c ti?p theo
+            // GS cho ph?p -> chuy?n b??c ti?p theo
             m_bAutoUnlockAccount = false;
             m_dwTaskBeginTimer   = 0;
             m_dwTaskTotalTimer   = s_nProcessTimeoutTimer;
@@ -2512,15 +2572,15 @@ UINT CGamePlayer::WaitForGameSvrPermit()
         }
         else
         {
-            // GS t? ch?i (server full/deny) -> PH?I tháo lock ngay
+            // GS t? ch?i (server full/deny) -> PH?I th?o lock ngay
             LoginLog("[WaitForGameSvrPermit][ID=%ld] GameServer DENIED login for \"%s\" (server full/deny)",
                      m_lnIdentityID, m_sAccountName.c_str());
 			CGameServer::EndTransfer(m_sAccountName.c_str());
-            // G?i tr? gói notify cho client nh? c? (?ang send bên d??i)
-            // ??ng th?i confirm k?t qu? login cho client (tu? client có ??c notify hay code login)
+            // G?i tr? g?i notify cho client nh? c? (?ang send b?n d??i)
+            // ??ng th?i confirm k?t qu? login cho client (tu? client c? ??c notify hay code login)
             _VerifyAccount_ToPlayer(LOGIN_A_LOGIN | LOGIN_R_DENIED, 0);
 
-            // Tháo ACTIVE lock local n?u mình ?ang gi?
+            // Th?o ACTIVE lock local n?u m?nh ?ang gi?
             if (m_bOwnsActiveLock)
             {
                 ReleaseLoginLockSafe(m_sAccountName);
@@ -2529,7 +2589,7 @@ UINT CGamePlayer::WaitForGameSvrPermit()
                          m_lnIdentityID, m_sAccountName.c_str());
             }
 
-            // Temp-lock th??ng ?ã release ? ACTION_SUCCESS; nh?ng n?u còn thì release n?t
+            // Temp-lock th??ng ?? release ? ACTION_SUCCESS; nh?ng n?u c?n th? release n?t
             if (m_bHasTempLock)
             {
                 ReleaseTempLock(m_sAccountName);
@@ -2538,7 +2598,7 @@ UINT CGamePlayer::WaitForGameSvrPermit()
                          m_lnIdentityID, m_sAccountName.c_str());
             }
 
-            // Báo AccServer logout ?? g? lock phía AccServer ngay
+            // B?o AccServer logout ?? g? lock ph?a AccServer ngay
             if (!m_sAccountName.empty())
             {
                 _UnlockAccount();
@@ -2547,11 +2607,11 @@ UINT CGamePlayer::WaitForGameSvrPermit()
                          m_lnIdentityID, m_sAccountName.c_str());
             }
 
-            // K?t thúc flow login l?n này
+            // K?t th?c flow login l?n n?y
             nNextTask = enumError;
         }
 
-        // V?N forward gói notify cho client (gi? nguyên hành vi c?)
+        // V?N forward g?i notify cho client (gi? nguy?n h?nh vi c?)
         SendDataToPlayer( m_pPlayerServer, m_lnIdentityID,
                          pRetBuffer->GetBuffer(),
                          pRetBuffer->GetUsed() );

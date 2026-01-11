@@ -1,6 +1,6 @@
  Game
 
- Timestamp is 6962eb15 (Sat Jan 10 19:13:09 2026)
+ Timestamp is 6963cb6a (Sun Jan 11 11:10:18 2026)
 
  Preferred load address is 00400000
 
@@ -20,8 +20,8 @@
  0003:00000080 00000004H .CRT$XCZ                DATA
  0003:00000084 00000004H .CRT$XIA                DATA
  0003:00000088 00000004H .CRT$XIZ                DATA
- 0003:00000090 0000b9a5H .data                   DATA
- 0003:0000ba38 00005b0cH .bss                    DATA
+ 0003:00000090 0000b955H .data                   DATA
+ 0003:0000b9e8 00005b0cH .bss                    DATA
  0004:00000000 000000e8H .rsrc$01                DATA
  0004:000000f0 000013e8H .rsrc$02                DATA
 
@@ -147,8 +147,8 @@
  0001:000060c0       ?OnLBtnDownMove@KWndButton@@AAEXXZ 004070c0 f   WndButton.obj
  0001:000060f0       ?Enable@KWndButton@@UAEXH@Z 004070f0 f   WndButton.obj
  0001:00006160       ??0KWndImageTextButton@@QAE@XZ 00407160 f   WndButton.obj
- 0001:000061e0       ??_EKWndImageTextButton@@UAEPAXI@Z 004071e0 f i WndButton.obj
  0001:000061e0       ??_GKWndImageTextButton@@UAEPAXI@Z 004071e0 f i WndButton.obj
+ 0001:000061e0       ??_EKWndImageTextButton@@UAEPAXI@Z 004071e0 f i WndButton.obj
  0001:00006200       ??1KWndMovingImage@@UAE@XZ 00407200 f i WndButton.obj
  0001:00006210       ??1KWndImagePart@@UAE@XZ   00407210 f i WndButton.obj
  0001:00006220       ??1KWndImageTextButton@@UAE@XZ 00407220 f i WndButton.obj
@@ -204,20 +204,20 @@
  0001:00007be0       ??_GKWndEdit06@@UAEPAXI@Z  00408be0 f i WndEdit.obj
  0001:00007c00       ??1KWndEdit06@@UAE@XZ      00408c00 f i WndEdit.obj
  0001:00007c10       ??0KWndEdit32@@QAE@XZ      00408c10 f   WndEdit.obj
- 0001:00007c40       ??_GKWndEdit32@@UAEPAXI@Z  00408c40 f i WndEdit.obj
  0001:00007c40       ??_EKWndEdit32@@UAEPAXI@Z  00408c40 f i WndEdit.obj
+ 0001:00007c40       ??_GKWndEdit32@@UAEPAXI@Z  00408c40 f i WndEdit.obj
  0001:00007c60       ??1KWndEdit32@@UAE@XZ      00408c60 f i WndEdit.obj
  0001:00007c70       ??0KWndEdit80@@QAE@XZ      00408c70 f   WndEdit.obj
  0001:00007ca0       ??_EKWndEdit80@@UAEPAXI@Z  00408ca0 f i WndEdit.obj
  0001:00007ca0       ??_GKWndEdit80@@UAEPAXI@Z  00408ca0 f i WndEdit.obj
  0001:00007cc0       ??1KWndEdit80@@UAE@XZ      00408cc0 f i WndEdit.obj
  0001:00007cd0       ??0KWndEdit128@@QAE@XZ     00408cd0 f   WndEdit.obj
- 0001:00007d00       ??_EKWndEdit128@@UAEPAXI@Z 00408d00 f i WndEdit.obj
  0001:00007d00       ??_GKWndEdit128@@UAEPAXI@Z 00408d00 f i WndEdit.obj
+ 0001:00007d00       ??_EKWndEdit128@@UAEPAXI@Z 00408d00 f i WndEdit.obj
  0001:00007d20       ??1KWndEdit128@@UAE@XZ     00408d20 f i WndEdit.obj
  0001:00007d30       ??0KWndEdit512@@QAE@XZ     00408d30 f   WndEdit.obj
- 0001:00007d60       ??_GKWndEdit512@@UAEPAXI@Z 00408d60 f i WndEdit.obj
  0001:00007d60       ??_EKWndEdit512@@UAEPAXI@Z 00408d60 f i WndEdit.obj
+ 0001:00007d60       ??_GKWndEdit512@@UAEPAXI@Z 00408d60 f i WndEdit.obj
  0001:00007d80       ??1KWndEdit512@@UAE@XZ     00408d80 f i WndEdit.obj
  0001:00007d90       ??0KWndImage@@QAE@XZ       00408d90 f   WndImage.obj
  0001:00007de0       ??_EKWndImage@@UAEPAXI@Z   00408de0 f i WndImage.obj
@@ -325,8 +325,8 @@
  0001:0000aef0       ?SetTopItemIndex@KWndList2@@QAEXH@Z 0040bef0 f   WndList2.obj
  0001:0000af10       ?GetVisibleLineCount@KWndList2@@QBEHXZ 0040bf10 f   WndList2.obj
  0001:0000af20       ??0KWndListFilterItem@@QAE@XZ 0040bf20 f   WndListFilterItem.obj
- 0001:0000af60       ??_EKWndListFilterItem@@UAEPAXI@Z 0040bf60 f i WndListFilterItem.obj
  0001:0000af60       ??_GKWndListFilterItem@@UAEPAXI@Z 0040bf60 f i WndListFilterItem.obj
+ 0001:0000af60       ??_EKWndListFilterItem@@UAEPAXI@Z 0040bf60 f i WndListFilterItem.obj
  0001:0000af80       ??1KWndListFilterItem@@UAE@XZ 0040bf80 f   WndListFilterItem.obj
  0001:0000afd0       ?Clone@KWndListFilterItem@@IAEXPAV1@@Z 0040bfd0 f   WndListFilterItem.obj
  0001:0000b010       ?Init@KWndListFilterItem@@UAEHPAVKIniFile@@PBD@Z 0040c010 f   WndListFilterItem.obj
@@ -347,8 +347,8 @@
  0001:0000b900       ?SetTopItemIndex@KWndListFilterItem@@QAEXH@Z 0040c900 f   WndListFilterItem.obj
  0001:0000b920       ?GetVisibleLineCount@KWndListFilterItem@@QBEHXZ 0040c920 f   WndListFilterItem.obj
  0001:0000b930       ??0KWndListPoint@@QAE@XZ   0040c930 f   WndListPoint.obj
- 0001:0000b970       ??_GKWndListPoint@@UAEPAXI@Z 0040c970 f i WndListPoint.obj
  0001:0000b970       ??_EKWndListPoint@@UAEPAXI@Z 0040c970 f i WndListPoint.obj
+ 0001:0000b970       ??_GKWndListPoint@@UAEPAXI@Z 0040c970 f i WndListPoint.obj
  0001:0000b990       ??1KWndListPoint@@UAE@XZ   0040c990 f   WndListPoint.obj
  0001:0000b9e0       ?Clone@KWndListPoint@@IAEXPAV1@@Z 0040c9e0 f   WndListPoint.obj
  0001:0000ba20       ?Init@KWndListPoint@@UAEHPAVKIniFile@@PBD@Z 0040ca20 f   WndListPoint.obj
@@ -370,8 +370,8 @@
  0001:0000c240       ?SetTopItemIndex@KWndListPoint@@QAEXH@Z 0040d240 f   WndListPoint.obj
  0001:0000c260       ?GetVisibleLineCount@KWndListPoint@@QBEHXZ 0040d260 f   WndListPoint.obj
  0001:0000c270       ??0KWndMessageListBox@@QAE@XZ 0040d270 f   WndMessageListBox.obj
- 0001:0000c2d0       ??_EKWndMessageListBox@@UAEPAXI@Z 0040d2d0 f i WndMessageListBox.obj
  0001:0000c2d0       ??_GKWndMessageListBox@@UAEPAXI@Z 0040d2d0 f i WndMessageListBox.obj
+ 0001:0000c2d0       ??_EKWndMessageListBox@@UAEPAXI@Z 0040d2d0 f i WndMessageListBox.obj
  0001:0000c2f0       ??1KWndMessageListBox@@UAE@XZ 0040d2f0 f   WndMessageListBox.obj
  0001:0000c350       ?SetCapability@KWndMessageListBox@@QAEHH@Z 0040d350 f   WndMessageListBox.obj
  0001:0000c490       ?SetScrollbar@KWndMessageListBox@@QAEXPAVKWndScrollBar@@@Z 0040d490 f   WndMessageListBox.obj
@@ -407,8 +407,8 @@
  0001:0000d970       ?UpdateChatItem@KWndMessageListBox@@QAEXXZ 0040e970 f   WndMessageListBox.obj
  0001:0000d9c0       ??0KScrollMessageListBox@@QAE@XZ 0040e9c0 f   WndMessageListBox.obj
  0001:0000da60       ??1KWndScrollBar@@UAE@XZ   0040ea60 f i WndMessageListBox.obj
- 0001:0000dab0       ??_GKScrollMessageListBox@@UAEPAXI@Z 0040eab0 f i WndMessageListBox.obj
  0001:0000dab0       ??_EKScrollMessageListBox@@UAEPAXI@Z 0040eab0 f i WndMessageListBox.obj
+ 0001:0000dab0       ??_GKScrollMessageListBox@@UAEPAXI@Z 0040eab0 f i WndMessageListBox.obj
  0001:0000dad0       ??1KScrollMessageListBox@@UAE@XZ 0040ead0 f i WndMessageListBox.obj
  0001:0000db50       ?Init@KScrollMessageListBox@@UAEHPAVKIniFile@@PBD@Z 0040eb50 f   WndMessageListBox.obj
  0001:0000dc80       ?WndProc@KScrollMessageListBox@@UAEHIIH@Z 0040ec80 f   WndMessageListBox.obj
@@ -425,8 +425,8 @@
  0001:0000e0d0       ?SetMoveValue@KWndMovingImage@@QAEXHH@Z 0040f0d0 f   WndMovingImage.obj
  0001:0000e150       ?WndObjContainerInit@@YAXPAVKIniFile@@@Z 0040f150 f   WndObjContainer.obj
  0001:0000e300       ??0KWndObjectBox@@QAE@XZ   0040f300 f   WndObjContainer.obj
- 0001:0000e340       ??_EKWndObjectBox@@UAEPAXI@Z 0040f340 f i WndObjContainer.obj
  0001:0000e340       ??_GKWndObjectBox@@UAEPAXI@Z 0040f340 f i WndObjContainer.obj
+ 0001:0000e340       ??_EKWndObjectBox@@UAEPAXI@Z 0040f340 f i WndObjContainer.obj
  0001:0000e360       ??1KWndObjectBox@@UAE@XZ   0040f360 f i WndObjContainer.obj
  0001:0000e370       ?SetContainerId@KWndObjectBox@@QAEXH@Z 0040f370 f   WndObjContainer.obj
  0001:0000e380       ?SetObjectGenre@KWndObjectBox@@QAEXI@Z 0040f380 f   WndObjContainer.obj
@@ -470,8 +470,8 @@
  0001:000101a0       ?OnPageBtnClick@KWndPageSet@@AAEXPAVKWndWindow@@@Z 004111a0 f   WndPage.obj
  0001:00010220       ?GetActivePage@KWndPageSet@@QAEPAVKWndPage@@XZ 00411220 f   WndPage.obj
  0001:00010240       ??0KWndPureTextBtn@@QAE@XZ 00411240 f   WndPureTextBtn.obj
- 0001:000102a0       ??_GKWndPureTextBtn@@UAEPAXI@Z 004112a0 f i WndPureTextBtn.obj
  0001:000102a0       ??_EKWndPureTextBtn@@UAEPAXI@Z 004112a0 f i WndPureTextBtn.obj
+ 0001:000102a0       ??_GKWndPureTextBtn@@UAEPAXI@Z 004112a0 f i WndPureTextBtn.obj
  0001:000102c0       ??1KWndPureTextBtn@@UAE@XZ 004112c0 f i WndPureTextBtn.obj
  0001:000102d0       ?Clone@KWndPureTextBtn@@QAEXPAV1@@Z 004112d0 f   WndPureTextBtn.obj
  0001:00010340       ?Init@KWndPureTextBtn@@UAEHPAVKIniFile@@PBD@Z 00411340 f   WndPureTextBtn.obj
@@ -512,8 +512,8 @@
  0001:00011810       ?Wnd_GetScreenSize@@YAXAAH0@Z 00412810 f   Wnds.obj
  0001:00011830       ?Wnd_RestoreCursor@@YAXXZ  00412830 f   Wnds.obj
  0001:00011840       ??0KWndScrollBar@@QAE@XZ   00412840 f   WndScrollBar.obj
- 0001:000118d0       ??_EKWndScrollBar@@UAEPAXI@Z 004128d0 f i WndScrollBar.obj
  0001:000118d0       ??_GKWndScrollBar@@UAEPAXI@Z 004128d0 f i WndScrollBar.obj
+ 0001:000118d0       ??_EKWndScrollBar@@UAEPAXI@Z 004128d0 f i WndScrollBar.obj
  0001:000118f0       ?Clone@KWndScrollBar@@QAEXPAV1@@Z 004128f0 f   WndScrollBar.obj
  0001:00011990       ?Init@KWndScrollBar@@UAEHPAVKIniFile@@PBD@Z 00412990 f   WndScrollBar.obj
  0001:00011b10       ?SetSize@KWndScrollBar@@UAEXHH@Z 00412b10 f   WndScrollBar.obj
@@ -535,8 +535,8 @@
  0001:000121d0       ?PtInWindow@KWndShadow@@UAEHHH@Z 004131d0 f   WndShadow.obj
  0001:000121e0       ?SetColor@KWndShadow@@QAEXI@Z 004131e0 f   WndShadow.obj
  0001:000121f0       ??0KWndShowAnimate@@QAE@XZ 004131f0 f   WndShowAnimate.obj
- 0001:00012210       ??_EKWndShowAnimate@@UAEPAXI@Z 00413210 f i WndShowAnimate.obj
  0001:00012210       ??_GKWndShowAnimate@@UAEPAXI@Z 00413210 f i WndShowAnimate.obj
+ 0001:00012210       ??_EKWndShowAnimate@@UAEPAXI@Z 00413210 f i WndShowAnimate.obj
  0001:00012230       ??1KWndShowAnimate@@UAE@XZ 00413230 f i WndShowAnimate.obj
  0001:00012240       ?Clone@KWndShowAnimate@@QAEXPAV1@@Z 00413240 f   WndShowAnimate.obj
  0001:00012290       ?Init@KWndShowAnimate@@UAEHPAVKIniFile@@PBD@Z 00413290 f   WndShowAnimate.obj
@@ -574,8 +574,8 @@
  0001:00013140       ?Set2IntTextPlus@KWndText@@QAEXHHD@Z 00414140 f   WndText.obj
  0001:000131f0       ?Set3IntText@KWndText@@QAEXHHHDD@Z 004141f0 f   WndText.obj
  0001:00013240       ??0KWndText32@@QAE@XZ      00414240 f   WndText.obj
- 0001:00013270       ??_GKWndText32@@UAEPAXI@Z  00414270 f i WndText.obj
  0001:00013270       ??_EKWndText32@@UAEPAXI@Z  00414270 f i WndText.obj
+ 0001:00013270       ??_GKWndText32@@UAEPAXI@Z  00414270 f i WndText.obj
  0001:00013290       ??1KWndText32@@UAE@XZ      00414290 f i WndText.obj
  0001:000132a0       ??0KWndText80@@QAE@XZ      004142a0 f   WndText.obj
  0001:000132d0       ??_GKWndText80@@UAEPAXI@Z  004142d0 f i WndText.obj
@@ -586,12 +586,12 @@
  0001:00013330       ??_EKWndText128@@UAEPAXI@Z 00414330 f i WndText.obj
  0001:00013350       ??1KWndText128@@UAE@XZ     00414350 f i WndText.obj
  0001:00013360       ??0KWndText256@@QAE@XZ     00414360 f   WndText.obj
- 0001:00013390       ??_GKWndText256@@UAEPAXI@Z 00414390 f i WndText.obj
  0001:00013390       ??_EKWndText256@@UAEPAXI@Z 00414390 f i WndText.obj
+ 0001:00013390       ??_GKWndText256@@UAEPAXI@Z 00414390 f i WndText.obj
  0001:000133b0       ??1KWndText256@@UAE@XZ     004143b0 f i WndText.obj
  0001:000133c0       ??0KWndText512@@QAE@XZ     004143c0 f   WndText.obj
- 0001:000133f0       ??_EKWndText512@@UAEPAXI@Z 004143f0 f i WndText.obj
  0001:000133f0       ??_GKWndText512@@UAEPAXI@Z 004143f0 f i WndText.obj
+ 0001:000133f0       ??_EKWndText512@@UAEPAXI@Z 004143f0 f i WndText.obj
  0001:00013410       ??1KWndText512@@UAE@XZ     00414410 f i WndText.obj
  0001:00013420       ??0KWndToolBar@@QAE@XZ     00414420 f   WndToolBar.obj
  0001:00013440       ??_GKWndToolBar@@UAEPAXI@Z 00414440 f i WndToolBar.obj
@@ -681,8 +681,8 @@
  0001:00016380       ?IsValidPassword@KUiLogin@@SA_NPBDH@Z 00417380 f   UiLogin.obj
  0001:00016390       ?OnFocusAccount@KUiLogin@@AAEX_N@Z 00417390 f   UiLogin.obj
  0001:000163a0       ?OpenWindow@KUiLoginBackGround@@SAPAV1@PBD@Z 004173a0 f   UiLoginBg.obj
- 0001:00016470       ??_GKUiLoginBackGround@@EAEPAXI@Z 00417470 f i UiLoginBg.obj
  0001:00016470       ??_EKUiLoginBackGround@@EAEPAXI@Z 00417470 f i UiLoginBg.obj
+ 0001:00016470       ??_GKUiLoginBackGround@@EAEPAXI@Z 00417470 f i UiLoginBg.obj
  0001:00016490       ??1KUiLoginBackGround@@EAE@XZ 00417490 f i UiLoginBg.obj
  0001:00016500       ?CloseWindow@KUiLoginBackGround@@SAX_N@Z 00417500 f   UiLoginBg.obj
  0001:00016530       ?Initialize@KUiLoginBackGround@@AAEXXZ 00417530 f   UiLoginBg.obj
@@ -742,8 +742,8 @@
  0001:00019e50       ?GetFormatedTimeString@@YAHHPAD@Z 0041ae50 f   UiPlayerBar.obj
  0001:00019ed0       ?GetFormatedTimeString@@YAHPAUtm@@PAD@Z 0041aed0 f   UiPlayerBar.obj
  0001:00019f10       ??0GameWorld_DateTime@@QAE@XZ 0041af10 f   UiPlayerBar.obj
- 0001:00019f70       ??_GGameWorld_DateTime@@UAEPAXI@Z 0041af70 f i UiPlayerBar.obj
  0001:00019f70       ??_EGameWorld_DateTime@@UAEPAXI@Z 0041af70 f i UiPlayerBar.obj
+ 0001:00019f70       ??_GGameWorld_DateTime@@UAEPAXI@Z 0041af70 f i UiPlayerBar.obj
  0001:00019f90       ??1GameWorld_DateTime@@UAE@XZ 0041af90 f i UiPlayerBar.obj
  0001:00019fa0       ?OnButtonClick@GameWorld_DateTime@@EAEXXZ 0041afa0 f   UiPlayerBar.obj
  0001:00019fc0       ?Init@GameWorld_DateTime@@UAEHPAVKIniFile@@PBD@Z 0041afc0 f   UiPlayerBar.obj
@@ -840,8 +840,8 @@
  0001:00021400       ?OnUnBindItem@KUiStatus@@AAEXPAUKUiDraggedObject@@@Z 00422400 f   UiStatus.obj
  0001:00021490       ?OnRepairItem@KUiStatus@@AAEXPAUKUiDraggedObject@@@Z 00422490 f   UiStatus.obj
  0001:00021530       ??0KUiOptions@@AAE@XZ      00422530 f   UiOptions.obj
- 0001:00021720       ??_GKUiOptions@@EAEPAXI@Z  00422720 f i UiOptions.obj
  0001:00021720       ??_EKUiOptions@@EAEPAXI@Z  00422720 f i UiOptions.obj
+ 0001:00021720       ??_GKUiOptions@@EAEPAXI@Z  00422720 f i UiOptions.obj
  0001:00021740       ??1KUiOptions@@EAE@XZ      00422740 f i UiOptions.obj
  0001:00021900       ?GetIfVisible@KUiOptions@@SAPAV1@XZ 00422900 f   UiOptions.obj
  0001:00021920       ?OpenWindow@KUiOptions@@SAPAV1@PAVKWndWindow@@@Z 00422920 f   UiOptions.obj
@@ -862,8 +862,8 @@
  0001:00022a00       ?SetSoundValue@KUiOptions@@QAEXH@Z 00423a00 f   UiOptions.obj
  0001:00022a30       ?SetBrightness@KUiOptions@@QAEXH@Z 00423a30 f   UiOptions.obj
  0001:00022a60       ?OpenWindow@KUiInit@@SAPAV1@_N0@Z 00423a60 f   UiInit.obj
- 0001:00022c00       ??_GKUiInit@@EAEPAXI@Z     00423c00 f i UiInit.obj
  0001:00022c00       ??_EKUiInit@@EAEPAXI@Z     00423c00 f i UiInit.obj
+ 0001:00022c00       ??_GKUiInit@@EAEPAXI@Z     00423c00 f i UiInit.obj
  0001:00022c20       ??1KUiInit@@EAE@XZ         00423c20 f i UiInit.obj
  0001:00022d00       ?CloseWindow@KUiInit@@SAXXZ 00423d00 f   UiInit.obj
  0001:00022d30       ?PlayTitleMusic@KUiInit@@SAXXZ 00423d30 f   UiInit.obj
@@ -876,8 +876,8 @@
  0001:00023290       ?GetActiveBtn@KUiInit@@AAEPAVKWndButton@@XZ 00424290 f   UiInit.obj
  0001:00023300       ?ShowCompleted@KUiInit@@EAEXXZ 00424300 f   UiInit.obj
  0001:00023310       ??0KUiTeamBuild@@AAE@XZ    00424310 f   UiTeamBuild.obj
- 0001:000233a0       ??_GKUiTeamBuild@@EAEPAXI@Z 004243a0 f i UiTeamBuild.obj
  0001:000233a0       ??_EKUiTeamBuild@@EAEPAXI@Z 004243a0 f i UiTeamBuild.obj
+ 0001:000233a0       ??_GKUiTeamBuild@@EAEPAXI@Z 004243a0 f i UiTeamBuild.obj
  0001:000233c0       ??1KUiTeamBuild@@EAE@XZ    004243c0 f i UiTeamBuild.obj
  0001:00023460       ?OpenWindow@KUiTeamBuild@@SAPAV1@XZ 00424460 f   UiTeamBuild.obj
  0001:000234f0       ?CloseWindow@KUiTeamBuild@@SAX_N@Z 004244f0 f   UiTeamBuild.obj
@@ -888,8 +888,8 @@
  0001:00023750       ?WndProc@KUiTeamBuild@@EAEHIIH@Z 00424750 f   UiTeamBuild.obj
  0001:000237e0       ?GetIfVisible@KUiChaPW@@SAPAV1@XZ 004247e0 f   UiChaPW.obj
  0001:00023800       ?OpenWindow@KUiChaPW@@SAPAV1@XZ 00424800 f   UiChaPW.obj
- 0001:00023940       ??_GKUiChaPW@@EAEPAXI@Z    00424940 f i UiChaPW.obj
  0001:00023940       ??_EKUiChaPW@@EAEPAXI@Z    00424940 f i UiChaPW.obj
+ 0001:00023940       ??_GKUiChaPW@@EAEPAXI@Z    00424940 f i UiChaPW.obj
  0001:00023960       ??1KUiChaPW@@EAE@XZ        00424960 f i UiChaPW.obj
  0001:00023a30       ?CloseWindow@KUiChaPW@@SAXXZ 00424a30 f   UiChaPW.obj
  0001:00023a60       ?Initialize@KUiChaPW@@AAEXXZ 00424a60 f   UiChaPW.obj
@@ -954,8 +954,8 @@
  0001:00025ab0       ?OnItemPickDrop@KUiGiveBox@@QAEXPAUITEM_PICKDROP_PLACE@@0@Z 00426ab0 f   UiGiveBox.obj
  0001:00025bb0       ?GetIfVisible@KUiItem@@SAPAV1@XZ 00426bb0 f   UiItem.obj
  0001:00025bd0       ?OpenWindow@KUiItem@@SAPAV1@XZ 00426bd0 f   UiItem.obj
- 0001:00025d50       ??_GKUiItem@@EAEPAXI@Z     00426d50 f i UiItem.obj
  0001:00025d50       ??_EKUiItem@@EAEPAXI@Z     00426d50 f i UiItem.obj
+ 0001:00025d50       ??_GKUiItem@@EAEPAXI@Z     00426d50 f i UiItem.obj
  0001:00025d70       ??1KUiItem@@EAE@XZ         00426d70 f i UiItem.obj
  0001:00025e80       ?CloseWindow@KUiItem@@SAX_N@Z 00426e80 f   UiItem.obj
  0001:00025ec0       ?Initialize@KUiItem@@AAEXXZ 00426ec0 f   UiItem.obj
@@ -992,8 +992,8 @@
  0001:00027f00       ?OnCheckInput@KUiKeyBoard@@AAEXXZ 00428f00 f   UiKeyBoard.obj
  0001:00028140       ?GetIfVisible@KUiLoginPW@@SAPAV1@XZ 00429140 f   UiLoginPW.obj
  0001:00028160       ?OpenWindow@KUiLoginPW@@SAPAV1@XZ 00429160 f   UiLoginPW.obj
- 0001:00028260       ??_GKUiLoginPW@@EAEPAXI@Z  00429260 f i UiLoginPW.obj
  0001:00028260       ??_EKUiLoginPW@@EAEPAXI@Z  00429260 f i UiLoginPW.obj
+ 0001:00028260       ??_GKUiLoginPW@@EAEPAXI@Z  00429260 f i UiLoginPW.obj
  0001:00028280       ??1KUiLoginPW@@EAE@XZ      00429280 f i UiLoginPW.obj
  0001:00028310       ?CloseWindow@KUiLoginPW@@SAXXZ 00429310 f   UiLoginPW.obj
  0001:00028340       ?Initialize@KUiLoginPW@@AAEXXZ 00429340 f   UiLoginPW.obj
@@ -1002,8 +1002,8 @@
  0001:000285a0       ?OnOk@KUiLoginPW@@AAEXXZ   004295a0 f   UiLoginPW.obj
  0001:000285f0       ?OnCheckInput@KUiLoginPW@@AAEHXZ 004295f0 f   UiLoginPW.obj
  0001:00028680       ?OpenWindow@KUiReWard@@SAPAV1@PBD000@Z 00429680 f   UiReWard.obj
- 0001:00028840       ??_GKUiReWard@@UAEPAXI@Z   00429840 f i UiReWard.obj
  0001:00028840       ??_EKUiReWard@@UAEPAXI@Z   00429840 f i UiReWard.obj
+ 0001:00028840       ??_GKUiReWard@@UAEPAXI@Z   00429840 f i UiReWard.obj
  0001:00028860       ??1KUiReWard@@UAE@XZ       00429860 f i UiReWard.obj
  0001:000288f0       ?GetIfVisible@KUiReWard@@SAPAV1@XZ 004298f0 f   UiReWard.obj
  0001:00028910       ?CloseWindow@KUiReWard@@SAX_N@Z 00429910 f   UiReWard.obj
@@ -1014,10 +1014,10 @@
  0001:00029430       ??0KUiFightSkillSubPage@@QAE@XZ 0042a430 f   UiSkills.obj
  0001:000294d0       ?MyBreathe@KWndPage@@UAEXXZ 0042a4d0 f i UiSkills.obj
  0001:000294e0       ??1KWndPage@@UAE@XZ        0042a4e0 f i UiSkills.obj
- 0001:000294f0       ??_EKWndPage@@UAEPAXI@Z    0042a4f0 f i UiSkills.obj
  0001:000294f0       ??_GKWndPage@@UAEPAXI@Z    0042a4f0 f i UiSkills.obj
- 0001:00029510       ??_GKUiFightSkillSubPage@@UAEPAXI@Z 0042a510 f i UiSkills.obj
+ 0001:000294f0       ??_EKWndPage@@UAEPAXI@Z    0042a4f0 f i UiSkills.obj
  0001:00029510       ??_EKUiFightSkillSubPage@@UAEPAXI@Z 0042a510 f i UiSkills.obj
+ 0001:00029510       ??_GKUiFightSkillSubPage@@UAEPAXI@Z 0042a510 f i UiSkills.obj
  0001:00029530       ??1KUiFightSkillSubPage@@UAE@XZ 0042a530 f i UiSkills.obj
  0001:000295b0       ?Initialize@KUiFightSkillSubPage@@QAEXXZ 0042a5b0 f   UiSkills.obj
  0001:00029600       ?LoadScheme@KUiFightSkillSubPage@@QAEXPBD@Z 0042a600 f   UiSkills.obj
@@ -1052,8 +1052,8 @@
  0001:0002a710       ??_EKUiSkills@@EAEPAXI@Z   0042b710 f i UiSkills.obj
  0001:0002a730       ??1KUiSkills@@EAE@XZ       0042b730 f i UiSkills.obj
  0001:0002a870       ??1KUiFightSkill@@UAE@XZ   0042b870 f i UiSkills.obj
- 0001:0002a920       ??_GKUiFightSkill@@UAEPAXI@Z 0042b920 f i UiSkills.obj
  0001:0002a920       ??_EKUiFightSkill@@UAEPAXI@Z 0042b920 f i UiSkills.obj
+ 0001:0002a920       ??_GKUiFightSkill@@UAEPAXI@Z 0042b920 f i UiSkills.obj
  0001:0002a940       ??_GKUiFightSkillSub@@UAEPAXI@Z 0042b940 f i UiSkills.obj
  0001:0002a940       ??_EKUiFightSkillSub@@UAEPAXI@Z 0042b940 f i UiSkills.obj
  0001:0002a960       ??1KUiFightSkillSub@@UAE@XZ 0042b960 f i UiSkills.obj
@@ -1088,8 +1088,8 @@
  0001:0002bb20       ?PaintWindow@KUiSkillTree@@EAEXXZ 0042cb20 f   UiSkillTree.obj
  0001:0002bce0       ?GetIfVisible@KUiStoreBox@@SAPAV1@XZ 0042cce0 f   UiStoreBox.obj
  0001:0002bd00       ?OpenWindow@KUiStoreBox@@SAPAV1@H@Z 0042cd00 f   UiStoreBox.obj
- 0001:0002be90       ??_EKUiStoreBox@@EAEPAXI@Z 0042ce90 f i UiStoreBox.obj
  0001:0002be90       ??_GKUiStoreBox@@EAEPAXI@Z 0042ce90 f i UiStoreBox.obj
+ 0001:0002be90       ??_EKUiStoreBox@@EAEPAXI@Z 0042ce90 f i UiStoreBox.obj
  0001:0002beb0       ??1KUiStoreBox@@EAE@XZ     0042ceb0 f i UiStoreBox.obj
  0001:0002bfb0       ?CloseWindow@KUiStoreBox@@SAXXZ 0042cfb0 f   UiStoreBox.obj
  0001:0002bfe0       ?Initialize@KUiStoreBox@@AAEXXZ 0042cfe0 f   UiStoreBox.obj
@@ -1104,8 +1104,8 @@
  0001:0002cb60       ?PaintWindow@KUiStoreBox@@EAEXXZ 0042db60 f   UiStoreBox.obj
  0001:0002cbf0       ?GetCurrentContainerID@KUiStoreBox@@QAEHXZ 0042dbf0 f   UiStoreBox.obj
  0001:0002cc40       ?OpenWindow@KUiTimeBox@@SAPAV1@PBDHPADH@Z 0042dc40 f   UiTimeBox.obj
- 0001:0002cdb0       ??_GKUiTimeBox@@EAEPAXI@Z  0042ddb0 f i UiTimeBox.obj
  0001:0002cdb0       ??_EKUiTimeBox@@EAEPAXI@Z  0042ddb0 f i UiTimeBox.obj
+ 0001:0002cdb0       ??_GKUiTimeBox@@EAEPAXI@Z  0042ddb0 f i UiTimeBox.obj
  0001:0002cdd0       ??1KUiTimeBox@@EAE@XZ      0042ddd0 f i UiTimeBox.obj
  0001:0002ce90       ?Show@KUiTimeBox@@EAEXXZ   0042de90 f   UiTimeBox.obj
  0001:0002ceb0       ?CloseWindow@KUiTimeBox@@SAX_N@Z 0042deb0 f   UiTimeBox.obj
@@ -1133,8 +1133,8 @@
  0001:0002d8a0       ?Breathe@KUiESCDlg@@EAEXXZ 0042e8a0 f   UiESCDlg.obj
  0001:0002d910       ?GetActiveBtn@KUiESCDlg@@AAEPAVKWndButton@@XZ 0042e910 f   UiESCDlg.obj
  0001:0002d990       ??0KUiGetNumber@@AAE@XZ    0042e990 f   UiGetNumber.obj
- 0001:0002da30       ??_EKUiGetNumber@@EAEPAXI@Z 0042ea30 f i UiGetNumber.obj
  0001:0002da30       ??_GKUiGetNumber@@EAEPAXI@Z 0042ea30 f i UiGetNumber.obj
+ 0001:0002da30       ??_EKUiGetNumber@@EAEPAXI@Z 0042ea30 f i UiGetNumber.obj
  0001:0002da50       ??1KUiGetNumber@@EAE@XZ    0042ea50 f i UiGetNumber.obj
  0001:0002dae0       ?OpenWindow@KUiGetNumber@@SAPAV1@PBDHHPAVKWndWindow@@I@Z 0042eae0 f   UiGetNumber.obj
  0001:0002dc00       ?CloseWindow@KUiGetNumber@@SAX_N@Z 0042ec00 f   UiGetNumber.obj
@@ -1162,8 +1162,8 @@
  0001:0002e630       ?OnOk@KUiGetString@@AAEXXZ 0042f630 f   UiGetString.obj
  0001:0002e6e0       ?OnCancel@KUiGetString@@AAEXXZ 0042f6e0 f   UiGetString.obj
  0001:0002e710       ?OpenWindow@KUiMsgSel@@SAPAV1@PAUKUiQuestionAndAnswer@@@Z 0042f710 f   UiMsgSel.obj
- 0001:0002e7e0       ??_EKUiMsgSel@@EAEPAXI@Z   0042f7e0 f i UiMsgSel.obj
  0001:0002e7e0       ??_GKUiMsgSel@@EAEPAXI@Z   0042f7e0 f i UiMsgSel.obj
+ 0001:0002e7e0       ??_EKUiMsgSel@@EAEPAXI@Z   0042f7e0 f i UiMsgSel.obj
  0001:0002e800       ??1KUiMsgSel@@EAE@XZ       0042f800 f i UiMsgSel.obj
  0001:0002e8b0       ?CloseWindow@KUiMsgSel@@SAX_N@Z 0042f8b0 f   UiMsgSel.obj
  0001:0002e900       ?Initialize@KUiMsgSel@@AAEHXZ 0042f900 f   UiMsgSel.obj
@@ -1174,8 +1174,8 @@
  0001:0002ec60       ?Show@KUiMsgSel@@AAEXPAUKUiQuestionAndAnswer@@@Z 0042fc60 f   UiMsgSel.obj
  0001:0002ed60       ?Breathe@KUiMsgSel@@EAEXXZ 0042fd60 f   UiMsgSel.obj
  0001:0002edd0       ?OpenWindow@KUiMsgSel2@@SAPAV1@PAUKUiQuestionAndAnswer@@@Z 0042fdd0 f   UiMsgSel2.obj
- 0001:0002eed0       ??_GKUiMsgSel2@@EAEPAXI@Z  0042fed0 f i UiMsgSel2.obj
  0001:0002eed0       ??_EKUiMsgSel2@@EAEPAXI@Z  0042fed0 f i UiMsgSel2.obj
+ 0001:0002eed0       ??_GKUiMsgSel2@@EAEPAXI@Z  0042fed0 f i UiMsgSel2.obj
  0001:0002eef0       ??1KUiMsgSel2@@EAE@XZ      0042fef0 f i UiMsgSel2.obj
  0001:0002efd0       ?CloseWindow@KUiMsgSel2@@SAX_N@Z 0042ffd0 f   UiMsgSel2.obj
  0001:0002f020       ?Initialize@KUiMsgSel2@@AAEHXZ 00430020 f   UiMsgSel2.obj
@@ -1211,8 +1211,8 @@
  0001:00030e80       ?UpdateRuntimeInfo@KUiParadeItemAttrib@@QAEXPAUKUiPlayerItem@@@Z 00431e80 f   UiParadeItem.obj
  0001:00030f10       ?UpdateRuntimeAttribute@KUiParadeItemAttrib@@QAEXPAUKUiPlayerItem@@@Z 00431f10 f   UiParadeItem.obj
  0001:00031100       ??0KUiParadeItemEquip@@QAE@XZ 00432100 f   UiParadeItem.obj
- 0001:000311d0       ??_GKUiParadeItemEquip@@UAEPAXI@Z 004321d0 f i UiParadeItem.obj
  0001:000311d0       ??_EKUiParadeItemEquip@@UAEPAXI@Z 004321d0 f i UiParadeItem.obj
+ 0001:000311d0       ??_GKUiParadeItemEquip@@UAEPAXI@Z 004321d0 f i UiParadeItem.obj
  0001:000311f0       ?Initialize@KUiParadeItemEquip@@QAEXXZ 004321f0 f   UiParadeItem.obj
  0001:00031290       ?Show@KUiParadeItemEquip@@QAEXPAUKUiPlayerItem@@@Z 00432290 f   UiParadeItem.obj
  0001:000312d0       ?LoadScheme@KUiParadeItemEquip@@AAEXPBDPAUKUiPlayerItem@@@Z 004322d0 f   UiParadeItem.obj
@@ -1222,8 +1222,8 @@
  0001:000315d0       ?UpdateEquip@KUiParadeItemEquip@@QAEXPAUKUiObjAtRegion@@H@Z 004325d0 f   UiParadeItem.obj
  0001:00031650       ?OpenWindow@KUiSelPlayerNearby@@SAPAV1@XZ 00432650 f   UiSelPlayerNearby.obj
  0001:00031700       ??0KUiSelPlayerNearby@@AAE@XZ 00432700 f   UiSelPlayerNearby.obj
- 0001:000317d0       ??_GKUiSelPlayerNearby@@EAEPAXI@Z 004327d0 f i UiSelPlayerNearby.obj
  0001:000317d0       ??_EKUiSelPlayerNearby@@EAEPAXI@Z 004327d0 f i UiSelPlayerNearby.obj
+ 0001:000317d0       ??_GKUiSelPlayerNearby@@EAEPAXI@Z 004327d0 f i UiSelPlayerNearby.obj
  0001:000317f0       ??1KUiSelPlayerNearby@@EAE@XZ 004327f0 f i UiSelPlayerNearby.obj
  0001:000318c0       ?DoesHaveVisibleWnd@KUiSelPlayerNearby@@SAHXZ 004328c0 f   UiSelPlayerNearby.obj
  0001:000318e0       ?Initialize@KUiSelPlayerNearby@@AAEXXZ 004328e0 f   UiSelPlayerNearby.obj
@@ -1253,8 +1253,8 @@
  0001:00032c60       ?GetInputInfo@KUiNewPlayer@@AAEHXZ 00433c60 f   UiNewPlayer.obj
  0001:00032d10       ?Breathe@KUiNewPlayer@@EAEXXZ 00433d10 f   UiNewPlayer.obj
  0001:00032db0       ??0KUiSelNativePlace@@AAE@XZ 00433db0 f   UiSelNativePlace.obj
- 0001:00032e50       ??_EKUiSelNativePlace@@EAEPAXI@Z 00433e50 f i UiSelNativePlace.obj
  0001:00032e50       ??_GKUiSelNativePlace@@EAEPAXI@Z 00433e50 f i UiSelNativePlace.obj
+ 0001:00032e50       ??_EKUiSelNativePlace@@EAEPAXI@Z 00433e50 f i UiSelNativePlace.obj
  0001:00032e70       ??1KUiSelNativePlace@@EAE@XZ 00433e70 f   UiSelNativePlace.obj
  0001:00032f40       ?OpenWindow@KUiSelNativePlace@@SAPAV1@H@Z 00433f40 f   UiSelNativePlace.obj
  0001:00033000       ?CloseWindow@KUiSelNativePlace@@SAX_N@Z 00434000 f   UiSelNativePlace.obj
@@ -1266,8 +1266,8 @@
  0001:000336e0       ?OnCancel@KUiSelNativePlace@@AAEXXZ 004346e0 f   UiSelNativePlace.obj
  0001:000336f0       ?UpdateData@KUiSelNativePlace@@EAEXXZ 004346f0 f   UiSelNativePlace.obj
  0001:00033770       ??0KUiSelPlayer@@AAE@XZ    00434770 f   UiSelPlayer.obj
- 0001:000338d0       ??_GKUiSelPlayer@@EAEPAXI@Z 004348d0 f i UiSelPlayer.obj
  0001:000338d0       ??_EKUiSelPlayer@@EAEPAXI@Z 004348d0 f i UiSelPlayer.obj
+ 0001:000338d0       ??_GKUiSelPlayer@@EAEPAXI@Z 004348d0 f i UiSelPlayer.obj
  0001:000338f0       ??1KUiSelPlayer@@EAE@XZ    004348f0 f i UiSelPlayer.obj
  0001:00033a10       ?OpenWindow@KUiSelPlayer@@SAPAV1@XZ 00434a10 f   UiSelPlayer.obj
  0001:00033ad0       ?CloseWindow@KUiSelPlayer@@SAXXZ 00434ad0 f   UiSelPlayer.obj
@@ -1446,8 +1446,8 @@
  0001:0003f190       ?UIMessageBox2@@YAXPBDH0PAVKWndWindow@@I@Z 00440190 f   UiInformation2.obj
  0001:0003f1d0       ??0KUiInformation2@@QAE@XZ 004401d0 f   UiInformation2.obj
  0001:0003f240       ?TopChildFromPoint@KUiInformation2@@UAEPAVKWndWindow@@HH@Z 00440240 f i UiInformation2.obj
- 0001:0003f250       ??_GKUiInformation2@@UAEPAXI@Z 00440250 f i UiInformation2.obj
  0001:0003f250       ??_EKUiInformation2@@UAEPAXI@Z 00440250 f i UiInformation2.obj
+ 0001:0003f250       ??_GKUiInformation2@@UAEPAXI@Z 00440250 f i UiInformation2.obj
  0001:0003f270       ?SpeakWords@KUiInformation2@@QAEXPAUKUiInformationParam@@H@Z 00440270 f   UiInformation2.obj
  0001:0003f3c0       ?Initialize@KUiInformation2@@QAEXXZ 004403c0 f   UiInformation2.obj
  0001:0003f400       ?LoadScheme@KUiInformation2@@QAEXPBD@Z 00440400 f   UiInformation2.obj
@@ -1469,8 +1469,8 @@
  0001:0003fbb0       ?Close@KUiInformation3@@QAEXXZ 00440bb0 f   UiInformation3.obj
  0001:0003fbd0       ?WndProc@KUiInformation3@@EAEHIIH@Z 00440bd0 f   UiInformation3.obj
  0001:0003fca0       ??0KUiTeamManage@@AAE@XZ   00440ca0 f   UiTeamManage.obj
- 0001:0003fdd0       ??_GKUiTeamManage@@EAEPAXI@Z 00440dd0 f i UiTeamManage.obj
  0001:0003fdd0       ??_EKUiTeamManage@@EAEPAXI@Z 00440dd0 f i UiTeamManage.obj
+ 0001:0003fdd0       ??_GKUiTeamManage@@EAEPAXI@Z 00440dd0 f i UiTeamManage.obj
  0001:0003fdf0       ??1KUiTeamManage@@EAE@XZ   00440df0 f i UiTeamManage.obj
  0001:0003ff40       ?GetIfVisible@KUiTeamManage@@SAPAV1@XZ 00440f40 f   UiTeamManage.obj
  0001:0003ff60       ?OpenWindow@KUiTeamManage@@SAPAV1@XZ 00440f60 f   UiTeamManage.obj
@@ -1489,8 +1489,8 @@
  0001:000409b0       ?OnRefresh@KUiTeamManage@@IAEXXZ 004419b0 f   UiTeamManage.obj
  0001:00040a50       ?OnLeave@KUiTeamManage@@IAEXXZ 00441a50 f   UiTeamManage.obj
  0001:00040a70       ??0KUiTeamManageBar@@AAE@XZ 00441a70 f   UiTeamManage.obj
- 0001:00040da0       ??_GKUiTeamManageBar@@EAEPAXI@Z 00441da0 f i UiTeamManage.obj
  0001:00040da0       ??_EKUiTeamManageBar@@EAEPAXI@Z 00441da0 f i UiTeamManage.obj
+ 0001:00040da0       ??_GKUiTeamManageBar@@EAEPAXI@Z 00441da0 f i UiTeamManage.obj
  0001:00040dc0       ??1KUiTeamManageBar@@EAE@XZ 00441dc0 f i UiTeamManage.obj
  0001:00041250       ?GetIfVisible@KUiTeamManageBar@@SAPAV1@XZ 00442250 f   UiTeamManage.obj
  0001:00041270       ?OpenWindow@KUiTeamManageBar@@SAPAV1@XZ 00442270 f   UiTeamManage.obj
@@ -1509,8 +1509,8 @@
  0001:00042f20       ?PopupTeamBarPlayer@KUiTeamManageBar@@AAEXH@Z 00443f20 f   UiTeamManage.obj
  0001:000430c0       ?ActionPopupTeamBarPlayer@KUiTeamManageBar@@AAEXHH@Z 004440c0 f   UiTeamManage.obj
  0001:000431b0       ??0KUiTeamStatus@@AAE@XZ   004441b0 f   UiTeamStatus.obj
- 0001:00043250       ??_EKUiTeamStatus@@EAEPAXI@Z 00444250 f i UiTeamStatus.obj
  0001:00043250       ??_GKUiTeamStatus@@EAEPAXI@Z 00444250 f i UiTeamStatus.obj
+ 0001:00043250       ??_EKUiTeamStatus@@EAEPAXI@Z 00444250 f i UiTeamStatus.obj
  0001:00043270       ??1KUiTeamStatus@@EAE@XZ   00444270 f i UiTeamStatus.obj
  0001:00043300       ?GetIfVisible@KUiTeamStatus@@SAPAV1@XZ 00444300 f   UiTeamStatus.obj
  0001:00043320       ?OpenWindow@KUiTeamStatus@@SAPAV1@XZ 00444320 f   UiTeamStatus.obj
@@ -1541,8 +1541,8 @@
  0001:00044060       ?Show@KUiChatItemInfo@@EAEXXZ 00445060 f   UiChatItemInfo.obj
  0001:000440e0       ?Hide@KUiChatItemInfo@@EAEXXZ 004450e0 f   UiChatItemInfo.obj
  0001:00044100       ?OpenWindow@KUiHeaderControlBar@@SAPAV1@XZ 00445100 f   UiHeaderControlBar.obj
- 0001:000441b0       ??_EKUiHeaderControlBar@@EAEPAXI@Z 004451b0 f i UiHeaderControlBar.obj
  0001:000441b0       ??_GKUiHeaderControlBar@@EAEPAXI@Z 004451b0 f i UiHeaderControlBar.obj
+ 0001:000441b0       ??_EKUiHeaderControlBar@@EAEPAXI@Z 004451b0 f i UiHeaderControlBar.obj
  0001:000441d0       ??1KUiHeaderControlBar@@EAE@XZ 004451d0 f i UiHeaderControlBar.obj
  0001:00044240       ?CloseWindow@KUiHeaderControlBar@@SAXXZ 00445240 f   UiHeaderControlBar.obj
  0001:00044260       ?Initialize@KUiHeaderControlBar@@AAEXXZ 00445260 f   UiHeaderControlBar.obj
@@ -1559,8 +1559,8 @@
  0001:000449e0       ??_EKUiMsgCentrePad@@EAEPAXI@Z 004459e0 f i UiMsgCentrePad.obj
  0001:00044a00       ??1KUiMsgCentrePad@@EAE@XZ 00445a00 f i UiMsgCentrePad.obj
  0001:00044b20       ??1KSysMsgCentrePad@@UAE@XZ 00445b20 f i UiMsgCentrePad.obj
- 0001:00044ba0       ??_GKSysMsgCentrePad@@UAEPAXI@Z 00445ba0 f i UiMsgCentrePad.obj
  0001:00044ba0       ??_EKSysMsgCentrePad@@UAEPAXI@Z 00445ba0 f i UiMsgCentrePad.obj
+ 0001:00044ba0       ??_GKSysMsgCentrePad@@UAEPAXI@Z 00445ba0 f i UiMsgCentrePad.obj
  0001:00044bc0       ?SetAutoDelMsgInterval@KUiMsgCentrePad@@AAEXI@Z 00445bc0 f   UiMsgCentrePad.obj
  0001:00044be0       ?SystemMessageArrival@KUiMsgCentrePad@@SAXPBDG@Z 00445be0 f   UiMsgCentrePad.obj
  0001:00044c60       ?ChannelMessageArrival@KUiMsgCentrePad@@AAEXHPADPBDGPAVKWndMessageListBox@@_N11@Z 00445c60 f   UiMsgCentrePad.obj
@@ -1630,8 +1630,8 @@
  0001:00049240       ?SetMSNTextColor@KUiMsgCentrePad@@SAXHKK@Z 0044a240 f   UiMsgCentrePad.obj
  0001:00049300       ?GetMSNTextColor@KUiMsgCentrePad@@SAXHAAK0@Z 0044a300 f   UiMsgCentrePad.obj
  0001:00049380       ??0KUiMakeAdv@@AAE@XZ      0044a380 f   UiMakeAdv.obj
- 0001:00049400       ??_EKUiMakeAdv@@EAEPAXI@Z  0044a400 f i UiMakeAdv.obj
  0001:00049400       ??_GKUiMakeAdv@@EAEPAXI@Z  0044a400 f i UiMakeAdv.obj
+ 0001:00049400       ??_EKUiMakeAdv@@EAEPAXI@Z  0044a400 f i UiMakeAdv.obj
  0001:00049420       ??1KUiMakeAdv@@EAE@XZ      0044a420 f i UiMakeAdv.obj
  0001:000494b0       ?OpenWindow@KUiMakeAdv@@SAPAV1@PBDHH@Z 0044a4b0 f   UiMakeAdv.obj
  0001:000495b0       ?CloseWindow@KUiMakeAdv@@SAX_N@Z 0044a5b0 f   UiMakeAdv.obj
@@ -1644,8 +1644,8 @@
  0001:000498c0       ?OnOk@KUiMakeAdv@@AAEXXZ   0044a8c0 f   UiMakeAdv.obj
  0001:00049940       ?OnCancel@KUiMakeAdv@@AAEXXZ 0044a940 f   UiMakeAdv.obj
  0001:00049950       ??0KUiMarket@@AAE@XZ       0044a950 f   UiMarket.obj
- 0001:00049aa0       ??_EKUiMarket@@EAEPAXI@Z   0044aaa0 f i UiMarket.obj
  0001:00049aa0       ??_GKUiMarket@@EAEPAXI@Z   0044aaa0 f i UiMarket.obj
+ 0001:00049aa0       ??_EKUiMarket@@EAEPAXI@Z   0044aaa0 f i UiMarket.obj
  0001:00049ac0       ??1KUiMarket@@EAE@XZ       0044aac0 f i UiMarket.obj
  0001:00049bf0       ??1KUiMarketGoods@@UAE@XZ  0044abf0 f i UiMarket.obj
  0001:00049cc0       ?GetIfVisible@KUiMarket@@SAPAV1@XZ 0044acc0 f   UiMarket.obj
@@ -1663,8 +1663,8 @@
  0001:0004a770       ?OnClickPrePaid@KUiMarket@@SAXXZ 0044b770 f   UiMarket.obj
  0001:0004a8c0       ?OnClickSellType@KUiMarket@@AAEXH@Z 0044b8c0 f   UiMarket.obj
  0001:0004a990       ??0KUiMarketGoods@@QAE@XZ  0044b990 f   UiMarket.obj
- 0001:0004aa80       ??_GKUiMarketGoods@@UAEPAXI@Z 0044ba80 f i UiMarket.obj
  0001:0004aa80       ??_EKUiMarketGoods@@UAEPAXI@Z 0044ba80 f i UiMarket.obj
+ 0001:0004aa80       ??_GKUiMarketGoods@@UAEPAXI@Z 0044ba80 f i UiMarket.obj
  0001:0004aaa0       ?Initialize@KUiMarketGoods@@QAEXXZ 0044baa0 f   UiMarket.obj
  0001:0004ab70       ?LoadScheme@KUiMarketGoods@@AAEXPBD@Z 0044bb70 f   UiMarket.obj
  0001:0004ad10       ?WndProc@KUiMarketGoods@@EAEHIIH@Z 0044bd10 f   UiMarket.obj
@@ -1724,8 +1724,8 @@
  0001:0004c880       ?UpdateData@KUiShop@@UAEXXZ 0044d880 f   UiShop.obj
  0001:0004c960       ?Clear@KUiShop@@AAEXXZ     0044d960 f   UiShop.obj
  0001:0004c9a0       ??0KUiShoppingCart@@AAE@XZ 0044d9a0 f   UiShoppingCart.obj
- 0001:0004cae0       ??_EKUiShoppingCart@@EAEPAXI@Z 0044dae0 f i UiShoppingCart.obj
  0001:0004cae0       ??_GKUiShoppingCart@@EAEPAXI@Z 0044dae0 f i UiShoppingCart.obj
+ 0001:0004cae0       ??_EKUiShoppingCart@@EAEPAXI@Z 0044dae0 f i UiShoppingCart.obj
  0001:0004cb00       ??1KUiShoppingCart@@EAE@XZ 0044db00 f i UiShoppingCart.obj
  0001:0004ccc0       ?GetIfVisible@KUiShoppingCart@@SAPAV1@XZ 0044dcc0 f   UiShoppingCart.obj
  0001:0004ccd0       ?OpenWindow@KUiShoppingCart@@SAPAV1@PAVKWndWindow@@PAUKUiObjAtContRegion@@PAUKUiItemBuySelInfo@@_N@Z 0044dcd0 f   UiShoppingCart.obj
@@ -1736,8 +1736,8 @@
  0001:0004d1b0       ?UpdateValue@KUiShoppingCart@@SAXHH@Z 0044e1b0 f   UiShoppingCart.obj
  0001:0004d220       ?UpdateData@KUiShoppingCart@@AAEXPAVKWndWindow@@PAUKUiObjAtContRegion@@PAUKUiItemBuySelInfo@@@Z 0044e220 f   UiShoppingCart.obj
  0001:0004d330       ??0KUiShoppingCartGoods@@QAE@XZ 0044e330 f   UiShoppingCart.obj
- 0001:0004d400       ??_EKUiShoppingCartGoods@@UAEPAXI@Z 0044e400 f i UiShoppingCart.obj
  0001:0004d400       ??_GKUiShoppingCartGoods@@UAEPAXI@Z 0044e400 f i UiShoppingCart.obj
+ 0001:0004d400       ??_EKUiShoppingCartGoods@@UAEPAXI@Z 0044e400 f i UiShoppingCart.obj
  0001:0004d420       ??1KUiShoppingCartGoods@@UAE@XZ 0044e420 f i UiShoppingCart.obj
  0001:0004d4d0       ?Initialize@KUiShoppingCartGoods@@QAEXXZ 0044e4d0 f   UiShoppingCart.obj
  0001:0004d580       ?LoadScheme@KUiShoppingCartGoods@@AAEXPBD@Z 0044e580 f   UiShoppingCart.obj
@@ -1776,8 +1776,8 @@
  0001:0004eb70       ?UpdateTradeEnd@KUiTrade@@QAEXH@Z 0044fb70 f   UiTrade.obj
  0001:0004eb80       ?OpenWindow@KUiTradeConfirm@@SAPAV1@PAVKWndWindow@@PAUKUiObjAtContRegion@@PAUKUiItemBuySelInfo@@W4TRADE_CONFIRM_ACTION@@HH@Z 0044fb80 f   UiTradeConfirmWnd.obj
  0001:0004eee0       ??0KUiTradeConfirm@@AAE@XZ 0044fee0 f   UiTradeConfirmWnd.obj
- 0001:0004eff0       ??_GKUiTradeConfirm@@EAEPAXI@Z 0044fff0 f i UiTradeConfirmWnd.obj
  0001:0004eff0       ??_EKUiTradeConfirm@@EAEPAXI@Z 0044fff0 f i UiTradeConfirmWnd.obj
+ 0001:0004eff0       ??_GKUiTradeConfirm@@EAEPAXI@Z 0044fff0 f i UiTradeConfirmWnd.obj
  0001:0004f010       ??1KUiTradeConfirm@@EAE@XZ 00450010 f i UiTradeConfirmWnd.obj
  0001:0004f120       ?GetIfVisible@KUiTradeConfirm@@SAPAV1@XZ 00450120 f   UiTradeConfirmWnd.obj
  0001:0004f140       ?CloseWindow@KUiTradeConfirm@@SAX_N@Z 00450140 f   UiTradeConfirmWnd.obj
@@ -1796,8 +1796,8 @@
  0001:0004fa90       ?OnCancel@KUiTradeConfirm@@AAEXXZ 00450a90 f   UiTradeConfirmWnd.obj
  0001:0004fae0       ??1KUiGameSpace@@UAE@XZ    00450ae0 f i UiGame.obj
  0001:0004faf0       ??0KUiGameSpace@@QAE@XZ    00450af0 f i UiGame.obj
- 0001:0004fb10       ??_GKUiGameSpace@@UAEPAXI@Z 00450b10 f i UiGame.obj
  0001:0004fb10       ??_EKUiGameSpace@@UAEPAXI@Z 00450b10 f i UiGame.obj
+ 0001:0004fb10       ??_GKUiGameSpace@@UAEPAXI@Z 00450b10 f i UiGame.obj
  0001:0004fb30       ?WndProc@KUiGameSpace@@UAEHIIH@Z 00450b30 f   UiGame.obj
  0001:0004fdd0       ?PaintWindow@KUiGameSpace@@UAEXXZ 00450dd0 f   UiGame.obj
  0001:0004fde0       ?OnMouseMoveCursor@KUiGameSpace@@QAEXHH@Z 00450de0 f   UiGame.obj
@@ -1806,8 +1806,8 @@
  0001:00050330       ?PopUpContextPeopleMenu@@YAXABUKUiPlayerItem@@HH@Z 00451330 f   UiGame.obj
  0001:000505a0       ?PopUpContextEmoteMenu@@YAXPADHH@Z 004515a0 f   UiGame.obj
  0001:000506f0       ??0KUiNotification@@AAE@XZ 004516f0 f   UiNotification.obj
- 0001:00050760       ??_GKUiNotification@@EAEPAXI@Z 00451760 f i UiNotification.obj
  0001:00050760       ??_EKUiNotification@@EAEPAXI@Z 00451760 f i UiNotification.obj
+ 0001:00050760       ??_GKUiNotification@@EAEPAXI@Z 00451760 f i UiNotification.obj
  0001:00050780       ??1KUiNotification@@EAE@XZ 00451780 f i UiNotification.obj
  0001:00050800       ?OpenWindow@KUiNotification@@SAPAV1@PBD0@Z 00451800 f   UiNotification.obj
  0001:00050940       ?CloseWindow@KUiNotification@@SAX_N@Z 00451940 f   UiNotification.obj
@@ -1850,8 +1850,8 @@
  0001:000525a0       ?UpdateData@KUiCaveMap@@EAEXXZ 004535a0 f   UiCaveMap.obj
  0001:000526e0       ?Breathe@KUiCaveMap@@EAEXXZ 004536e0 f   UiCaveMap.obj
  0001:00052700       ?OpenWindow@KUiFindPos@@SAPAV1@XZ 00453700 f   UiFindPos.obj
- 0001:00052830       ??_GKUiFindPos@@EAEPAXI@Z  00453830 f i UiFindPos.obj
  0001:00052830       ??_EKUiFindPos@@EAEPAXI@Z  00453830 f i UiFindPos.obj
+ 0001:00052830       ??_GKUiFindPos@@EAEPAXI@Z  00453830 f i UiFindPos.obj
  0001:00052850       ??1KUiFindPos@@EAE@XZ      00453850 f i UiFindPos.obj
  0001:00052900       ?CloseWindow@KUiFindPos@@SAXXZ 00453900 f   UiFindPos.obj
  0001:00052920       ?GetIfVisible@KUiFindPos@@SAPAV1@XZ 00453920 f   UiFindPos.obj
@@ -1863,11 +1863,11 @@
  0001:00052da0       ?OnCheckInput@KUiFindPos@@AAEXXZ 00453da0 f   UiFindPos.obj
  0001:00052ea0       ?OnCancel@KUiFindPos@@AAEXXZ 00453ea0 f   UiFindPos.obj
  0001:00052eb0       ??0KUiMiniMap@@AAE@XZ      00453eb0 f   UiMiniMap.obj
- 0001:00052ff0       ??_EKWndShadow@@UAEPAXI@Z  00453ff0 f i UiMiniMap.obj
  0001:00052ff0       ??_GKWndShadow@@UAEPAXI@Z  00453ff0 f i UiMiniMap.obj
+ 0001:00052ff0       ??_EKWndShadow@@UAEPAXI@Z  00453ff0 f i UiMiniMap.obj
  0001:00053010       ??1KWndShadow@@UAE@XZ      00454010 f i UiMiniMap.obj
- 0001:00053020       ??_GKUiMiniMap@@EAEPAXI@Z  00454020 f i UiMiniMap.obj
  0001:00053020       ??_EKUiMiniMap@@EAEPAXI@Z  00454020 f i UiMiniMap.obj
+ 0001:00053020       ??_GKUiMiniMap@@EAEPAXI@Z  00454020 f i UiMiniMap.obj
  0001:00053040       ??1KUiMiniMap@@EAE@XZ      00454040 f i UiMiniMap.obj
  0001:00053150       ?OpenWindow@KUiMiniMap@@SAPAV1@XZ 00454150 f   UiMiniMap.obj
  0001:000531f0       ?GetIfVisible@KUiMiniMap@@SAPAV1@XZ 004541f0 f   UiMiniMap.obj
@@ -1890,8 +1890,8 @@
  0001:000540c0       ?MapGetMode@@YA?AW4MINIMAP_MODE@@XZ 004550c0 f   UiMiniMap.obj
  0001:000540d0       ?MapSetMode@@YAXW4MINIMAP_MODE@@@Z 004550d0 f   UiMiniMap.obj
  0001:00054200       ??0KUiWorldMap@@AAE@XZ     00455200 f   UiWorldMap.obj
- 0001:000542c0       ??_EKUiWorldMap@@EAEPAXI@Z 004552c0 f i UiWorldMap.obj
  0001:000542c0       ??_GKUiWorldMap@@EAEPAXI@Z 004552c0 f i UiWorldMap.obj
+ 0001:000542c0       ??_EKUiWorldMap@@EAEPAXI@Z 004552c0 f i UiWorldMap.obj
  0001:000542e0       ??1KUiWorldMap@@EAE@XZ     004552e0 f i UiWorldMap.obj
  0001:00054380       ?OpenWindow@KUiWorldMap@@SAPAV1@XZ 00455380 f   UiWorldMap.obj
  0001:00054440       ?CloseWindow@KUiWorldMap@@SAXXZ 00455440 f   UiWorldMap.obj
@@ -1905,8 +1905,8 @@
  0001:00054da0       ?PopupMenu@KUiSelColor@@SAXPAVKWndWindow@@IHHH@Z 00455da0 f   UiSelColor.obj
  0001:00054de0       ?CancelMenu@KUiSelColor@@SAXXZ 00455de0 f   UiSelColor.obj
  0001:00054df0       ??0KUiNewPlayerStartMsg@@AAE@XZ 00455df0 f   UiNewPlayerStartMsg.obj
- 0001:00054e80       ??_GKUiNewPlayerStartMsg@@EAEPAXI@Z 00455e80 f i UiNewPlayerStartMsg.obj
  0001:00054e80       ??_EKUiNewPlayerStartMsg@@EAEPAXI@Z 00455e80 f i UiNewPlayerStartMsg.obj
+ 0001:00054e80       ??_GKUiNewPlayerStartMsg@@EAEPAXI@Z 00455e80 f i UiNewPlayerStartMsg.obj
  0001:00054ea0       ??1KUiNewPlayerStartMsg@@EAE@XZ 00455ea0 f   UiNewPlayerStartMsg.obj
  0001:00054fb0       ?OpenWindow@KUiNewPlayerStartMsg@@SAPAV1@XZ 00455fb0 f   UiNewPlayerStartMsg.obj
  0001:00055040       ?CloseWindow@KUiNewPlayerStartMsg@@SAX_N@Z 00456040 f   UiNewPlayerStartMsg.obj
@@ -1952,8 +1952,8 @@
  0001:00056150       ?SelectWuxingPic@KUiHelper@@SAXXZ 00457150 f   UiHelper.obj
  0001:000561a0       ?GetIfVisible@KUiHelper2@@SAPAV1@XZ 004571a0 f   UiHelper2.obj
  0001:000561c0       ??0KUiHelper2@@AAE@XZ      004571c0 f   UiHelper2.obj
- 0001:00056290       ??_GKUiHelper2@@EAEPAXI@Z  00457290 f i UiHelper2.obj
  0001:00056290       ??_EKUiHelper2@@EAEPAXI@Z  00457290 f i UiHelper2.obj
+ 0001:00056290       ??_GKUiHelper2@@EAEPAXI@Z  00457290 f i UiHelper2.obj
  0001:000562b0       ??1KUiHelper2@@EAE@XZ      004572b0 f   UiHelper2.obj
  0001:000563b0       ?OpenWindow@KUiHelper2@@SAPAV1@_N@Z 004573b0 f   UiHelper2.obj
  0001:00056450       ?Initialize@KUiHelper2@@AAEXXZ 00457450 f   UiHelper2.obj
@@ -2010,8 +2010,8 @@
  0001:000584a0       ?AppendSystemRecord@KTaskDataFile@@CAXPAUKTaskSystemRecordNode@1@@Z 004594a0 f   UiTaskDataFile.obj
  0001:000584e0       ?InsertSystemRecord@KTaskDataFile@@CAXPAUKTaskSystemRecordNode@1@@Z 004594e0 f   UiTaskDataFile.obj
  0001:00058500       ??0KTaskEdit@@QAE@XZ       00459500 f   UiTaskNote.obj
- 0001:00058560       ??_GKTaskEdit@@UAEPAXI@Z   00459560 f i UiTaskNote.obj
  0001:00058560       ??_EKTaskEdit@@UAEPAXI@Z   00459560 f i UiTaskNote.obj
+ 0001:00058560       ??_GKTaskEdit@@UAEPAXI@Z   00459560 f i UiTaskNote.obj
  0001:00058580       ??1KTaskEdit@@UAE@XZ       00459580 f i UiTaskNote.obj
  0001:00058590       ?Initialize@KUiTaskNote_Personal@@QAEXXZ 00459590 f   UiTaskNote.obj
  0001:000585c0       ?LoadScheme@KUiTaskNote_Personal@@QAEXPBD@Z 004595c0 f   UiTaskNote.obj
@@ -2031,10 +2031,10 @@
  0001:00058af0       ??_EKUiTaskNote@@EAEPAXI@Z 00459af0 f i UiTaskNote.obj
  0001:00058b10       ??1KUiTaskNote_System@@UAE@XZ 00459b10 f i UiTaskNote.obj
  0001:00058bb0       ??1KUiTaskNote_Personal@@UAE@XZ 00459bb0 f i UiTaskNote.obj
- 0001:00058c40       ??_GKUiTaskNote_System@@UAEPAXI@Z 00459c40 f i UiTaskNote.obj
  0001:00058c40       ??_EKUiTaskNote_System@@UAEPAXI@Z 00459c40 f i UiTaskNote.obj
- 0001:00058c60       ??_EKUiTaskNote_Personal@@UAEPAXI@Z 00459c60 f i UiTaskNote.obj
+ 0001:00058c40       ??_GKUiTaskNote_System@@UAEPAXI@Z 00459c40 f i UiTaskNote.obj
  0001:00058c60       ??_GKUiTaskNote_Personal@@UAEPAXI@Z 00459c60 f i UiTaskNote.obj
+ 0001:00058c60       ??_EKUiTaskNote_Personal@@UAEPAXI@Z 00459c60 f i UiTaskNote.obj
  0001:00058c80       ??1KUiTaskNote@@EAE@XZ     00459c80 f   UiTaskNote.obj
  0001:00058dd0       ?OpenWindow@KUiTaskNote@@SAPAV1@XZ 00459dd0 f   UiTaskNote.obj
  0001:00058e80       ?CloseWindow@KUiTaskNote@@SAX_N@Z 00459e80 f   UiTaskNote.obj
@@ -2071,8 +2071,8 @@
  0001:0005a010       ?Reset@KUiNewsMessage@@AAEXXZ 0045b010 f   UiNewsMessage.obj
  0001:0005a070       ?ScrollMsg@KUiNewsMessage@@AAE_NXZ 0045b070 f   UiNewsMessage.obj
  0001:0005a290       ??0KUiNewsMessageEx@@AAE@XZ 0045b290 f   UiNewsMessageEx.obj
- 0001:0005a330       ??_GKUiNewsMessageEx@@EAEPAXI@Z 0045b330 f i UiNewsMessageEx.obj
  0001:0005a330       ??_EKUiNewsMessageEx@@EAEPAXI@Z 0045b330 f i UiNewsMessageEx.obj
+ 0001:0005a330       ??_GKUiNewsMessageEx@@EAEPAXI@Z 0045b330 f i UiNewsMessageEx.obj
  0001:0005a350       ??1KUiNewsMessageEx@@EAE@XZ 0045b350 f i UiNewsMessageEx.obj
  0001:0005a3b0       ?EnableIdleMsg@KUiNewsMessageEx@@SAXH@Z 0045b3b0 f   UiNewsMessageEx.obj
  0001:0005a410       ?AddMessage@KUiNewsMessageEx@@AAE_NPAUKNewsMessage@@II@Z 0045b410 f   UiNewsMessageEx.obj
@@ -2125,8 +2125,8 @@
  0001:0005d780       ?AttachTempFile@KUiStrengthRank@@SAHXZ 0045e780 f   UiStrengthRank.obj
  0001:0005d840       ?RemoveTempFile@KUiStrengthRank@@SAXXZ 0045e840 f   UiStrengthRank.obj
  0001:0005d890       ?TDrawOutString@@YAHPADHHH@Z 0045e890 f   UiStrengthRank.obj
- 0001:0005d930       ??_G?$KLinkStruct@UKRankIndexNode@@@@UAEPAXI@Z 0045e930 f i UiStrengthRank.obj
  0001:0005d930       ??_E?$KLinkStruct@UKRankIndexNode@@@@UAEPAXI@Z 0045e930 f i UiStrengthRank.obj
+ 0001:0005d930       ??_G?$KLinkStruct@UKRankIndexNode@@@@UAEPAXI@Z 0045e930 f i UiStrengthRank.obj
  0001:0005da30       ??_G?$KLinkStruct@UKRankNode@@@@UAEPAXI@Z 0045ea30 f i UiStrengthRank.obj
  0001:0005da30       ??_E?$KLinkStruct@UKRankNode@@@@UAEPAXI@Z 0045ea30 f i UiStrengthRank.obj
  0001:0005db30       ?RemoveItem@?$KLinkStruct@UKRankIndexNode@@@@QAEHXZ 0045eb30 f i UiStrengthRank.obj
@@ -2142,8 +2142,8 @@
  0001:0005df70       ?WndProc@KUiPopupPasswordQuery@@EAEHIIH@Z 0045ef70 f   UiPopupPasswordQuery.obj
  0001:0005dfe0       ?OnConfirm@KUiPopupPasswordQuery@@AAEXXZ 0045efe0 f   UiPopupPasswordQuery.obj
  0001:0005e060       ??0KUiTongAssignBox@@QAE@XZ 0045f060 f   UiTongAssignBox.obj
- 0001:0005e150       ??_EKUiTongAssignBox@@UAEPAXI@Z 0045f150 f i UiTongAssignBox.obj
  0001:0005e150       ??_GKUiTongAssignBox@@UAEPAXI@Z 0045f150 f i UiTongAssignBox.obj
+ 0001:0005e150       ??_EKUiTongAssignBox@@UAEPAXI@Z 0045f150 f i UiTongAssignBox.obj
  0001:0005e170       ??1KUiTongAssignBox@@UAE@XZ 0045f170 f   UiTongAssignBox.obj
  0001:0005e250       ?OpenWindow@KUiTongAssignBox@@SAPAV1@XZ 0045f250 f   UiTongAssignBox.obj
  0001:0005e300       ?GetIfVisible@KUiTongAssignBox@@SAPAV1@XZ 0045f300 f   UiTongAssignBox.obj
@@ -2171,8 +2171,8 @@
  0001:0005eff0       ?OnOk@KUiTongChangeTitle@@AAEXXZ 0045fff0 f   UiTongChangeTitle.obj
  0001:0005f0a0       ?OnCancel@KUiTongChangeTitle@@AAEXXZ 004600a0 f   UiTongChangeTitle.obj
  0001:0005f0d0       ??0KUiTongCreateSheet@@QAE@XZ 004600d0 f   UiTongCreateSheet.obj
- 0001:0005f1c0       ??_GKUiTongCreateSheet@@UAEPAXI@Z 004601c0 f i UiTongCreateSheet.obj
  0001:0005f1c0       ??_EKUiTongCreateSheet@@UAEPAXI@Z 004601c0 f i UiTongCreateSheet.obj
+ 0001:0005f1c0       ??_GKUiTongCreateSheet@@UAEPAXI@Z 004601c0 f i UiTongCreateSheet.obj
  0001:0005f1e0       ??1KUiTongCreateSheet@@UAE@XZ 004601e0 f   UiTongCreateSheet.obj
  0001:0005f2d0       ?OpenWindow@KUiTongCreateSheet@@SAPAV1@PBD@Z 004602d0 f   UiTongCreateSheet.obj
  0001:0005f3b0       ?GetIfVisible@KUiTongCreateSheet@@SAPAV1@XZ 004603b0 f   UiTongCreateSheet.obj
@@ -2257,14 +2257,14 @@
  0001:00063b10       ?UpdateInfoView@KUiTongInfo@@AAEXPAUKTongInfo@@@Z 00464b10 f   UiTongManager.obj
  0001:00063cd0       ?UpdateListView@KUiTongInfo@@QAEXE@Z 00464cd0 f   UiTongManager.obj
  0001:00063e60       ??0KUiTongFunUseSubPage@@QAE@XZ 00464e60 f   UiTongManager.obj
- 0001:00063e80       ??_EKUiTongFunUseSubPage@@UAEPAXI@Z 00464e80 f i UiTongManager.obj
  0001:00063e80       ??_GKUiTongFunUseSubPage@@UAEPAXI@Z 00464e80 f i UiTongManager.obj
+ 0001:00063e80       ??_EKUiTongFunUseSubPage@@UAEPAXI@Z 00464e80 f i UiTongManager.obj
  0001:00063ea0       ?Initialize@KUiTongFunUseSubPage@@QAEXH@Z 00464ea0 f   UiTongManager.obj
  0001:00063ef0       ?LoadScheme@KUiTongFunUseSubPage@@AAEXPBDH@Z 00464ef0 f   UiTongManager.obj
  0001:00063ff0       ?WndProc@KUiTongFunUseSubPage@@EAEHIIH@Z 00464ff0 f   UiTongManager.obj
  0001:00064020       ??0KUiTongFunUseSub@@QAE@XZ 00465020 f   UiTongManager.obj
- 0001:00064600       ??_GKUiTongFunUseSub@@UAEPAXI@Z 00465600 f i UiTongManager.obj
  0001:00064600       ??_EKUiTongFunUseSub@@UAEPAXI@Z 00465600 f i UiTongManager.obj
+ 0001:00064600       ??_GKUiTongFunUseSub@@UAEPAXI@Z 00465600 f i UiTongManager.obj
  0001:00064620       ?Initialize@KUiTongFunUseSub@@QAEXXZ 00465620 f   UiTongManager.obj
  0001:00064860       ?Clear@KUiTongFunUseSub@@QAEXXZ 00465860 f   UiTongManager.obj
  0001:000648b0       ?LoadScheme@KUiTongFunUseSub@@AAEXPBD@Z 004658b0 f   UiTongManager.obj
@@ -2307,8 +2307,8 @@
  0001:00066690       ?ShowSubPage@KUiTongRightManage@@AAEXW4RIGHT_PAGE@1@@Z 00467690 f   UiTongManager.obj
  0001:00066700       ?OnSelectAll@KUiTongRightManage@@AAEXH@Z 00467700 f   UiTongManager.obj
  0001:00066760       ??0KUiTongRecord@@QAE@XZ   00467760 f   UiTongManager.obj
- 0001:00066840       ??_EKUiTongRecord@@UAEPAXI@Z 00467840 f i UiTongManager.obj
  0001:00066840       ??_GKUiTongRecord@@UAEPAXI@Z 00467840 f i UiTongManager.obj
+ 0001:00066840       ??_EKUiTongRecord@@UAEPAXI@Z 00467840 f i UiTongManager.obj
  0001:00066860       ?Initialize@KUiTongRecord@@QAEXXZ 00467860 f   UiTongManager.obj
  0001:00066920       ?LoadScheme@KUiTongRecord@@AAEXPBD@Z 00467920 f   UiTongManager.obj
  0001:00066ac0       ?WndProc@KUiTongRecord@@EAEHIIH@Z 00467ac0 f   UiTongManager.obj
@@ -2421,8 +2421,8 @@
  0001:00070b10       ??1KUiMovePlayer@@UAE@XZ   00471b10 f i UiAutoPlay.obj
  0001:00070c80       ??0KUiSupportPlayer@@QAE@XZ 00471c80 f i UiAutoPlay.obj
  0001:00070d70       ??1KUiSupportPlayer@@UAE@XZ 00471d70 f i UiAutoPlay.obj
- 0001:00070e50       ??_EKUiRecovery@@UAEPAXI@Z 00471e50 f i UiAutoPlay.obj
  0001:00070e50       ??_GKUiRecovery@@UAEPAXI@Z 00471e50 f i UiAutoPlay.obj
+ 0001:00070e50       ??_EKUiRecovery@@UAEPAXI@Z 00471e50 f i UiAutoPlay.obj
  0001:00070e70       ??0KWndPage@@QAE@XZ        00471e70 f i UiAutoPlay.obj
  0001:00070e90       ??_GKUiPick@@UAEPAXI@Z     00471e90 f i UiAutoPlay.obj
  0001:00070e90       ??_EKUiPick@@UAEPAXI@Z     00471e90 f i UiAutoPlay.obj
@@ -2430,10 +2430,10 @@
  0001:00070eb0       ??_GKUiFight@@UAEPAXI@Z    00471eb0 f i UiAutoPlay.obj
  0001:00070ed0       ??_GKUiOther@@UAEPAXI@Z    00471ed0 f i UiAutoPlay.obj
  0001:00070ed0       ??_EKUiOther@@UAEPAXI@Z    00471ed0 f i UiAutoPlay.obj
- 0001:00070ef0       ??_GKUiMovePlayer@@UAEPAXI@Z 00471ef0 f i UiAutoPlay.obj
  0001:00070ef0       ??_EKUiMovePlayer@@UAEPAXI@Z 00471ef0 f i UiAutoPlay.obj
- 0001:00070f10       ??_GKUiSupportPlayer@@UAEPAXI@Z 00471f10 f i UiAutoPlay.obj
+ 0001:00070ef0       ??_GKUiMovePlayer@@UAEPAXI@Z 00471ef0 f i UiAutoPlay.obj
  0001:00070f10       ??_EKUiSupportPlayer@@UAEPAXI@Z 00471f10 f i UiAutoPlay.obj
+ 0001:00070f10       ??_GKUiSupportPlayer@@UAEPAXI@Z 00471f10 f i UiAutoPlay.obj
  0001:00070f30       ?GetIfVisible@KUiAutoPlay@@SAPAV1@XZ 00471f30 f   UiAutoPlay.obj
  0001:00070f50       ?CloseWindow@KUiAutoPlay@@SAX_N@Z 00471f50 f   UiAutoPlay.obj
  0001:00070fe0       ?Initialize@KUiAutoPlay@@AAEXXZ 00471fe0 f   UiAutoPlay.obj
@@ -2459,8 +2459,8 @@
  0001:00071c80       ?Add@UiMiniBuff@@AAEXHPAUKStateControl@@@Z 00472c80 f   UiMiniBuff.obj
  0001:000721d0       ?Release@UiMiniBuff@@AAEXXZ 004731d0 f   UiMiniBuff.obj
  0001:00072250       ??0KUiTopTKNew@@AAE@XZ     00473250 f   UiTopTKNew.obj
- 0001:00072970       ??_EKUiTopTKNew@@EAEPAXI@Z 00473970 f i UiTopTKNew.obj
  0001:00072970       ??_GKUiTopTKNew@@EAEPAXI@Z 00473970 f i UiTopTKNew.obj
+ 0001:00072970       ??_EKUiTopTKNew@@EAEPAXI@Z 00473970 f i UiTopTKNew.obj
  0001:00072990       ??1KUiTopTKNew@@EAE@XZ     00473990 f i UiTopTKNew.obj
  0001:000730b0       ?OpenWindow@KUiTopTKNew@@SAPAV1@XZ 004740b0 f   UiTopTKNew.obj
  0001:00073150       ?GetIfVisible@KUiTopTKNew@@SAPAV1@XZ 00474150 f   UiTopTKNew.obj
@@ -2474,8 +2474,8 @@
  0001:00075ed0       ?Show@KUiTopTKNew@@UAEXXZ  00476ed0 f   UiTopTKNew.obj
  0001:00075ee0       ?Hide@KUiTopTKNew@@UAEXXZ  00476ee0 f   UiTopTKNew.obj
  0001:00075ef0       ?OpenWindow@KUiTrembleItem@@SAPAV1@XZ 00476ef0 f   UiTrembleItem.obj
- 0001:00076030       ??_EKUiTrembleItem@@EAEPAXI@Z 00477030 f i UiTrembleItem.obj
  0001:00076030       ??_GKUiTrembleItem@@EAEPAXI@Z 00477030 f i UiTrembleItem.obj
+ 0001:00076030       ??_EKUiTrembleItem@@EAEPAXI@Z 00477030 f i UiTrembleItem.obj
  0001:00076050       ??1KUiTrembleItem@@EAE@XZ  00477050 f i UiTrembleItem.obj
  0001:000760f0       ??1KCanGetNumImage@@UAE@XZ 004770f0 f i UiTrembleItem.obj
  0001:00076100       ??_EKCanGetNumImage@@UAEPAXI@Z 00477100 f i UiTrembleItem.obj
@@ -2740,56 +2740,56 @@
  0001:00084db0       ??_EPlayer_Life@@UAEPAXI@Z 00485db0 f i UiShell.obj
  0001:00084dd0       ??1Player_Life@@UAE@XZ     00485dd0 f i UiShell.obj
  0001:00084e40       ?CreateObject@Player_Mana@@SAPAVKWndWindow@@XZ 00485e40 f i UiShell.obj
- 0001:00084ea0       ??_EPlayer_Mana@@UAEPAXI@Z 00485ea0 f i UiShell.obj
  0001:00084ea0       ??_GPlayer_Mana@@UAEPAXI@Z 00485ea0 f i UiShell.obj
+ 0001:00084ea0       ??_EPlayer_Mana@@UAEPAXI@Z 00485ea0 f i UiShell.obj
  0001:00084ec0       ??1Player_Mana@@UAE@XZ     00485ec0 f i UiShell.obj
  0001:00084f30       ?CreateObject@Player_Stamina@@SAPAVKWndWindow@@XZ 00485f30 f i UiShell.obj
- 0001:00084f90       ??_EPlayer_Stamina@@UAEPAXI@Z 00485f90 f i UiShell.obj
  0001:00084f90       ??_GPlayer_Stamina@@UAEPAXI@Z 00485f90 f i UiShell.obj
+ 0001:00084f90       ??_EPlayer_Stamina@@UAEPAXI@Z 00485f90 f i UiShell.obj
  0001:00084fb0       ??1Player_Stamina@@UAE@XZ  00485fb0 f i UiShell.obj
  0001:00085020       ?CreateObject@Player_Exp@@SAPAVKWndWindow@@XZ 00486020 f i UiShell.obj
- 0001:00085080       ??_EPlayer_Exp@@UAEPAXI@Z  00486080 f i UiShell.obj
  0001:00085080       ??_GPlayer_Exp@@UAEPAXI@Z  00486080 f i UiShell.obj
+ 0001:00085080       ??_EPlayer_Exp@@UAEPAXI@Z  00486080 f i UiShell.obj
  0001:000850a0       ??1Player_Exp@@UAE@XZ      004860a0 f i UiShell.obj
  0001:00085110       ?CreateObject@Player_Level@@SAPAVKWndWindow@@XZ 00486110 f i UiShell.obj
  0001:00085170       ??_EPlayer_Level@@UAEPAXI@Z 00486170 f i UiShell.obj
  0001:00085170       ??_GPlayer_Level@@UAEPAXI@Z 00486170 f i UiShell.obj
  0001:00085190       ??1Player_Level@@UAE@XZ    00486190 f i UiShell.obj
  0001:00085200       ?CreateObject@Player_WorldSort@@SAPAVKWndWindow@@XZ 00486200 f i UiShell.obj
- 0001:00085260       ??_EPlayer_WorldSort@@UAEPAXI@Z 00486260 f i UiShell.obj
  0001:00085260       ??_GPlayer_WorldSort@@UAEPAXI@Z 00486260 f i UiShell.obj
+ 0001:00085260       ??_EPlayer_WorldSort@@UAEPAXI@Z 00486260 f i UiShell.obj
  0001:00085280       ??1Player_WorldSort@@UAE@XZ 00486280 f i UiShell.obj
  0001:000852f0       ?CreateObject@Player_Status@@SAPAVKWndWindow@@XZ 004862f0 f i UiShell.obj
- 0001:00085350       ??_EPlayer_Status@@UAEPAXI@Z 00486350 f i UiShell.obj
  0001:00085350       ??_GPlayer_Status@@UAEPAXI@Z 00486350 f i UiShell.obj
+ 0001:00085350       ??_EPlayer_Status@@UAEPAXI@Z 00486350 f i UiShell.obj
  0001:00085370       ??1Player_Status@@UAE@XZ   00486370 f i UiShell.obj
  0001:00085380       ?CreateObject@Player_Items@@SAPAVKWndWindow@@XZ 00486380 f i UiShell.obj
- 0001:000853e0       ??_EPlayer_Items@@UAEPAXI@Z 004863e0 f i UiShell.obj
  0001:000853e0       ??_GPlayer_Items@@UAEPAXI@Z 004863e0 f i UiShell.obj
+ 0001:000853e0       ??_EPlayer_Items@@UAEPAXI@Z 004863e0 f i UiShell.obj
  0001:00085400       ??1Player_Items@@UAE@XZ    00486400 f i UiShell.obj
  0001:00085410       ?CreateObject@Player_ItemEx@@SAPAVKWndWindow@@XZ 00486410 f i UiShell.obj
- 0001:00085470       ??_GPlayer_ItemEx@@UAEPAXI@Z 00486470 f i UiShell.obj
  0001:00085470       ??_EPlayer_ItemEx@@UAEPAXI@Z 00486470 f i UiShell.obj
+ 0001:00085470       ??_GPlayer_ItemEx@@UAEPAXI@Z 00486470 f i UiShell.obj
  0001:00085490       ??1Player_ItemEx@@UAE@XZ   00486490 f i UiShell.obj
  0001:000854a0       ?CreateObject@Player_Skills@@SAPAVKWndWindow@@XZ 004864a0 f i UiShell.obj
  0001:00085500       ??_EPlayer_Skills@@UAEPAXI@Z 00486500 f i UiShell.obj
  0001:00085500       ??_GPlayer_Skills@@UAEPAXI@Z 00486500 f i UiShell.obj
  0001:00085520       ??1Player_Skills@@UAE@XZ   00486520 f i UiShell.obj
  0001:00085530       ?CreateObject@Player_Team@@SAPAVKWndWindow@@XZ 00486530 f i UiShell.obj
- 0001:00085590       ??_EPlayer_Team@@UAEPAXI@Z 00486590 f i UiShell.obj
  0001:00085590       ??_GPlayer_Team@@UAEPAXI@Z 00486590 f i UiShell.obj
+ 0001:00085590       ??_EPlayer_Team@@UAEPAXI@Z 00486590 f i UiShell.obj
  0001:000855b0       ??1Player_Team@@UAE@XZ     004865b0 f i UiShell.obj
  0001:000855c0       ?CreateObject@Player_Faction@@SAPAVKWndWindow@@XZ 004865c0 f i UiShell.obj
- 0001:00085620       ??_GPlayer_Faction@@UAEPAXI@Z 00486620 f i UiShell.obj
  0001:00085620       ??_EPlayer_Faction@@UAEPAXI@Z 00486620 f i UiShell.obj
+ 0001:00085620       ??_GPlayer_Faction@@UAEPAXI@Z 00486620 f i UiShell.obj
  0001:00085640       ??1Player_Faction@@UAE@XZ  00486640 f i UiShell.obj
  0001:00085650       ?CreateObject@Player_Sit@@SAPAVKWndWindow@@XZ 00486650 f i UiShell.obj
- 0001:000856b0       ??_GPlayer_Sit@@UAEPAXI@Z  004866b0 f i UiShell.obj
  0001:000856b0       ??_EPlayer_Sit@@UAEPAXI@Z  004866b0 f i UiShell.obj
+ 0001:000856b0       ??_GPlayer_Sit@@UAEPAXI@Z  004866b0 f i UiShell.obj
  0001:000856d0       ??1Player_Sit@@UAE@XZ      004866d0 f i UiShell.obj
  0001:000856e0       ?CreateObject@Player_Run@@SAPAVKWndWindow@@XZ 004866e0 f i UiShell.obj
- 0001:00085740       ??_EPlayer_Run@@UAEPAXI@Z  00486740 f i UiShell.obj
  0001:00085740       ??_GPlayer_Run@@UAEPAXI@Z  00486740 f i UiShell.obj
+ 0001:00085740       ??_EPlayer_Run@@UAEPAXI@Z  00486740 f i UiShell.obj
  0001:00085760       ??1Player_Run@@UAE@XZ      00486760 f i UiShell.obj
  0001:00085770       ?CreateObject@Player_Horse@@SAPAVKWndWindow@@XZ 00486770 f i UiShell.obj
  0001:000857d0       ??_GPlayer_Horse@@UAEPAXI@Z 004867d0 f i UiShell.obj
@@ -2804,16 +2804,16 @@
  0001:000858f0       ??_EPlayer_PK@@UAEPAXI@Z   004868f0 f i UiShell.obj
  0001:00085910       ??1Player_PK@@UAE@XZ       00486910 f i UiShell.obj
  0001:00085920       ?CreateObject@Player_Task@@SAPAVKWndWindow@@XZ 00486920 f i UiShell.obj
- 0001:00085980       ??_EPlayer_Task@@UAEPAXI@Z 00486980 f i UiShell.obj
  0001:00085980       ??_GPlayer_Task@@UAEPAXI@Z 00486980 f i UiShell.obj
+ 0001:00085980       ??_EPlayer_Task@@UAEPAXI@Z 00486980 f i UiShell.obj
  0001:000859a0       ??1Player_Task@@UAE@XZ     004869a0 f i UiShell.obj
  0001:000859b0       ?CreateObject@Player_AutoPlay@@SAPAVKWndWindow@@XZ 004869b0 f i UiShell.obj
  0001:00085a10       ??_EPlayer_AutoPlay@@UAEPAXI@Z 00486a10 f i UiShell.obj
  0001:00085a10       ??_GPlayer_AutoPlay@@UAEPAXI@Z 00486a10 f i UiShell.obj
  0001:00085a30       ??1Player_AutoPlay@@UAE@XZ 00486a30 f i UiShell.obj
  0001:00085a40       ?CreateObject@Player_Lock@@SAPAVKWndWindow@@XZ 00486a40 f i UiShell.obj
- 0001:00085aa0       ??_EPlayer_Lock@@UAEPAXI@Z 00486aa0 f i UiShell.obj
  0001:00085aa0       ??_GPlayer_Lock@@UAEPAXI@Z 00486aa0 f i UiShell.obj
+ 0001:00085aa0       ??_EPlayer_Lock@@UAEPAXI@Z 00486aa0 f i UiShell.obj
  0001:00085ac0       ??1Player_Lock@@UAE@XZ     00486ac0 f i UiShell.obj
  0001:00085af0       ?UiGetFrameRate@@YAHXZ     00486af0 f   UiShell.obj
  0001:00085b10       ?UiPostQuitMsg@@YAXXZ      00486b10 f   UiShell.obj
@@ -2874,8 +2874,8 @@
  0001:00087020       ?OnButtonClick@Player_AutoPlay@@UAEXXZ 00488020 f   UiShell.obj
  0001:00087030       ?OnButtonClick@Player_Lock@@UAEXXZ 00488030 f   UiShell.obj
  0001:000870b0       ??0CChatFilter@@QAE@XZ     004880b0 f   ChatFilter.obj
- 0001:000870c0       ??_ECChatFilter@@UAEPAXI@Z 004880c0 f i ChatFilter.obj
  0001:000870c0       ??_GCChatFilter@@UAEPAXI@Z 004880c0 f i ChatFilter.obj
+ 0001:000870c0       ??_ECChatFilter@@UAEPAXI@Z 004880c0 f i ChatFilter.obj
  0001:000870e0       ??1CChatFilter@@UAE@XZ     004880e0 f   ChatFilter.obj
  0001:000870f0       ?Initialize@CChatFilter@@QAEHXZ 004880f0 f   ChatFilter.obj
  0001:000872a0       ?Uninitialize@CChatFilter@@QAEHXZ 004882a0 f   ChatFilter.obj
@@ -2960,8 +2960,8 @@
  0001:0008a3e0       ?Error_SetErrorString@@YAXPBD@Z 0048b3e0 f   ErrorCode.obj
  0001:0008a400       ?Error_Box@@YAXXZ          0048b400 f   ErrorCode.obj
  0001:0008a630       ?OpenWindow@KUiUpgradeAttrib@@SAPAV1@XZ 0048b630 f   UiUpgradeAttrib.obj
- 0001:0008a850       ??_EKUiUpgradeAttrib@@EAEPAXI@Z 0048b850 f i UiUpgradeAttrib.obj
  0001:0008a850       ??_GKUiUpgradeAttrib@@EAEPAXI@Z 0048b850 f i UiUpgradeAttrib.obj
+ 0001:0008a850       ??_EKUiUpgradeAttrib@@EAEPAXI@Z 0048b850 f i UiUpgradeAttrib.obj
  0001:0008a870       ??1KUiUpgradeAttrib@@EAE@XZ 0048b870 f i UiUpgradeAttrib.obj
  0001:0008a960       ?GetIfVisible@KUiUpgradeAttrib@@SAPAV1@XZ 0048b960 f   UiUpgradeAttrib.obj
  0001:0008a980       ?CloseWindow@KUiUpgradeAttrib@@SAX_N@Z 0048b980 f   UiUpgradeAttrib.obj
@@ -3535,8 +3535,8 @@
  0002:0000034c       __imp__fopen               0049d34c     MSVCRT:MSVCRT.dll
  0002:00000350       __imp__fprintf             0049d350     MSVCRT:MSVCRT.dll
  0002:00000354       __imp__fclose              0049d354     MSVCRT:MSVCRT.dll
- 0002:00000358       __imp__itoa                0049d358     MSVCRT:MSVCRT.dll
  0002:00000358       __imp___itoa               0049d358     MSVCRT:MSVCRT.dll
+ 0002:00000358       __imp__itoa                0049d358     MSVCRT:MSVCRT.dll
  0002:0000035c       __imp__realloc             0049d35c     MSVCRT:MSVCRT.dll
  0002:00000360       __imp__malloc              0049d360     MSVCRT:MSVCRT.dll
  0002:00000364       __imp__atoi                0049d364     MSVCRT:MSVCRT.dll
@@ -5988,292 +5988,291 @@
  0003:0000aa78       ??_C@_0DA@FNJN@?$FLCLIENT?$FN?5Creating?5new?5KUiUpgrade@ 004b7a78     UiUpgradeAttrib.obj
  0003:0000aaa8       ??_C@_0CP@EOLA@?$FLCLIENT?$FN?5KUiUpgradeAttrib?3?3OpenW@ 004b7aa8     UiUpgradeAttrib.obj
  0003:0000aad8       ??_C@_0M@FHKK@BtnAttrib?$CFd?$AA@ 004b7ad8     UiUpgradeAttrib.obj
- 0003:0000aae4       ??_C@_0CP@LHPB@?B?$KH?C?$IGt?5trang?5b?C?$JO?5xanh?5v?B?$LFo?5s?C?$IP?5xe@ 004b7ae4     UiUpgradeAttrib.obj
- 0003:0000ab14       ??_C@_09EGNG@TextGuide?$AA@ 004b7b14     UiUpgradeAttrib.obj
- 0003:0000ab20       ??_C@_0O@COOH@MaterialLabel?$AA@ 004b7b20     UiUpgradeAttrib.obj
- 0003:0000ab30       ??_C@_0P@CFHP@EquipmentLabel?$AA@ 004b7b30     UiUpgradeAttrib.obj
- 0003:0000ab40       ??_C@_09BEHH@T?C?$LL?5l?C?$JG?3?5?$AA@ 004b7b40     UiUpgradeAttrib.obj
- 0003:0000ab4c       ??_C@_0M@EBGG@TextPercent?$AA@ 004b7b4c     UiUpgradeAttrib.obj
- 0003:0000ab58       ??_C@_0L@MOGA@UpgradeBtn?$AA@ 004b7b58     UiUpgradeAttrib.obj
- 0003:0000ab64       ??_C@_0CK@FAED@?$FLERROR?$FN?5Failed?5to?5load?5UI?5config@ 004b7b64     UiUpgradeAttrib.obj
- 0003:0000ab90       ??_C@_0BE@IPIO@UiUpgradeAttrib?4ini?$AA@ 004b7b90     UiUpgradeAttrib.obj
- 0003:0000aba4       ??_C@_0BL@HAAG@?$FLCLIENT?$FN?5Validation?5failed?$AA@ 004b7ba4     UiUpgradeAttrib.obj
- 0003:0000abc0       ??_C@_0CF@OLIG@?$FLCLIENT?$FN?5Attribute?5button?5?$CFd?5cli@ 004b7bc0     UiUpgradeAttrib.obj
- 0003:0000abe8       ??_C@_0DI@NJOC@?$FLCLIENT?$FN?5Validation?5passed?0?5show@ 004b7be8     UiUpgradeAttrib.obj
- 0003:0000ac20       ??_C@_0CA@EFHD@?$FLCLIENT?$FN?5Upgrade?5button?5clicked?$AA@ 004b7c20     UiUpgradeAttrib.obj
- 0003:0000ac40       ??_C@_0DC@FJF@?$FLUPGRADE?9ATTRIB?$FN?5ESC?5blocked?5?9?5e@ 004b7c40     UiUpgradeAttrib.obj
- 0003:0000ac74       ??_C@_0DE@LHEK@?$FLUPGRADE?9ATTRIB?$FN?5ESC?5pressed?0?5ca@ 004b7c74     UiUpgradeAttrib.obj
- 0003:0000aca8       ??_C@_0DA@JAOH@B?B?$LJn?5c?C?$KD?5ch?B?$LOc?5mu?C?$KIn?5n?B?$KJng?5c?C?$IKp?5@ 004b7ca8     UiUpgradeAttrib.obj
- 0003:0000acd8       ??_C@_0L@MGNJ@X?B?$LIc?5nh?C?$ILn?$AA@ 004b7cd8     UiUpgradeAttrib.obj
- 0003:0000ace4       ??_C@_08GNDB@H?C?$LBy?5b?C?$KB?$AA@ 004b7ce4     UiUpgradeAttrib.obj
- 0003:0000acf0       ??_C@_0DD@FKPC@?$FLUPGRADE?9ATTRIB?$FN?5Enter?5pressed?0?5@ 004b7cf0     UiUpgradeAttrib.obj
- 0003:0000ad24       ??_C@_0DP@KMFA@?$FLUPGRADE?9ATTRIB?$FN?5WM_KEYDOWN?5rece@ 004b7d24     UiUpgradeAttrib.obj
- 0003:0000ad64       ??_C@_0BM@CHHD@Ch?B?$KNa?5?B?$KO?C?$IGt?5trang?5b?C?$JO?5v?B?$LFo?$CB?$AA@ 004b7d64     UiUpgradeAttrib.obj
- 0003:0000ad80       ??_C@_0CH@ODHF@?$FLCLIENT?9EFFECT?$FN?5StartEffect?$CI?$CJ?5fi@ 004b7d80     UiUpgradeAttrib.obj
- 0003:0000ada8       ??_C@_0CF@FNPP@?$FLCLIENT?9EFFECT?$FN?5StartEffect?$CI?$CJ?5ca@ 004b7da8     UiUpgradeAttrib.obj
- 0003:0000add0       ??_C@_0CN@DALJ@?$FLCLIENT?9EFFECT?$FN?5StopEffect?$CI?$CJ?5abo@ 004b7dd0     UiUpgradeAttrib.obj
- 0003:0000ae00       ??_C@_0CF@ECPE@?$FLCLIENT?9EFFECT?$FN?5OnUpgrade?$CI?$CJ?5retu@ 004b7e00     UiUpgradeAttrib.obj
- 0003:0000ae28       ??_C@_0CE@JPLP@?$FLCLIENT?9EFFECT?$FN?5Calling?5OnUpgrad@ 004b7e28     UiUpgradeAttrib.obj
- 0003:0000ae4c       ??_C@_0CO@HNDH@?$FLCLIENT?9EFFECT?$FN?5UpdatePickPut?$CItr@ 004b7e4c     UiUpgradeAttrib.obj
- 0003:0000ae7c       ??_C@_0CM@JMIC@?$FLCLIENT?9EFFECT?$FN?5Calling?5UpdatePi@ 004b7e7c     UiUpgradeAttrib.obj
- 0003:0000aea8       ??_C@_0DB@LNDD@?$FLCLIENT?9EFFECT?$FN?5m_UpgradeEffect?4@ 004b7ea8     UiUpgradeAttrib.obj
- 0003:0000aedc       ??_C@_0CP@MAPE@?$FLCLIENT?9EFFECT?$FN?5Calling?5m_Upgrad@ 004b7edc     UiUpgradeAttrib.obj
- 0003:0000af0c       ??_C@_0CE@CPLG@?$FLCLIENT?9EFFECT?$FN?5StopEffect?$CI?$CJ?5cal@ 004b7f0c     UiUpgradeAttrib.obj
- 0003:0000af30       ??_C@_0CA@IEJF@?$FLCLIENT?$FN?5UpdateData?$CI?$CJ?5completed?$AA@ 004b7f30     UiUpgradeAttrib.obj
- 0003:0000af50       ??_C@_0CK@HKGD@?$FLCLIENT?$FN?5UpdateItem?5completed?5fo@ 004b7f50     UiUpgradeAttrib.obj
- 0003:0000af7c       ??_C@_0CI@IKJA@?$FLCLIENT?$FN?5Calling?5UpdateItem?5for?5@ 004b7f7c     UiUpgradeAttrib.obj
- 0003:0000afa4       ??_C@_0CG@LFHB@?$FLCLIENT?$FN?5Checking?5item?5?$CFd?0?5genre@ 004b7fa4     UiUpgradeAttrib.obj
- 0003:0000afcc       ??_C@_0EB@FEFL@?$FLCLIENT?$FN?5WARNING?3?5nCount?5?$CI?$CFd?$CJ?5ex@ 004b7fcc     UiUpgradeAttrib.obj
- 0003:0000b010       ??_C@_0CK@MPBG@?$FLCLIENT?$FN?5GetGameData?5returned?5nC@ 004b8010     UiUpgradeAttrib.obj
- 0003:0000b03c       ??_C@_0CN@EKKI@?$FLCLIENT?$FN?5Calling?5GetGameData?$CIGDI@ 004b803c     UiUpgradeAttrib.obj
- 0003:0000b06c       ??_C@_0DB@MLOG@?$FLCLIENT?$FN?5Creating?5Item?5array?0?5si@ 004b806c     UiUpgradeAttrib.obj
- 0003:0000b0a0       ??_C@_0CG@JBKO@?$FLCLIENT?$FN?5ERROR?3?5g_pCoreShell?5is?5@ 004b80a0     UiUpgradeAttrib.obj
- 0003:0000b0c8       ??_C@_0BO@ODAI@?$FLCLIENT?$FN?5UpdateData?$CI?$CJ?5started?$AA@ 004b80c8     UiUpgradeAttrib.obj
- 0003:0000b0e8       ??_C@_0CH@MFEM@?$FLCLIENT?$FN?5UpdateItem?$CI?$CJ?5?9?5pItem?5is@ 004b80e8     UiUpgradeAttrib.obj
- 0003:0000b110       ??_C@_0CA@KFPD@?$FLCLIENT?$FN?5UpdateItem?$CI?$CJ?5completed?$AA@ 004b8110     UiUpgradeAttrib.obj
- 0003:0000b130       ??_C@_0DP@HPAP@?$FLCLIENT?$FN?5Upgrade?5lock?5released?5?9@ 004b8130     UiUpgradeAttrib.obj
- 0003:0000b170       ??_C@_0CK@FKCE@?$FLCLIENT?$FN?5Calling?5HoldObject?$CICGOG@ 004b8170     UiUpgradeAttrib.obj
- 0003:0000b19c       ??_C@_0DL@EIPN@?$FLCLIENT?$FN?5Upgrade?5lock?5released?5?9@ 004b819c     UiUpgradeAttrib.obj
- 0003:0000b1d8       ??_C@_0BO@DLJE@?$FLCLIENT?$FN?5HoldObject?5completed?$AA@ 004b81d8     UiUpgradeAttrib.obj
- 0003:0000b1f8       ??_C@_0DJ@JJEB@?$FLCLIENT?$FN?5Calling?5HoldObject?$CIgenr@ 004b81f8     UiUpgradeAttrib.obj
- 0003:0000b234       ??_C@_0CA@OONJ@?$FLCLIENT?$FN?5Match?5found?5at?5slot?5?$CFd?$AA@ 004b8234     UiUpgradeAttrib.obj
- 0003:0000b254       ??_C@_0DK@CNGH@?$FLCLIENT?$FN?5Checking?5slot?5?$CFd?0?5CtrlI@ 004b8254     UiUpgradeAttrib.obj
- 0003:0000b290       ??_C@_0BO@NHGD@?$FLCLIENT?$FN?5pItem?9?$DORegion?4v?5?$DN?5?$CFd?$AA@ 004b8290     UiUpgradeAttrib.obj
- 0003:0000b2b0       ??_C@_0DA@LOB@?$FLCLIENT?$FN?5UpdateItem?$CI?$CJ?5called?0?5pI@ 004b82b0     UiUpgradeAttrib.obj
- 0003:0000b2e0       ??_C@_0DM@CIAI@?$FLCLIENT?$FN?5ERROR?3?5GetLixian?$CI?$CJ?5?$DN?5FA@ 004b82e0     UiUpgradeAttrib.obj
- 0003:0000b31c       ??_C@_0BO@LOCE@?$FLCLIENT?$FN?5OnUpgrade?$CI?$CJ?5finished?$AA@ 004b831c     UiUpgradeAttrib.obj
- 0003:0000b33c       ??_C@_0BC@MLEL@PerformUpgrade?$CD?$CFd?$AA@ 004b833c     UiUpgradeAttrib.obj
- 0003:0000b350       ??_C@_0CK@EDEI@?$FLUPGRADE?9ATTRIB?$FN?5Total?5success?5r@ 004b8350     UiUpgradeAttrib.obj
- 0003:0000b37c       ??_C@_0DP@DNNB@?$FLUPGRADE?9ATTRIB?$FN?5Lucky?5stone?5ite@ 004b837c     UiUpgradeAttrib.obj
- 0003:0000b3bc       ??_C@_0DI@NCOG@?$FLUPGRADE?9ATTRIB?$FN?5Mineral?5slot?5?$CFd@ 004b83bc     UiUpgradeAttrib.obj
- 0003:0000b3f4       ??_C@_0EE@PIEF@?$FLUPGRADE?9ATTRIB?$FN?5Mineral?5slot?5?$CFd@ 004b83f4     UiUpgradeAttrib.obj
- 0003:0000b438       ??_C@_0CN@NIFG@?$FLUPGRADE?9ATTRIB?$FN?5Calculating?5suc@ 004b8438     UiUpgradeAttrib.obj
- 0003:0000b468       ??_C@_0O@GOGH@T?C?$LL?5l?C?$JG?3?5?$CFd?$CF?$CF?$AA@ 004b8468     UiUpgradeAttrib.obj
- 0003:0000b478       ??_C@_0M@GHLF@T?C?$LL?5l?C?$JG?3?50?$CF?$AA@ 004b8478     UiUpgradeAttrib.obj
- 0003:0000b484       ??_C@_0EE@PAMA@?$FLUPGRADE?9ATTRIB?$FN?5Skipping?5succes@ 004b8484     UiUpgradeAttrib.obj
- 0003:0000b4c8       ??_C@_0CI@HIAM@?$FLUPGRADE?9ATTRIB?$FN?5No?5equipment?5in@ 004b84c8     UiUpgradeAttrib.obj
- 0003:0000b4f0       ??_C@_0EI@JFEA@?$FLUPGRADE?9ATTRIB?$FN?5Skipping?5LoadEq@ 004b84f0     UiUpgradeAttrib.obj
- 0003:0000b538       ??_C@_0DC@MEKD@?$FLUPGRADE?9ATTRIB?$FN?5LoadEquipmentAt@ 004b8538     UiUpgradeAttrib.obj
- 0003:0000b56c       ??_C@_0CF@EOKC@Ch?C?$KEn?5thu?C?$KJc?5t?C?$JNnh?5mu?C?$KIn?5n?B?$KJng?5c@ 004b856c     UiUpgradeAttrib.obj
- 0003:0000b594       ??_C@_0M@ODEK@?$CFd?1?$CFd?5?$CIMAX?$CJ?$AA@ 004b8594     UiUpgradeAttrib.obj
- 0003:0000b5a0       ??_C@_0BB@ELDD@?$CFd?5?9?$DO?5?$CFd?5?$CI?$CL10?$CF?$CF?$CJ?$AA@ 004b85a0     UiUpgradeAttrib.obj
- 0003:0000b5b4       ??_C@_0M@IPDK@?$CFd?1?$CFd?5?9?$DO?5?$CFd?$AA@ 004b85b4     UiUpgradeAttrib.obj
- 0003:0000b5c0       ??_C@_0CO@CKD@Trang?5b?C?$JO?5n?B?$LFy?5kh?B?$KLng?5c?C?$KD?5thu?C?$KJc@ 004b85c0     UiUpgradeAttrib.obj
- 0003:0000b5f0       ??_C@_0DH@NMMI@?$FLUPGRADE?9ATTRIB?$FN?5OnSelectAttribu@ 004b85f0     UiUpgradeAttrib.obj
- 0003:0000b628       ??_C@_0BF@DFOI@?B?$KH?B?$LH?5ch?C?$KEn?3?5?$CFd?5?9?$DO?5?$CFd?$AA@ 004b8628     UiUpgradeAttrib.obj
- 0003:0000b640       ??_C@_0EP@PAH@?$FLUPGRADE?9ATTRIB?$FN?5OnSelectAttribu@ 004b8640     UiUpgradeAttrib.obj
- 0003:0000b690       ??_C@_0FA@GCOP@?$FLUPGRADE?9ATTRIB?$FN?5OnSelectAttribu@ 004b8690     UiUpgradeAttrib.obj
- 0003:0000b6e0       ??_C@_0DB@NFEG@?B?$KH?C?$IGt?5trang?5b?C?$JO?5xanh?5v?B?$LFo?5?B?$KO?C?$JD?5x@ 004b86e0     UiUpgradeAttrib.obj
- 0003:0000b714       ??_C@_0CN@OANK@?$FLUPGRADE?9ATTRIB?$FN?5ClearAttributeL@ 004b8714     UiUpgradeAttrib.obj
- 0003:0000b750       ___defaultmatherr          004b8750     MSVCRT:merr.obj
- 0003:0000b758       ?errors@@3PAUregErr@@A     004b8758     FilterText_StaticLib:Regexp.obj
- 0003:0000b820       ??_C@_0O@NOFB@Unknown?5error?$AA@ 004b8820     FilterText_StaticLib:Regexp.obj
- 0003:0000b830       ??_C@_0M@KCHH@NULL?5regexp?$AA@ 004b8830     FilterText_StaticLib:Regexp.obj
- 0003:0000b83c       ??_C@_0BK@BPJE@internal?5error?3?5strcspn?50?$AA@ 004b883c     FilterText_StaticLib:Regexp.obj
- 0003:0000b858       ??_C@_0L@FIJ@trailing?5?2?$AA@ 004b8858     FilterText_StaticLib:Regexp.obj
- 0003:0000b864       ??_C@_0BE@LCBL@?$DP?$CL?$CK?5follows?5nothing?$AA@ 004b8864     FilterText_StaticLib:Regexp.obj
- 0003:0000b878       ??_C@_0CA@PHPB@internal?5error?3?5?20?$HM?$CJ?5unexpected?$AA@ 004b8878     FilterText_StaticLib:Regexp.obj
- 0003:0000b898       ??_C@_0N@ODC@unmatched?5?$FL?$FN?$AA@ 004b8898     FilterText_StaticLib:Regexp.obj
- 0003:0000b8a8       ??_C@_0BB@BPGK@invalid?5?$FL?$FN?5range?$AA@ 004b88a8     FilterText_StaticLib:Regexp.obj
- 0003:0000b8bc       ??_C@_0L@OKEN@nested?5?$CK?$DP?$CL?$AA@ 004b88bc     FilterText_StaticLib:Regexp.obj
- 0003:0000b8c8       ??_C@_0BK@OENN@?$CK?$CL?5operand?5could?5be?5empty?$AA@ 004b88c8     FilterText_StaticLib:Regexp.obj
- 0003:0000b8e4       ??_C@_0BM@OKCI@internal?5error?3?5junk?5on?5end?$AA@ 004b88e4     FilterText_StaticLib:Regexp.obj
- 0003:0000b900       ??_C@_0N@NEJP@unmatched?5?$CI?$CJ?$AA@ 004b8900     FilterText_StaticLib:Regexp.obj
- 0003:0000b910       ??_C@_0BA@HCN@unterminated?5?$CI?$CJ?$AA@ 004b8910     FilterText_StaticLib:Regexp.obj
- 0003:0000b920       ??_C@_0M@JCAE@too?5many?5?$CI?$CJ?$AA@ 004b8920     FilterText_StaticLib:Regexp.obj
- 0003:0000b92c       ??_C@_0P@FLPN@regexp?5too?5big?$AA@ 004b892c     FilterText_StaticLib:Regexp.obj
- 0003:0000b93c       ??_C@_0BJ@EOEN@NULL?5argument?5to?5regcomp?$AA@ 004b893c     FilterText_StaticLib:Regexp.obj
- 0003:0000b958       ??_C@_0BF@KGCJ@damaged?5match?5string?$AA@ 004b8958     FilterText_StaticLib:Regexp.obj
- 0003:0000b970       ??_C@_0BN@JMBG@damaged?5regexp?5fed?5to?5regsub?$AA@ 004b8970     FilterText_StaticLib:Regexp.obj
- 0003:0000b990       ??_C@_0BE@NJJK@NULL?5parm?5to?5regsub?$AA@ 004b8990     FilterText_StaticLib:Regexp.obj
- 0003:0000b9a4       ??_C@_0BB@JFCK@corrupted?5opcode?$AA@ 004b89a4     FilterText_StaticLib:Regexp.obj
- 0003:0000b9b8       ??_C@_0CG@LCPC@internal?5error?3?5bad?5call?5of?5regr@ 004b89b8     FilterText_StaticLib:Regexp.obj
- 0003:0000b9e0       ??_C@_0BD@HEBG@corrupted?5pointers?$AA@ 004b89e0     FilterText_StaticLib:Regexp.obj
- 0003:0000b9f4       ??_C@_0BC@KCEE@regexp?5corruption?$AA@ 004b89f4     FilterText_StaticLib:Regexp.obj
- 0003:0000ba08       ??_C@_0BB@ONA@corrupted?5regexp?$AA@ 004b8a08     FilterText_StaticLib:Regexp.obj
- 0003:0000ba1c       ??_C@_0BJ@ONDH@NULL?5argument?5to?5regexec?$AA@ 004b8a1c     FilterText_StaticLib:Regexp.obj
- 0003:0000c854       ?rgbColor@@3PAHA           004b9854     LightLoop.obj
- 0003:0000c860       ?g_MouseOver@@3VKMouseOver@@A 004b9860     MouseHover.obj
- 0003:0000e304       ??_C@_00A@?$AA@            004bb304     MouseHover.obj
- 0003:0000e308       ?m_pMenu@KPopupMenu@@0PAUKPopupMenuData@@A 004bb308     PopupMenu.obj
- 0003:0000e30c       ?m_pCaller@KPopupMenu@@0PAVKWndWindow@@A 004bb30c     PopupMenu.obj
- 0003:0000e310       ?m_uCallerParam@KPopupMenu@@0IA 004bb310     PopupMenu.obj
- 0003:0000e314       ?m_nImgWidth@KPopupMenu@@0FA 004bb314     PopupMenu.obj
- 0003:0000e316       ?m_nImgHeight@KPopupMenu@@0FA 004bb316     PopupMenu.obj
- 0003:0000e318       ?m_nIndent@KPopupMenu@@0FA 004bb318     PopupMenu.obj
- 0003:0000e31a       ?m_nFrame@KPopupMenu@@0FA  004bb31a     PopupMenu.obj
- 0003:0000e31c       ?m_nMenuHeight@KPopupMenu@@0HA 004bb31c     PopupMenu.obj
- 0003:0000e320       ?m_szImage@KPopupMenu@@0PADA 004bb320     PopupMenu.obj
- 0003:0000e3a0       ?g_SpaceOver@@3VKSpaceOver@@A 004bb3a0     SpaceOver.obj
- 0003:0000ee74       ?l_Time@@3IA               004bbe74     UiImage.obj
- 0003:0000ee78       ?m_pPressedDownBtn@KWndButton@@0PAV1@A 004bbe78     WndButton.obj
- 0003:0000ee7c       ?ms_nDisableBtnTip@KWndButton@@0HA 004bbe7c     WndButton.obj
- 0003:0000ee80       ?m_pSelf@KWndChessPanel@@0PAV1@A 004bbe80     WndChessPanel.obj
- 0003:0000eff8       ?WND_SHOW_MOUSE_OVER_WND@@3HA 004bbff8     Wnds.obj
- 0003:0000f00c       ?WND_SHOW_DEBUG_FRAME_TEXT@@3HA 004bc00c     WndWindow.obj
- 0003:0000f010       ?m_pSelf@KUiConnectInfo@@0PAV1@A 004bc010     UiConnectInfo.obj
- 0003:0000f014       ?m_pSelf@KUiLogin@@0PAV1@A 004bc014     UiLogin.obj
- 0003:0000f018       ?m_pSelf@KUiLoginBackGround@@0PAV1@A 004bc018     UiLoginBg.obj
- 0003:0000f01c       ?m_pSelf@KUiSelServer@@0PAV1@A 004bc01c     UiSelServer.obj
- 0003:0000f020       ?m_pSelf@KUiChooseFace@@0PAV1@A 004bc020     UiChooseFace.obj
- 0003:0000f024       ?m_pSelf@KUiFaceSelector@@0PAV1@A 004bc024     UiFaceSelector.obj
- 0003:0000f028       ?ms_pFaceList@KUiFaceSelector@@0PAUKFaceItem@1@A 004bc028     UiFaceSelector.obj
- 0003:0000f02c       ?ms_nNumFaces@KUiFaceSelector@@0HA 004bc02c     UiFaceSelector.obj
- 0003:0000f030       ?m_pSelf@KUiPlayerBar@@0PAV1@A 004bc030     UiPlayerBar.obj
- 0003:0000f034       ?s_CanFocusColor@@3IA      004bc034     UiPlayerBar.obj
- 0003:0000f038       ?s_NotCanFocusColor@@3IA   004bc038     UiPlayerBar.obj
- 0003:0000f03c       ?_Nil@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UShortFuncInfo@@@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UShortFuncInfo@@Ustring_iless@@V?$allocator@UShortFuncInfo@@@2@@2@Ustring_iless@@V?$allocator@UShortFuncInfo@@@2@@std@@1PAU_Node@12@A 004bc03c     UiPlayerBar.obj
- 0003:0000f040       ?m_pSelf@KUiStatus@@0PAV1@A 004bc040     UiStatus.obj
- 0003:0000f044       ?m_pSelf@KUiOptions@@0PAV1@A 004bc044     UiOptions.obj
- 0003:0000f048       ?m_pSelf@KUiInit@@0PAV1@A  004bc048     UiInit.obj
- 0003:0000f04c       ?m_pSelf@KUiTeamBuild@@0PAV1@A 004bc04c     UiTeamBuild.obj
- 0003:0000f050       ?m_pSelf@KUiChaPW@@0PAV1@A 004bc050     UiChaPW.obj
- 0003:0000f054       ?m_pSelf@KUiCreatPW@@0PAV1@A 004bc054     UiCreatPW.obj
- 0003:0000f058       ?m_pSelf@KUiExpandItem@@0PAV1@A 004bc058     UiExpandItem.obj
- 0003:0000f05c       ?m_pSelf@KUiGetMoney@@0PAV1@A 004bc05c     UiGetMoney.obj
- 0003:0000f060       ?m_pSelf@KUiGiveBox@@0PAV1@A 004bc060     UiGiveBox.obj
- 0003:0000f064       ?m_pSelf@KUiItem@@0PAV1@A  004bc064     UiItem.obj
- 0003:0000f06c       ?m_pSelf@KUiKeyBoard@@0PAV1@A 004bc06c     UiKeyBoard.obj
- 0003:0000f070       ?m_pSelf@KUiLoginPW@@0PAV1@A 004bc070     UiLoginPW.obj
- 0003:0000f074       ?m_pSelf@KUiReWard@@0PAV1@A 004bc074     UiReWard.obj
- 0003:0000f078       ?m_pSelf@KUiSkills@@0PAV1@A 004bc078     UiSkills.obj
- 0003:0000f080       ?ms_ShortcutSkills@KUiSkillTree@@0PAUKUiSkillData@@A 004bc080     UiSkillTree.obj
- 0003:0000f110       ?m_pSelf@KUiSkillTree@@0PAV1@A 004bc110     UiSkillTree.obj
- 0003:0000f114       ?m_pSelf@KUiStoreBox@@0PAV1@A 004bc114     UiStoreBox.obj
- 0003:0000f118       ?m_pSelf@KUiTimeBox@@0PAV1@A 004bc118     UiTimeBox.obj
- 0003:0000f11c       ?m_pSelf@KUiESCDlg@@0PAV1@A 004bc11c     UiESCDlg.obj
- 0003:0000f120       ?m_pSelf@KUiGetNumber@@0PAV1@A 004bc120     UiGetNumber.obj
- 0003:0000f124       ?m_pSelf@KUiGetString@@0PAV1@A 004bc124     UiGetString.obj
- 0003:0000f128       ?m_pSelf@KUiMsgSel@@0PAV1@A 004bc128     UiMsgSel.obj
- 0003:0000f12c       ?m_pSelf@KUiMsgSel2@@0PAV1@A 004bc12c     UiMsgSel2.obj
- 0003:0000f130       ?m_pSelf@KUiParadeItem@@0PAV1@A 004bc130     UiParadeItem.obj
- 0003:0000f134       ?m_pSelf@KUiSelPlayerNearby@@0PAV1@A 004bc134     UiSelPlayerNearby.obj
- 0003:0000f138       ?m_pSelf@KUiNewPlayer@@0PAV1@A 004bc138     UiNewPlayer.obj
- 0003:0000f13c       ?m_pSelf@KUiSelNativePlace@@0PAV1@A 004bc13c     UiSelNativePlace.obj
- 0003:0000f140       ?m_pSelf@KUiSelPlayer@@0PAV1@A 004bc140     UiSelPlayer.obj
- 0003:0000f148       ?ms_SNotify@KUiChatCentre@@0UServerNotify@@A 004bc148     UiChatCentre.obj
- 0003:0000f150       ?m_pSelf@KUiChatCentre@@0PAV1@A 004bc150     UiChatCentre.obj
- 0003:0000f158       ?_Nil@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@2@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@1PAU_Node@12@A 004bc158     UiChatCentre.obj
- 0003:0000f15c       ?_Nilrefs@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@2@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@1IA 004bc15c     UiChatCentre.obj
- 0003:0000f160       ?_Nil@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@E@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@EU?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@E@2@@2@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@E@2@@std@@1PAU_Node@12@A 004bc160     UiChatCentre.obj
- 0003:0000f164       ?_Nilrefs@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@E@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@EU?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@E@2@@2@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@E@2@@std@@1IA 004bc164     UiChatCentre.obj
- 0003:0000f168       ?g_UiChatPhrase@@3VKUiChatPhrase@@A 004bc168     UiChatPhrase.obj
- 0003:0000f428       ?m_pSelf@KUiChatStatus@@0PAV1@A 004bc428     UiChatStatus.obj
- 0003:0000f430       ?g_UiInformation@@3VKUiInformation@@A 004bc430     UiInformation.obj
- 0003:0000f9d0       ?g_UiInformation2@@3VKUiInformation2@@A 004bc9d0     UiInformation2.obj
- 0003:0000fc58       ?g_UiInformation3@@3VKUiInformation3@@A 004bcc58     UiInformation3.obj
- 0003:00010378       ?m_pSelf@KUiTeamManage@@0PAV1@A 004bd378     UiTeamManage.obj
- 0003:0001037c       ?m_pSelf@KUiTeamManageBar@@0PAV1@A 004bd37c     UiTeamManage.obj
- 0003:00010380       ?m_pSelf@KUiTeamStatus@@0PAV1@A 004bd380     UiTeamStatus.obj
- 0003:00010384       ?m_pSelf@KUiChatItemInfo@@0PAV1@A 004bd384     UiChatItemInfo.obj
- 0003:00010388       ?m_pSelf@KUiHeaderControlBar@@0PAV1@A 004bd388     UiHeaderControlBar.obj
- 0003:00010394       ?m_pSelf@KUiMsgCentrePad@@0PAV1@A 004bd394     UiMsgCentrePad.obj
- 0003:00010398       ?ms_DefaultWidth@KUiMsgCentrePad@@0HA 004bd398     UiMsgCentrePad.obj
- 0003:0001039c       ?ms_DefaultHeight@KUiMsgCentrePad@@0HA 004bd39c     UiMsgCentrePad.obj
- 0003:000103a0       ?m_pSelf@KUiMakeAdv@@0PAV1@A 004bd3a0     UiMakeAdv.obj
- 0003:000103a4       ?m_pSelf@KUiMarket@@0PAV1@A 004bd3a4     UiMarket.obj
- 0003:000103a8       ?m_pSelf@KUiMarkPrice@@0PAV1@A 004bd3a8     UiMarkPrice.obj
- 0003:000103ac       ?m_pSelf@KUiPlayerShop@@0PAV1@A 004bd3ac     UiPlayerShop.obj
- 0003:000103b0       ?m_pSelf@KUiShop@@0PAV1@A  004bd3b0     UiShop.obj
- 0003:000103b4       ?m_pSelf@KUiShoppingCart@@0PAV1@A 004bd3b4     UiShoppingCart.obj
- 0003:000103b8       ?m_pSelf@KUiTrade@@0PAV1@A 004bd3b8     UiTrade.obj
- 0003:000103bc       ?m_pSelf@KUiTradeConfirm@@0PAV1@A 004bd3bc     UiTradeConfirmWnd.obj
- 0003:000103c0       ?g_WndGameSpace@@3VKUiGameSpace@@A 004bd3c0     UiGame.obj
- 0003:0001043c       ?m_pSelf@KUiNotification@@0PAV1@A 004bd43c     UiNotification.obj
- 0003:00010440       ?m_pSelf@KUiSysMsgCentre@@0PAV1@A 004bd440     UiSysMsgCentre.obj
- 0003:00010444       ?m_pSelf@KUiCaveMap@@0PAV1@A 004bd444     UiCaveMap.obj
- 0003:00010448       ?m_pSelf@KUiFindPos@@0PAV1@A 004bd448     UiFindPos.obj
- 0003:0001044c       ?ms_pSelf@KUiMiniMap@@0PAV1@A 004bd44c     UiMiniMap.obj
- 0003:00010454       ?m_pSelf@KUiWorldMap@@0PAV1@A 004bd454     UiWorldMap.obj
- 0003:00010458       ?m_MenuData@KUiSelColor@@0PAEA 004bd458     UiSelColor.obj
- 0003:00010818       ?m_pSelf@KUiNewPlayerStartMsg@@0PAV1@A 004bd818     UiNewPlayerStartMsg.obj
- 0003:0001081c       ?m_pSelf@KUiPlayVideo@@0PAV1@A 004bd81c     UiPlayVideo.obj
- 0003:00010820       ?m_pSelf@KUiHelper@@0PAV1@A 004bd820     UiHelper.obj
- 0003:00010824       ?ms_nImgFrame@KUiHelper@@0HA 004bd824     UiHelper.obj
- 0003:00010828       ?m_pSelf@KUiHelper2@@0PAV1@A 004bd828     UiHelper2.obj
- 0003:0001082c       ?m_pSelf@KUiHelperMission@@0PAV1@A 004bd82c     UiHelperMission.obj
- 0003:00010830       ?m_pSelf@KReconnectWnd@@0PAV1@A 004bd830     UiReconnect.obj
- 0003:00010834       ?m_nChangeWorldReconnectTimes@@3HA 004bd834     UiReconnect.obj
- 0003:00010838       ?m_uLastReconnectTick@@3IA 004bd838     UiReconnect.obj
- 0003:0001083c       ?m_pSelf@KReviveWnd@@0PAV1@A 004bd83c     UiRevive.obj
- 0003:00010840       ?ms_pPersonalRecord@KTaskDataFile@@0PAUKPersonalRecord@1@A 004bd840     UiTaskDataFile.obj
- 0003:00010844       ?ms_pSystemRecordList@KTaskDataFile@@0PAUKTaskSystemRecordNode@1@A 004bd844     UiTaskDataFile.obj
- 0003:00010848       ?ms_nSystemRecordCount@KTaskDataFile@@0HA 004bd848     UiTaskDataFile.obj
- 0003:0001084c       ?m_pSelf@KUiTaskNote@@0PAV1@A 004bd84c     UiTaskNote.obj
- 0003:00010850       ?m_pSelf@KUiNewsMessage@@0PAV1@A 004bd850     UiNewsMessage.obj
- 0003:00010854       ?ms_bEnableIdleMsg@KUiNewsMessage@@0HA 004bd854     UiNewsMessage.obj
- 0003:0001085c       ?m_pSelf@KUiNewsMessageEx@@0PAV1@A 004bd85c     UiNewsMessageEx.obj
- 0003:00010860       ?ms_bEnableIdleMsg@KUiNewsMessageEx@@0HA 004bd860     UiNewsMessageEx.obj
- 0003:00010868       ?m_IndexIDIni@KUiStrengthRank@@0VKIniFile@@A 004bd868     UiStrengthRank.obj
- 0003:000108c8       ?m_RankData@KUiStrengthRank@@0V?$KLinkStruct@UKRankNode@@@@A 004bd8c8     UiStrengthRank.obj
- 0003:000108e8       ?m_IndexData@KUiStrengthRank@@0V?$KLinkStruct@UKRankIndexNode@@@@A 004bd8e8     UiStrengthRank.obj
- 0003:00010904       ?m_pSelf@KUiStrengthRank@@0PAV1@A 004bd904     UiStrengthRank.obj
- 0003:00010908       ?m_bIsIndexDataChange@KUiStrengthRank@@0HA 004bd908     UiStrengthRank.obj
- 0003:0001090c       ?m_bIsRankDataChange@KUiStrengthRank@@0HA 004bd90c     UiStrengthRank.obj
- 0003:00010910       ?ms_pSelf@KUiPopupPasswordQuery@@0PAV1@A 004bd910     UiPopupPasswordQuery.obj
- 0003:00010914       ?ms_pSelf@KUiTongAssignBox@@0PAV1@A 004bd914     UiTongAssignBox.obj
- 0003:00010918       ?m_pSelf@KUiTongChangeTitle@@0PAV1@A 004bd918     UiTongChangeTitle.obj
- 0003:0001091c       ?ms_pSelf@KUiTongCreateSheet@@0PAV1@A 004bd91c     UiTongCreateSheet.obj
- 0003:00010920       ?ms_pSelf@KUiTongInformation@@0PAV1@A 004bd920     UiTongInformation.obj
- 0003:00010928       ?m_TongData@KUiTongManager@@0UKTongInfo@@A 004bd928     UiTongManager.obj
- 0003:0001095c       ?ms_pSelf@KUiTongManager@@0PAV1@A 004bd95c     UiTongManager.obj
- 0003:00010960       ?m_nElderDataIndex@KUiTongManager@@0HA 004bd960     UiTongManager.obj
- 0003:00010964       ?m_nMemberDataIndex@KUiTongManager@@0HA 004bd964     UiTongManager.obj
- 0003:00010968       ?m_nCaptainDataIndex@KUiTongManager@@0HA 004bd968     UiTongManager.obj
- 0003:0001096c       ?m_pSelf@KUiTongSetTax@@0PAV1@A 004bd96c     UiTongSetTax .obj
- 0003:00010970       ?m_pNearbyPlayersList@@3PAUKUiPlayerItem@@A 004bd970     UiAutoPlay.obj
- 0003:00010974       ?m_pSelf@KUiRecovery@@0PAV1@A 004bd974     UiAutoPlay.obj
- 0003:00010978       ?m_pSelf@KUiPick@@0PAV1@A  004bd978     UiAutoPlay.obj
- 0003:0001097c       ?m_pSelf@KUiFight@@0PAV1@A 004bd97c     UiAutoPlay.obj
- 0003:00010980       ?m_pSelf@KUiOther@@0PAV1@A 004bd980     UiAutoPlay.obj
- 0003:00010984       ?m_pSelf@KUiMovePlayer@@0PAV1@A 004bd984     UiAutoPlay.obj
- 0003:00010988       ?m_pSelf@KUiAutoPlay@@0PAV1@A 004bd988     UiAutoPlay.obj
- 0003:0001098c       ?m_pSelf@UiMiniBuff@@0PAV1@A 004bd98c     UiMiniBuff.obj
- 0003:00010990       ?ms_pSelf@KUiTopTKNew@@0PAV1@A 004bd990     UiTopTKNew.obj
- 0003:00010994       ?m_pSelf@KUiTrembleItem@@0PAV1@A 004bd994     UiTrembleItem.obj
- 0003:00010998       ?gTrayMode@@3VTrayMode@@A  004bd998     TrayMode.obj
- 0003:0001099c       ?m_pSelf@TrayMode@@0PAV1@A 004bd99c     TrayMode.obj
- 0003:000109a0       ?bFPS@@3HA                 004bd9a0     TrayMode.obj
- 0003:00010b88       ?s_LNotify@@3UBlacklistNotify@@A 004bdb88     GameSpaceChangedNotify.obj
- 0003:00010b90       ?g_BlackListUserNames@@3V?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@A 004bdb90     GameSpaceChangedNotify.obj
- 0003:00010c10       ?ms_FunsMap@KShortcutKeyCentre@@2V?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UShortFuncInfo@@Ustring_iless@@V?$allocator@UShortFuncInfo@@@2@@std@@A 004bdc10     ShortcutKey.obj
- 0003:00010c28       ?ms_Script@KShortcutKeyCentre@@0VKLuaScript@@A 004bdc28     ShortcutKey.obj
- 0003:00010c9c       ?ms_pCommands@KShortcutKeyCentre@@0PAUCOMMAND_SETTING@@A 004bdc9c     ShortcutKey.obj
- 0003:00010ca0       ?ms_nCommands@KShortcutKeyCentre@@0HA 004bdca0     ShortcutKey.obj
- 0003:00010ca4       ?ms_Enable@KShortcutKeyCentre@@0_NA 004bdca4     ShortcutKey.obj
- 0003:00010ca5       ?ms_bMouse@KShortcutKeyCentre@@2_NA 004bdca5     ShortcutKey.obj
- 0003:00010ca8       ?ms_MouseX@KShortcutKeyCentre@@2HA 004bdca8     ShortcutKey.obj
- 0003:00010cac       ?ms_MouseY@KShortcutKeyCentre@@2HA 004bdcac     ShortcutKey.obj
- 0003:00010cb0       ?_Nilrefs@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UShortFuncInfo@@@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UShortFuncInfo@@Ustring_iless@@V?$allocator@UShortFuncInfo@@@2@@2@Ustring_iless@@V?$allocator@UShortFuncInfo@@@2@@std@@1IA 004bdcb0     ShortcutKey.obj
- 0003:00010cb4       ?_Nilrefs@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@KK@2@@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@KK@2@Ustring_iless@@V?$allocator@U?$pair@KK@std@@@2@@2@Ustring_iless@@V?$allocator@U?$pair@KK@std@@@2@@std@@1IA 004bdcb4     ShortcutKey.obj
- 0003:00010cb8       ?_Nil@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@KK@2@@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@KK@2@Ustring_iless@@V?$allocator@U?$pair@KK@std@@@2@@2@Ustring_iless@@V?$allocator@U?$pair@KK@std@@@2@@std@@1PAU_Node@12@A 004bdcb8     ShortcutKey.obj
- 0003:00010cc0       ?s_ANotify@@3UAddinNotify@@A 004bdcc0     UiBase.obj
- 0003:00010cc8       ?g_UiBase@@3VKUiBase@@A    004bdcc8     UiBase.obj
- 0003:00010d54       ?g_nWindowNTFlag@@3HA      004bdd54     UiBase.obj
- 0003:00010d58       ?_Nilrefs@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAX@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAXU?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@PAX@2@@2@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@PAX@2@@std@@1IA 004bdd58     UiBase.obj
- 0003:00010d5c       ?_Nil@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAX@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAXU?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@PAX@2@@2@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@PAX@2@@std@@1PAU_Node@12@A 004bdd5c     UiBase.obj
- 0003:00010d84       ?g_bDisconnect@@3HA        004bdd84     UiShell.obj
- 0003:00010d98       ?g_ClientCallback@@3UKClientCallback@@A 004bdd98     S3Client.obj
- 0003:00010da0       ?g_ChatFilter@@3VCChatFilter@@A 004bdda0     S3Client.obj
- 0003:00010da8       ?g_libFilterText@@3VCFilterTextLib@@A 004bdda8     S3Client.obj
- 0003:00010db0       ?g_PakList@@3VKPakList@@A  004bddb0     S3Client.obj
- 0003:00010e54       ?hInst@@3PAUHINSTANCE__@@A 004bde54     S3Client.obj
- 0003:00010e58       ?MyApp@@3VKMyApp@@A        004bde58     S3Client.obj
- 0003:00010f88       ?g_pRepresentShell@@3PAUiRepresentShell@@A 004bdf88     S3Client.obj
- 0003:00010f8c       ?g_pIInlinePicSink@@3PAUIInlinePicEngineSink@@A 004bdf8c     S3Client.obj
- 0003:00010f90       ?g_pCoreShell@@3PAUiCoreShell@@A 004bdf90     S3Client.obj
- 0003:00010f94       ?g_pMusic@@3PAVKMusic@@A   004bdf94     S3Client.obj
- 0003:00010f9c       ?g_bRepresent3@@3HA        004bdf9c     S3Client.obj
- 0003:00010fa8       ?g_NetConnectAgent@@3VKNetConnectAgent@@A 004bdfa8     NetConnectAgent.obj
- 0003:000113d0       ?g_LoginLogic@@3VKLogin@@A 004be3d0     Login.obj
- 0003:00011524       ?m_pSelf@KUiUpgradeAttrib@@0PAV1@A 004be524     UiUpgradeAttrib.obj
- 0003:00011528       __dowildcard               004be528     MSVCRT:wildcard.obj
- 0003:0001152c       __newmode                  004be52c     MSVCRT:_newmode.obj
- 0003:00011530       __commode                  004be530     MSVCRT:xncommod.obj
- 0003:00011534       __fmode                    004be534     MSVCRT:xtxtmode.obj
- 0003:00011538       __adjust_fdiv              004be538     <common>
- 0003:0001153c       ___onexitend               004be53c     <common>
- 0003:00011540       ___onexitbegin             004be540     <common>
+ 0003:0000aae4       ??_C@_0CE@KKMD@?$KH?Ft?5trang?5b?$NO?5v?$LFo?5?$KO?S?5xem?5thu?ic?5t?$NN@ 004b7ae4     UiUpgradeAttrib.obj
+ 0003:0000ab08       ??_C@_09EGNG@TextGuide?$AA@ 004b7b08     UiUpgradeAttrib.obj
+ 0003:0000ab14       ??_C@_0O@COOH@MaterialLabel?$AA@ 004b7b14     UiUpgradeAttrib.obj
+ 0003:0000ab24       ??_C@_0P@CFHP@EquipmentLabel?$AA@ 004b7b24     UiUpgradeAttrib.obj
+ 0003:0000ab34       ??_C@_07GKJH@T?$PL?5L?V?3?5?$AA@ 004b7b34     UiUpgradeAttrib.obj
+ 0003:0000ab3c       ??_C@_0M@EBGG@TextPercent?$AA@ 004b7b3c     UiUpgradeAttrib.obj
+ 0003:0000ab48       ??_C@_0L@MOGA@UpgradeBtn?$AA@ 004b7b48     UiUpgradeAttrib.obj
+ 0003:0000ab54       ??_C@_0CK@FAED@?$FLERROR?$FN?5Failed?5to?5load?5UI?5config@ 004b7b54     UiUpgradeAttrib.obj
+ 0003:0000ab80       ??_C@_0BE@IPIO@UiUpgradeAttrib?4ini?$AA@ 004b7b80     UiUpgradeAttrib.obj
+ 0003:0000ab94       ??_C@_0BL@HAAG@?$FLCLIENT?$FN?5Validation?5failed?$AA@ 004b7b94     UiUpgradeAttrib.obj
+ 0003:0000abb0       ??_C@_0CF@OLIG@?$FLCLIENT?$FN?5Attribute?5button?5?$CFd?5cli@ 004b7bb0     UiUpgradeAttrib.obj
+ 0003:0000abd8       ??_C@_0DI@NJOC@?$FLCLIENT?$FN?5Validation?5passed?0?5show@ 004b7bd8     UiUpgradeAttrib.obj
+ 0003:0000ac10       ??_C@_0CA@EFHD@?$FLCLIENT?$FN?5Upgrade?5button?5clicked?$AA@ 004b7c10     UiUpgradeAttrib.obj
+ 0003:0000ac30       ??_C@_0DC@FJF@?$FLUPGRADE?9ATTRIB?$FN?5ESC?5blocked?5?9?5e@ 004b7c30     UiUpgradeAttrib.obj
+ 0003:0000ac64       ??_C@_0DE@LHEK@?$FLUPGRADE?9ATTRIB?$FN?5ESC?5pressed?0?5ca@ 004b7c64     UiUpgradeAttrib.obj
+ 0003:0000ac98       ??_C@_0CJ@JBLJ@B?$LJn?5c?c?5ch?$LOc?5l?$LF?5mu?hn?5n?$KJng?5thu?ic?5t@ 004b7c98     UiUpgradeAttrib.obj
+ 0003:0000acc4       ??_C@_06NKEL@H?qy?5b?a?$AA@ 004b7cc4     UiUpgradeAttrib.obj
+ 0003:0000accc       ??_C@_0DD@FKPC@?$FLUPGRADE?9ATTRIB?$FN?5Enter?5pressed?0?5@ 004b7ccc     UiUpgradeAttrib.obj
+ 0003:0000ad00       ??_C@_0DP@KMFA@?$FLUPGRADE?9ATTRIB?$FN?5WM_KEYDOWN?5rece@ 004b7d00     UiUpgradeAttrib.obj
+ 0003:0000ad40       ??_C@_0BG@JGPK@Ch?$KNa?5c?c?5trang?5b?$NO?5n?$LFo?$CB?$AA@ 004b7d40     UiUpgradeAttrib.obj
+ 0003:0000ad58       ??_C@_0CH@ODHF@?$FLCLIENT?9EFFECT?$FN?5StartEffect?$CI?$CJ?5fi@ 004b7d58     UiUpgradeAttrib.obj
+ 0003:0000ad80       ??_C@_0CF@FNPP@?$FLCLIENT?9EFFECT?$FN?5StartEffect?$CI?$CJ?5ca@ 004b7d80     UiUpgradeAttrib.obj
+ 0003:0000ada8       ??_C@_0CN@DALJ@?$FLCLIENT?9EFFECT?$FN?5StopEffect?$CI?$CJ?5abo@ 004b7da8     UiUpgradeAttrib.obj
+ 0003:0000add8       ??_C@_0CF@ECPE@?$FLCLIENT?9EFFECT?$FN?5OnUpgrade?$CI?$CJ?5retu@ 004b7dd8     UiUpgradeAttrib.obj
+ 0003:0000ae00       ??_C@_0CE@JPLP@?$FLCLIENT?9EFFECT?$FN?5Calling?5OnUpgrad@ 004b7e00     UiUpgradeAttrib.obj
+ 0003:0000ae24       ??_C@_0CO@HNDH@?$FLCLIENT?9EFFECT?$FN?5UpdatePickPut?$CItr@ 004b7e24     UiUpgradeAttrib.obj
+ 0003:0000ae54       ??_C@_0CM@JMIC@?$FLCLIENT?9EFFECT?$FN?5Calling?5UpdatePi@ 004b7e54     UiUpgradeAttrib.obj
+ 0003:0000ae80       ??_C@_0DB@LNDD@?$FLCLIENT?9EFFECT?$FN?5m_UpgradeEffect?4@ 004b7e80     UiUpgradeAttrib.obj
+ 0003:0000aeb4       ??_C@_0CP@MAPE@?$FLCLIENT?9EFFECT?$FN?5Calling?5m_Upgrad@ 004b7eb4     UiUpgradeAttrib.obj
+ 0003:0000aee4       ??_C@_0CE@CPLG@?$FLCLIENT?9EFFECT?$FN?5StopEffect?$CI?$CJ?5cal@ 004b7ee4     UiUpgradeAttrib.obj
+ 0003:0000af08       ??_C@_0CA@IEJF@?$FLCLIENT?$FN?5UpdateData?$CI?$CJ?5completed?$AA@ 004b7f08     UiUpgradeAttrib.obj
+ 0003:0000af28       ??_C@_0CK@HKGD@?$FLCLIENT?$FN?5UpdateItem?5completed?5fo@ 004b7f28     UiUpgradeAttrib.obj
+ 0003:0000af54       ??_C@_0CI@IKJA@?$FLCLIENT?$FN?5Calling?5UpdateItem?5for?5@ 004b7f54     UiUpgradeAttrib.obj
+ 0003:0000af7c       ??_C@_0CG@LFHB@?$FLCLIENT?$FN?5Checking?5item?5?$CFd?0?5genre@ 004b7f7c     UiUpgradeAttrib.obj
+ 0003:0000afa4       ??_C@_0EB@FEFL@?$FLCLIENT?$FN?5WARNING?3?5nCount?5?$CI?$CFd?$CJ?5ex@ 004b7fa4     UiUpgradeAttrib.obj
+ 0003:0000afe8       ??_C@_0CK@MPBG@?$FLCLIENT?$FN?5GetGameData?5returned?5nC@ 004b7fe8     UiUpgradeAttrib.obj
+ 0003:0000b014       ??_C@_0CN@EKKI@?$FLCLIENT?$FN?5Calling?5GetGameData?$CIGDI@ 004b8014     UiUpgradeAttrib.obj
+ 0003:0000b044       ??_C@_0DB@MLOG@?$FLCLIENT?$FN?5Creating?5Item?5array?0?5si@ 004b8044     UiUpgradeAttrib.obj
+ 0003:0000b078       ??_C@_0CG@JBKO@?$FLCLIENT?$FN?5ERROR?3?5g_pCoreShell?5is?5@ 004b8078     UiUpgradeAttrib.obj
+ 0003:0000b0a0       ??_C@_0BO@ODAI@?$FLCLIENT?$FN?5UpdateData?$CI?$CJ?5started?$AA@ 004b80a0     UiUpgradeAttrib.obj
+ 0003:0000b0c0       ??_C@_0CH@MFEM@?$FLCLIENT?$FN?5UpdateItem?$CI?$CJ?5?9?5pItem?5is@ 004b80c0     UiUpgradeAttrib.obj
+ 0003:0000b0e8       ??_C@_0CA@KFPD@?$FLCLIENT?$FN?5UpdateItem?$CI?$CJ?5completed?$AA@ 004b80e8     UiUpgradeAttrib.obj
+ 0003:0000b108       ??_C@_0DP@HPAP@?$FLCLIENT?$FN?5Upgrade?5lock?5released?5?9@ 004b8108     UiUpgradeAttrib.obj
+ 0003:0000b148       ??_C@_0CK@FKCE@?$FLCLIENT?$FN?5Calling?5HoldObject?$CICGOG@ 004b8148     UiUpgradeAttrib.obj
+ 0003:0000b174       ??_C@_0DL@EIPN@?$FLCLIENT?$FN?5Upgrade?5lock?5released?5?9@ 004b8174     UiUpgradeAttrib.obj
+ 0003:0000b1b0       ??_C@_0BO@DLJE@?$FLCLIENT?$FN?5HoldObject?5completed?$AA@ 004b81b0     UiUpgradeAttrib.obj
+ 0003:0000b1d0       ??_C@_0DJ@JJEB@?$FLCLIENT?$FN?5Calling?5HoldObject?$CIgenr@ 004b81d0     UiUpgradeAttrib.obj
+ 0003:0000b20c       ??_C@_0CA@OONJ@?$FLCLIENT?$FN?5Match?5found?5at?5slot?5?$CFd?$AA@ 004b820c     UiUpgradeAttrib.obj
+ 0003:0000b22c       ??_C@_0DK@CNGH@?$FLCLIENT?$FN?5Checking?5slot?5?$CFd?0?5CtrlI@ 004b822c     UiUpgradeAttrib.obj
+ 0003:0000b268       ??_C@_0BO@NHGD@?$FLCLIENT?$FN?5pItem?9?$DORegion?4v?5?$DN?5?$CFd?$AA@ 004b8268     UiUpgradeAttrib.obj
+ 0003:0000b288       ??_C@_0DA@LOB@?$FLCLIENT?$FN?5UpdateItem?$CI?$CJ?5called?0?5pI@ 004b8288     UiUpgradeAttrib.obj
+ 0003:0000b2b8       ??_C@_0DM@CIAI@?$FLCLIENT?$FN?5ERROR?3?5GetLixian?$CI?$CJ?5?$DN?5FA@ 004b82b8     UiUpgradeAttrib.obj
+ 0003:0000b2f4       ??_C@_0BO@LOCE@?$FLCLIENT?$FN?5OnUpgrade?$CI?$CJ?5finished?$AA@ 004b82f4     UiUpgradeAttrib.obj
+ 0003:0000b314       ??_C@_0BC@MLEL@PerformUpgrade?$CD?$CFd?$AA@ 004b8314     UiUpgradeAttrib.obj
+ 0003:0000b328       ??_C@_0CK@EDEI@?$FLUPGRADE?9ATTRIB?$FN?5Total?5success?5r@ 004b8328     UiUpgradeAttrib.obj
+ 0003:0000b354       ??_C@_0DP@DNNB@?$FLUPGRADE?9ATTRIB?$FN?5Lucky?5stone?5ite@ 004b8354     UiUpgradeAttrib.obj
+ 0003:0000b394       ??_C@_0DI@NCOG@?$FLUPGRADE?9ATTRIB?$FN?5Mineral?5slot?5?$CFd@ 004b8394     UiUpgradeAttrib.obj
+ 0003:0000b3cc       ??_C@_0EE@PIEF@?$FLUPGRADE?9ATTRIB?$FN?5Mineral?5slot?5?$CFd@ 004b83cc     UiUpgradeAttrib.obj
+ 0003:0000b410       ??_C@_0CN@NIFG@?$FLUPGRADE?9ATTRIB?$FN?5Calculating?5suc@ 004b8410     UiUpgradeAttrib.obj
+ 0003:0000b440       ??_C@_0M@KKKE@T?$PL?5L?V?3?5?$CFd?$CF?$CF?$AA@ 004b8440     UiUpgradeAttrib.obj
+ 0003:0000b44c       ??_C@_09BFGD@T?$PL?5L?V?3?50?$CF?$AA@ 004b844c     UiUpgradeAttrib.obj
+ 0003:0000b458       ??_C@_0EE@PAMA@?$FLUPGRADE?9ATTRIB?$FN?5Skipping?5succes@ 004b8458     UiUpgradeAttrib.obj
+ 0003:0000b49c       ??_C@_0CI@HIAM@?$FLUPGRADE?9ATTRIB?$FN?5No?5equipment?5in@ 004b849c     UiUpgradeAttrib.obj
+ 0003:0000b4c4       ??_C@_0EI@JFEA@?$FLUPGRADE?9ATTRIB?$FN?5Skipping?5LoadEq@ 004b84c4     UiUpgradeAttrib.obj
+ 0003:0000b50c       ??_C@_0DC@MEKD@?$FLUPGRADE?9ATTRIB?$FN?5LoadEquipmentAt@ 004b850c     UiUpgradeAttrib.obj
+ 0003:0000b540       ??_C@_0BP@CNCL@Ch?dn?5thu?ic?5t?$NNnh?5mu?hn?5n?$KJng?5c?Jp?3?$AA@ 004b8540     UiUpgradeAttrib.obj
+ 0003:0000b560       ??_C@_0M@ODEK@?$CFd?1?$CFd?5?$CIMAX?$CJ?$AA@ 004b8560     UiUpgradeAttrib.obj
+ 0003:0000b56c       ??_C@_0BB@ELDD@?$CFd?5?9?$DO?5?$CFd?5?$CI?$CL10?$CF?$CF?$CJ?$AA@ 004b856c     UiUpgradeAttrib.obj
+ 0003:0000b580       ??_C@_0M@IPDK@?$CFd?1?$CFd?5?9?$DO?5?$CFd?$AA@ 004b8580     UiUpgradeAttrib.obj
+ 0003:0000b58c       ??_C@_0CC@BJIL@Trang?5b?$NO?5n?$LFy?5kh?$KLng?5c?c?5thu?ic?5t?$NNnh@ 004b858c     UiUpgradeAttrib.obj
+ 0003:0000b5b0       ??_C@_0DH@NMMI@?$FLUPGRADE?9ATTRIB?$FN?5OnSelectAttribu@ 004b85b0     UiUpgradeAttrib.obj
+ 0003:0000b5e8       ??_C@_0BO@FBGF@B?$LJn?5ch?dn?5thu?ic?5t?$NNnh?3?5?$CFd?5?9?$DO?5?$CFd?$AA@ 004b85e8     UiUpgradeAttrib.obj
+ 0003:0000b608       ??_C@_0EP@PAH@?$FLUPGRADE?9ATTRIB?$FN?5OnSelectAttribu@ 004b8608     UiUpgradeAttrib.obj
+ 0003:0000b658       ??_C@_0FA@GCOP@?$FLUPGRADE?9ATTRIB?$FN?5OnSelectAttribu@ 004b8658     UiUpgradeAttrib.obj
+ 0003:0000b6a8       ??_C@_0CE@KJOP@?$KH?Ft?5trang?5b?$NO?5v?$LFo?5?$KO?S?5xem?5thu?ic?5t?$NN@ 004b86a8     UiUpgradeAttrib.obj
+ 0003:0000b6cc       ??_C@_0CN@OANK@?$FLUPGRADE?9ATTRIB?$FN?5ClearAttributeL@ 004b86cc     UiUpgradeAttrib.obj
+ 0003:0000b700       ___defaultmatherr          004b8700     MSVCRT:merr.obj
+ 0003:0000b708       ?errors@@3PAUregErr@@A     004b8708     FilterText_StaticLib:Regexp.obj
+ 0003:0000b7d0       ??_C@_0O@NOFB@Unknown?5error?$AA@ 004b87d0     FilterText_StaticLib:Regexp.obj
+ 0003:0000b7e0       ??_C@_0M@KCHH@NULL?5regexp?$AA@ 004b87e0     FilterText_StaticLib:Regexp.obj
+ 0003:0000b7ec       ??_C@_0BK@BPJE@internal?5error?3?5strcspn?50?$AA@ 004b87ec     FilterText_StaticLib:Regexp.obj
+ 0003:0000b808       ??_C@_0L@FIJ@trailing?5?2?$AA@ 004b8808     FilterText_StaticLib:Regexp.obj
+ 0003:0000b814       ??_C@_0BE@LCBL@?$DP?$CL?$CK?5follows?5nothing?$AA@ 004b8814     FilterText_StaticLib:Regexp.obj
+ 0003:0000b828       ??_C@_0CA@PHPB@internal?5error?3?5?20?$HM?$CJ?5unexpected?$AA@ 004b8828     FilterText_StaticLib:Regexp.obj
+ 0003:0000b848       ??_C@_0N@ODC@unmatched?5?$FL?$FN?$AA@ 004b8848     FilterText_StaticLib:Regexp.obj
+ 0003:0000b858       ??_C@_0BB@BPGK@invalid?5?$FL?$FN?5range?$AA@ 004b8858     FilterText_StaticLib:Regexp.obj
+ 0003:0000b86c       ??_C@_0L@OKEN@nested?5?$CK?$DP?$CL?$AA@ 004b886c     FilterText_StaticLib:Regexp.obj
+ 0003:0000b878       ??_C@_0BK@OENN@?$CK?$CL?5operand?5could?5be?5empty?$AA@ 004b8878     FilterText_StaticLib:Regexp.obj
+ 0003:0000b894       ??_C@_0BM@OKCI@internal?5error?3?5junk?5on?5end?$AA@ 004b8894     FilterText_StaticLib:Regexp.obj
+ 0003:0000b8b0       ??_C@_0N@NEJP@unmatched?5?$CI?$CJ?$AA@ 004b88b0     FilterText_StaticLib:Regexp.obj
+ 0003:0000b8c0       ??_C@_0BA@HCN@unterminated?5?$CI?$CJ?$AA@ 004b88c0     FilterText_StaticLib:Regexp.obj
+ 0003:0000b8d0       ??_C@_0M@JCAE@too?5many?5?$CI?$CJ?$AA@ 004b88d0     FilterText_StaticLib:Regexp.obj
+ 0003:0000b8dc       ??_C@_0P@FLPN@regexp?5too?5big?$AA@ 004b88dc     FilterText_StaticLib:Regexp.obj
+ 0003:0000b8ec       ??_C@_0BJ@EOEN@NULL?5argument?5to?5regcomp?$AA@ 004b88ec     FilterText_StaticLib:Regexp.obj
+ 0003:0000b908       ??_C@_0BF@KGCJ@damaged?5match?5string?$AA@ 004b8908     FilterText_StaticLib:Regexp.obj
+ 0003:0000b920       ??_C@_0BN@JMBG@damaged?5regexp?5fed?5to?5regsub?$AA@ 004b8920     FilterText_StaticLib:Regexp.obj
+ 0003:0000b940       ??_C@_0BE@NJJK@NULL?5parm?5to?5regsub?$AA@ 004b8940     FilterText_StaticLib:Regexp.obj
+ 0003:0000b954       ??_C@_0BB@JFCK@corrupted?5opcode?$AA@ 004b8954     FilterText_StaticLib:Regexp.obj
+ 0003:0000b968       ??_C@_0CG@LCPC@internal?5error?3?5bad?5call?5of?5regr@ 004b8968     FilterText_StaticLib:Regexp.obj
+ 0003:0000b990       ??_C@_0BD@HEBG@corrupted?5pointers?$AA@ 004b8990     FilterText_StaticLib:Regexp.obj
+ 0003:0000b9a4       ??_C@_0BC@KCEE@regexp?5corruption?$AA@ 004b89a4     FilterText_StaticLib:Regexp.obj
+ 0003:0000b9b8       ??_C@_0BB@ONA@corrupted?5regexp?$AA@ 004b89b8     FilterText_StaticLib:Regexp.obj
+ 0003:0000b9cc       ??_C@_0BJ@ONDH@NULL?5argument?5to?5regexec?$AA@ 004b89cc     FilterText_StaticLib:Regexp.obj
+ 0003:0000c804       ?rgbColor@@3PAHA           004b9804     LightLoop.obj
+ 0003:0000c810       ?g_MouseOver@@3VKMouseOver@@A 004b9810     MouseHover.obj
+ 0003:0000e2b4       ??_C@_00A@?$AA@            004bb2b4     MouseHover.obj
+ 0003:0000e2b8       ?m_pMenu@KPopupMenu@@0PAUKPopupMenuData@@A 004bb2b8     PopupMenu.obj
+ 0003:0000e2bc       ?m_pCaller@KPopupMenu@@0PAVKWndWindow@@A 004bb2bc     PopupMenu.obj
+ 0003:0000e2c0       ?m_uCallerParam@KPopupMenu@@0IA 004bb2c0     PopupMenu.obj
+ 0003:0000e2c4       ?m_nImgWidth@KPopupMenu@@0FA 004bb2c4     PopupMenu.obj
+ 0003:0000e2c6       ?m_nImgHeight@KPopupMenu@@0FA 004bb2c6     PopupMenu.obj
+ 0003:0000e2c8       ?m_nIndent@KPopupMenu@@0FA 004bb2c8     PopupMenu.obj
+ 0003:0000e2ca       ?m_nFrame@KPopupMenu@@0FA  004bb2ca     PopupMenu.obj
+ 0003:0000e2cc       ?m_nMenuHeight@KPopupMenu@@0HA 004bb2cc     PopupMenu.obj
+ 0003:0000e2d0       ?m_szImage@KPopupMenu@@0PADA 004bb2d0     PopupMenu.obj
+ 0003:0000e350       ?g_SpaceOver@@3VKSpaceOver@@A 004bb350     SpaceOver.obj
+ 0003:0000ee24       ?l_Time@@3IA               004bbe24     UiImage.obj
+ 0003:0000ee28       ?m_pPressedDownBtn@KWndButton@@0PAV1@A 004bbe28     WndButton.obj
+ 0003:0000ee2c       ?ms_nDisableBtnTip@KWndButton@@0HA 004bbe2c     WndButton.obj
+ 0003:0000ee30       ?m_pSelf@KWndChessPanel@@0PAV1@A 004bbe30     WndChessPanel.obj
+ 0003:0000efa8       ?WND_SHOW_MOUSE_OVER_WND@@3HA 004bbfa8     Wnds.obj
+ 0003:0000efbc       ?WND_SHOW_DEBUG_FRAME_TEXT@@3HA 004bbfbc     WndWindow.obj
+ 0003:0000efc0       ?m_pSelf@KUiConnectInfo@@0PAV1@A 004bbfc0     UiConnectInfo.obj
+ 0003:0000efc4       ?m_pSelf@KUiLogin@@0PAV1@A 004bbfc4     UiLogin.obj
+ 0003:0000efc8       ?m_pSelf@KUiLoginBackGround@@0PAV1@A 004bbfc8     UiLoginBg.obj
+ 0003:0000efcc       ?m_pSelf@KUiSelServer@@0PAV1@A 004bbfcc     UiSelServer.obj
+ 0003:0000efd0       ?m_pSelf@KUiChooseFace@@0PAV1@A 004bbfd0     UiChooseFace.obj
+ 0003:0000efd4       ?m_pSelf@KUiFaceSelector@@0PAV1@A 004bbfd4     UiFaceSelector.obj
+ 0003:0000efd8       ?ms_pFaceList@KUiFaceSelector@@0PAUKFaceItem@1@A 004bbfd8     UiFaceSelector.obj
+ 0003:0000efdc       ?ms_nNumFaces@KUiFaceSelector@@0HA 004bbfdc     UiFaceSelector.obj
+ 0003:0000efe0       ?m_pSelf@KUiPlayerBar@@0PAV1@A 004bbfe0     UiPlayerBar.obj
+ 0003:0000efe4       ?s_CanFocusColor@@3IA      004bbfe4     UiPlayerBar.obj
+ 0003:0000efe8       ?s_NotCanFocusColor@@3IA   004bbfe8     UiPlayerBar.obj
+ 0003:0000efec       ?_Nil@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UShortFuncInfo@@@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UShortFuncInfo@@Ustring_iless@@V?$allocator@UShortFuncInfo@@@2@@2@Ustring_iless@@V?$allocator@UShortFuncInfo@@@2@@std@@1PAU_Node@12@A 004bbfec     UiPlayerBar.obj
+ 0003:0000eff0       ?m_pSelf@KUiStatus@@0PAV1@A 004bbff0     UiStatus.obj
+ 0003:0000eff4       ?m_pSelf@KUiOptions@@0PAV1@A 004bbff4     UiOptions.obj
+ 0003:0000eff8       ?m_pSelf@KUiInit@@0PAV1@A  004bbff8     UiInit.obj
+ 0003:0000effc       ?m_pSelf@KUiTeamBuild@@0PAV1@A 004bbffc     UiTeamBuild.obj
+ 0003:0000f000       ?m_pSelf@KUiChaPW@@0PAV1@A 004bc000     UiChaPW.obj
+ 0003:0000f004       ?m_pSelf@KUiCreatPW@@0PAV1@A 004bc004     UiCreatPW.obj
+ 0003:0000f008       ?m_pSelf@KUiExpandItem@@0PAV1@A 004bc008     UiExpandItem.obj
+ 0003:0000f00c       ?m_pSelf@KUiGetMoney@@0PAV1@A 004bc00c     UiGetMoney.obj
+ 0003:0000f010       ?m_pSelf@KUiGiveBox@@0PAV1@A 004bc010     UiGiveBox.obj
+ 0003:0000f014       ?m_pSelf@KUiItem@@0PAV1@A  004bc014     UiItem.obj
+ 0003:0000f01c       ?m_pSelf@KUiKeyBoard@@0PAV1@A 004bc01c     UiKeyBoard.obj
+ 0003:0000f020       ?m_pSelf@KUiLoginPW@@0PAV1@A 004bc020     UiLoginPW.obj
+ 0003:0000f024       ?m_pSelf@KUiReWard@@0PAV1@A 004bc024     UiReWard.obj
+ 0003:0000f028       ?m_pSelf@KUiSkills@@0PAV1@A 004bc028     UiSkills.obj
+ 0003:0000f030       ?ms_ShortcutSkills@KUiSkillTree@@0PAUKUiSkillData@@A 004bc030     UiSkillTree.obj
+ 0003:0000f0c0       ?m_pSelf@KUiSkillTree@@0PAV1@A 004bc0c0     UiSkillTree.obj
+ 0003:0000f0c4       ?m_pSelf@KUiStoreBox@@0PAV1@A 004bc0c4     UiStoreBox.obj
+ 0003:0000f0c8       ?m_pSelf@KUiTimeBox@@0PAV1@A 004bc0c8     UiTimeBox.obj
+ 0003:0000f0cc       ?m_pSelf@KUiESCDlg@@0PAV1@A 004bc0cc     UiESCDlg.obj
+ 0003:0000f0d0       ?m_pSelf@KUiGetNumber@@0PAV1@A 004bc0d0     UiGetNumber.obj
+ 0003:0000f0d4       ?m_pSelf@KUiGetString@@0PAV1@A 004bc0d4     UiGetString.obj
+ 0003:0000f0d8       ?m_pSelf@KUiMsgSel@@0PAV1@A 004bc0d8     UiMsgSel.obj
+ 0003:0000f0dc       ?m_pSelf@KUiMsgSel2@@0PAV1@A 004bc0dc     UiMsgSel2.obj
+ 0003:0000f0e0       ?m_pSelf@KUiParadeItem@@0PAV1@A 004bc0e0     UiParadeItem.obj
+ 0003:0000f0e4       ?m_pSelf@KUiSelPlayerNearby@@0PAV1@A 004bc0e4     UiSelPlayerNearby.obj
+ 0003:0000f0e8       ?m_pSelf@KUiNewPlayer@@0PAV1@A 004bc0e8     UiNewPlayer.obj
+ 0003:0000f0ec       ?m_pSelf@KUiSelNativePlace@@0PAV1@A 004bc0ec     UiSelNativePlace.obj
+ 0003:0000f0f0       ?m_pSelf@KUiSelPlayer@@0PAV1@A 004bc0f0     UiSelPlayer.obj
+ 0003:0000f0f8       ?ms_SNotify@KUiChatCentre@@0UServerNotify@@A 004bc0f8     UiChatCentre.obj
+ 0003:0000f100       ?m_pSelf@KUiChatCentre@@0PAV1@A 004bc100     UiChatCentre.obj
+ 0003:0000f108       ?_Nil@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@2@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@1PAU_Node@12@A 004bc108     UiChatCentre.obj
+ 0003:0000f10c       ?_Nilrefs@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@2@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@1IA 004bc10c     UiChatCentre.obj
+ 0003:0000f110       ?_Nil@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@E@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@EU?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@E@2@@2@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@E@2@@std@@1PAU_Node@12@A 004bc110     UiChatCentre.obj
+ 0003:0000f114       ?_Nilrefs@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@E@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@EU?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@E@2@@2@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@E@2@@std@@1IA 004bc114     UiChatCentre.obj
+ 0003:0000f118       ?g_UiChatPhrase@@3VKUiChatPhrase@@A 004bc118     UiChatPhrase.obj
+ 0003:0000f3d8       ?m_pSelf@KUiChatStatus@@0PAV1@A 004bc3d8     UiChatStatus.obj
+ 0003:0000f3e0       ?g_UiInformation@@3VKUiInformation@@A 004bc3e0     UiInformation.obj
+ 0003:0000f980       ?g_UiInformation2@@3VKUiInformation2@@A 004bc980     UiInformation2.obj
+ 0003:0000fc08       ?g_UiInformation3@@3VKUiInformation3@@A 004bcc08     UiInformation3.obj
+ 0003:00010328       ?m_pSelf@KUiTeamManage@@0PAV1@A 004bd328     UiTeamManage.obj
+ 0003:0001032c       ?m_pSelf@KUiTeamManageBar@@0PAV1@A 004bd32c     UiTeamManage.obj
+ 0003:00010330       ?m_pSelf@KUiTeamStatus@@0PAV1@A 004bd330     UiTeamStatus.obj
+ 0003:00010334       ?m_pSelf@KUiChatItemInfo@@0PAV1@A 004bd334     UiChatItemInfo.obj
+ 0003:00010338       ?m_pSelf@KUiHeaderControlBar@@0PAV1@A 004bd338     UiHeaderControlBar.obj
+ 0003:00010344       ?m_pSelf@KUiMsgCentrePad@@0PAV1@A 004bd344     UiMsgCentrePad.obj
+ 0003:00010348       ?ms_DefaultWidth@KUiMsgCentrePad@@0HA 004bd348     UiMsgCentrePad.obj
+ 0003:0001034c       ?ms_DefaultHeight@KUiMsgCentrePad@@0HA 004bd34c     UiMsgCentrePad.obj
+ 0003:00010350       ?m_pSelf@KUiMakeAdv@@0PAV1@A 004bd350     UiMakeAdv.obj
+ 0003:00010354       ?m_pSelf@KUiMarket@@0PAV1@A 004bd354     UiMarket.obj
+ 0003:00010358       ?m_pSelf@KUiMarkPrice@@0PAV1@A 004bd358     UiMarkPrice.obj
+ 0003:0001035c       ?m_pSelf@KUiPlayerShop@@0PAV1@A 004bd35c     UiPlayerShop.obj
+ 0003:00010360       ?m_pSelf@KUiShop@@0PAV1@A  004bd360     UiShop.obj
+ 0003:00010364       ?m_pSelf@KUiShoppingCart@@0PAV1@A 004bd364     UiShoppingCart.obj
+ 0003:00010368       ?m_pSelf@KUiTrade@@0PAV1@A 004bd368     UiTrade.obj
+ 0003:0001036c       ?m_pSelf@KUiTradeConfirm@@0PAV1@A 004bd36c     UiTradeConfirmWnd.obj
+ 0003:00010370       ?g_WndGameSpace@@3VKUiGameSpace@@A 004bd370     UiGame.obj
+ 0003:000103ec       ?m_pSelf@KUiNotification@@0PAV1@A 004bd3ec     UiNotification.obj
+ 0003:000103f0       ?m_pSelf@KUiSysMsgCentre@@0PAV1@A 004bd3f0     UiSysMsgCentre.obj
+ 0003:000103f4       ?m_pSelf@KUiCaveMap@@0PAV1@A 004bd3f4     UiCaveMap.obj
+ 0003:000103f8       ?m_pSelf@KUiFindPos@@0PAV1@A 004bd3f8     UiFindPos.obj
+ 0003:000103fc       ?ms_pSelf@KUiMiniMap@@0PAV1@A 004bd3fc     UiMiniMap.obj
+ 0003:00010404       ?m_pSelf@KUiWorldMap@@0PAV1@A 004bd404     UiWorldMap.obj
+ 0003:00010408       ?m_MenuData@KUiSelColor@@0PAEA 004bd408     UiSelColor.obj
+ 0003:000107c8       ?m_pSelf@KUiNewPlayerStartMsg@@0PAV1@A 004bd7c8     UiNewPlayerStartMsg.obj
+ 0003:000107cc       ?m_pSelf@KUiPlayVideo@@0PAV1@A 004bd7cc     UiPlayVideo.obj
+ 0003:000107d0       ?m_pSelf@KUiHelper@@0PAV1@A 004bd7d0     UiHelper.obj
+ 0003:000107d4       ?ms_nImgFrame@KUiHelper@@0HA 004bd7d4     UiHelper.obj
+ 0003:000107d8       ?m_pSelf@KUiHelper2@@0PAV1@A 004bd7d8     UiHelper2.obj
+ 0003:000107dc       ?m_pSelf@KUiHelperMission@@0PAV1@A 004bd7dc     UiHelperMission.obj
+ 0003:000107e0       ?m_pSelf@KReconnectWnd@@0PAV1@A 004bd7e0     UiReconnect.obj
+ 0003:000107e4       ?m_nChangeWorldReconnectTimes@@3HA 004bd7e4     UiReconnect.obj
+ 0003:000107e8       ?m_uLastReconnectTick@@3IA 004bd7e8     UiReconnect.obj
+ 0003:000107ec       ?m_pSelf@KReviveWnd@@0PAV1@A 004bd7ec     UiRevive.obj
+ 0003:000107f0       ?ms_pPersonalRecord@KTaskDataFile@@0PAUKPersonalRecord@1@A 004bd7f0     UiTaskDataFile.obj
+ 0003:000107f4       ?ms_pSystemRecordList@KTaskDataFile@@0PAUKTaskSystemRecordNode@1@A 004bd7f4     UiTaskDataFile.obj
+ 0003:000107f8       ?ms_nSystemRecordCount@KTaskDataFile@@0HA 004bd7f8     UiTaskDataFile.obj
+ 0003:000107fc       ?m_pSelf@KUiTaskNote@@0PAV1@A 004bd7fc     UiTaskNote.obj
+ 0003:00010800       ?m_pSelf@KUiNewsMessage@@0PAV1@A 004bd800     UiNewsMessage.obj
+ 0003:00010804       ?ms_bEnableIdleMsg@KUiNewsMessage@@0HA 004bd804     UiNewsMessage.obj
+ 0003:0001080c       ?m_pSelf@KUiNewsMessageEx@@0PAV1@A 004bd80c     UiNewsMessageEx.obj
+ 0003:00010810       ?ms_bEnableIdleMsg@KUiNewsMessageEx@@0HA 004bd810     UiNewsMessageEx.obj
+ 0003:00010818       ?m_IndexIDIni@KUiStrengthRank@@0VKIniFile@@A 004bd818     UiStrengthRank.obj
+ 0003:00010878       ?m_RankData@KUiStrengthRank@@0V?$KLinkStruct@UKRankNode@@@@A 004bd878     UiStrengthRank.obj
+ 0003:00010898       ?m_IndexData@KUiStrengthRank@@0V?$KLinkStruct@UKRankIndexNode@@@@A 004bd898     UiStrengthRank.obj
+ 0003:000108b4       ?m_pSelf@KUiStrengthRank@@0PAV1@A 004bd8b4     UiStrengthRank.obj
+ 0003:000108b8       ?m_bIsIndexDataChange@KUiStrengthRank@@0HA 004bd8b8     UiStrengthRank.obj
+ 0003:000108bc       ?m_bIsRankDataChange@KUiStrengthRank@@0HA 004bd8bc     UiStrengthRank.obj
+ 0003:000108c0       ?ms_pSelf@KUiPopupPasswordQuery@@0PAV1@A 004bd8c0     UiPopupPasswordQuery.obj
+ 0003:000108c4       ?ms_pSelf@KUiTongAssignBox@@0PAV1@A 004bd8c4     UiTongAssignBox.obj
+ 0003:000108c8       ?m_pSelf@KUiTongChangeTitle@@0PAV1@A 004bd8c8     UiTongChangeTitle.obj
+ 0003:000108cc       ?ms_pSelf@KUiTongCreateSheet@@0PAV1@A 004bd8cc     UiTongCreateSheet.obj
+ 0003:000108d0       ?ms_pSelf@KUiTongInformation@@0PAV1@A 004bd8d0     UiTongInformation.obj
+ 0003:000108d8       ?m_TongData@KUiTongManager@@0UKTongInfo@@A 004bd8d8     UiTongManager.obj
+ 0003:0001090c       ?ms_pSelf@KUiTongManager@@0PAV1@A 004bd90c     UiTongManager.obj
+ 0003:00010910       ?m_nElderDataIndex@KUiTongManager@@0HA 004bd910     UiTongManager.obj
+ 0003:00010914       ?m_nMemberDataIndex@KUiTongManager@@0HA 004bd914     UiTongManager.obj
+ 0003:00010918       ?m_nCaptainDataIndex@KUiTongManager@@0HA 004bd918     UiTongManager.obj
+ 0003:0001091c       ?m_pSelf@KUiTongSetTax@@0PAV1@A 004bd91c     UiTongSetTax .obj
+ 0003:00010920       ?m_pNearbyPlayersList@@3PAUKUiPlayerItem@@A 004bd920     UiAutoPlay.obj
+ 0003:00010924       ?m_pSelf@KUiRecovery@@0PAV1@A 004bd924     UiAutoPlay.obj
+ 0003:00010928       ?m_pSelf@KUiPick@@0PAV1@A  004bd928     UiAutoPlay.obj
+ 0003:0001092c       ?m_pSelf@KUiFight@@0PAV1@A 004bd92c     UiAutoPlay.obj
+ 0003:00010930       ?m_pSelf@KUiOther@@0PAV1@A 004bd930     UiAutoPlay.obj
+ 0003:00010934       ?m_pSelf@KUiMovePlayer@@0PAV1@A 004bd934     UiAutoPlay.obj
+ 0003:00010938       ?m_pSelf@KUiAutoPlay@@0PAV1@A 004bd938     UiAutoPlay.obj
+ 0003:0001093c       ?m_pSelf@UiMiniBuff@@0PAV1@A 004bd93c     UiMiniBuff.obj
+ 0003:00010940       ?ms_pSelf@KUiTopTKNew@@0PAV1@A 004bd940     UiTopTKNew.obj
+ 0003:00010944       ?m_pSelf@KUiTrembleItem@@0PAV1@A 004bd944     UiTrembleItem.obj
+ 0003:00010948       ?gTrayMode@@3VTrayMode@@A  004bd948     TrayMode.obj
+ 0003:0001094c       ?m_pSelf@TrayMode@@0PAV1@A 004bd94c     TrayMode.obj
+ 0003:00010950       ?bFPS@@3HA                 004bd950     TrayMode.obj
+ 0003:00010b38       ?s_LNotify@@3UBlacklistNotify@@A 004bdb38     GameSpaceChangedNotify.obj
+ 0003:00010b40       ?g_BlackListUserNames@@3V?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@A 004bdb40     GameSpaceChangedNotify.obj
+ 0003:00010bc0       ?ms_FunsMap@KShortcutKeyCentre@@2V?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UShortFuncInfo@@Ustring_iless@@V?$allocator@UShortFuncInfo@@@2@@std@@A 004bdbc0     ShortcutKey.obj
+ 0003:00010bd8       ?ms_Script@KShortcutKeyCentre@@0VKLuaScript@@A 004bdbd8     ShortcutKey.obj
+ 0003:00010c4c       ?ms_pCommands@KShortcutKeyCentre@@0PAUCOMMAND_SETTING@@A 004bdc4c     ShortcutKey.obj
+ 0003:00010c50       ?ms_nCommands@KShortcutKeyCentre@@0HA 004bdc50     ShortcutKey.obj
+ 0003:00010c54       ?ms_Enable@KShortcutKeyCentre@@0_NA 004bdc54     ShortcutKey.obj
+ 0003:00010c55       ?ms_bMouse@KShortcutKeyCentre@@2_NA 004bdc55     ShortcutKey.obj
+ 0003:00010c58       ?ms_MouseX@KShortcutKeyCentre@@2HA 004bdc58     ShortcutKey.obj
+ 0003:00010c5c       ?ms_MouseY@KShortcutKeyCentre@@2HA 004bdc5c     ShortcutKey.obj
+ 0003:00010c60       ?_Nilrefs@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UShortFuncInfo@@@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UShortFuncInfo@@Ustring_iless@@V?$allocator@UShortFuncInfo@@@2@@2@Ustring_iless@@V?$allocator@UShortFuncInfo@@@2@@std@@1IA 004bdc60     ShortcutKey.obj
+ 0003:00010c64       ?_Nilrefs@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@KK@2@@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@KK@2@Ustring_iless@@V?$allocator@U?$pair@KK@std@@@2@@2@Ustring_iless@@V?$allocator@U?$pair@KK@std@@@2@@std@@1IA 004bdc64     ShortcutKey.obj
+ 0003:00010c68       ?_Nil@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@KK@2@@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@KK@2@Ustring_iless@@V?$allocator@U?$pair@KK@std@@@2@@2@Ustring_iless@@V?$allocator@U?$pair@KK@std@@@2@@std@@1PAU_Node@12@A 004bdc68     ShortcutKey.obj
+ 0003:00010c70       ?s_ANotify@@3UAddinNotify@@A 004bdc70     UiBase.obj
+ 0003:00010c78       ?g_UiBase@@3VKUiBase@@A    004bdc78     UiBase.obj
+ 0003:00010d04       ?g_nWindowNTFlag@@3HA      004bdd04     UiBase.obj
+ 0003:00010d08       ?_Nilrefs@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAX@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAXU?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@PAX@2@@2@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@PAX@2@@std@@1IA 004bdd08     UiBase.obj
+ 0003:00010d0c       ?_Nil@?$_Tree@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAX@2@U_Kfn@?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAXU?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@PAX@2@@2@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@PAX@2@@std@@1PAU_Node@12@A 004bdd0c     UiBase.obj
+ 0003:00010d34       ?g_bDisconnect@@3HA        004bdd34     UiShell.obj
+ 0003:00010d48       ?g_ClientCallback@@3UKClientCallback@@A 004bdd48     S3Client.obj
+ 0003:00010d50       ?g_ChatFilter@@3VCChatFilter@@A 004bdd50     S3Client.obj
+ 0003:00010d58       ?g_libFilterText@@3VCFilterTextLib@@A 004bdd58     S3Client.obj
+ 0003:00010d60       ?g_PakList@@3VKPakList@@A  004bdd60     S3Client.obj
+ 0003:00010e04       ?hInst@@3PAUHINSTANCE__@@A 004bde04     S3Client.obj
+ 0003:00010e08       ?MyApp@@3VKMyApp@@A        004bde08     S3Client.obj
+ 0003:00010f38       ?g_pRepresentShell@@3PAUiRepresentShell@@A 004bdf38     S3Client.obj
+ 0003:00010f3c       ?g_pIInlinePicSink@@3PAUIInlinePicEngineSink@@A 004bdf3c     S3Client.obj
+ 0003:00010f40       ?g_pCoreShell@@3PAUiCoreShell@@A 004bdf40     S3Client.obj
+ 0003:00010f44       ?g_pMusic@@3PAVKMusic@@A   004bdf44     S3Client.obj
+ 0003:00010f4c       ?g_bRepresent3@@3HA        004bdf4c     S3Client.obj
+ 0003:00010f58       ?g_NetConnectAgent@@3VKNetConnectAgent@@A 004bdf58     NetConnectAgent.obj
+ 0003:00011380       ?g_LoginLogic@@3VKLogin@@A 004be380     Login.obj
+ 0003:000114d4       ?m_pSelf@KUiUpgradeAttrib@@0PAV1@A 004be4d4     UiUpgradeAttrib.obj
+ 0003:000114d8       __dowildcard               004be4d8     MSVCRT:wildcard.obj
+ 0003:000114dc       __newmode                  004be4dc     MSVCRT:_newmode.obj
+ 0003:000114e0       __commode                  004be4e0     MSVCRT:xncommod.obj
+ 0003:000114e4       __fmode                    004be4e4     MSVCRT:xtxtmode.obj
+ 0003:000114e8       __adjust_fdiv              004be4e8     <common>
+ 0003:000114ec       ___onexitend               004be4ec     <common>
+ 0003:000114f0       ___onexitbegin             004be4f0     <common>
 
  entry point at        0001:0008c62a
 

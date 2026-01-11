@@ -6,6 +6,48 @@
 --------------------Configuration: Bishop - Win32 Release--------------------
 </h3>
 <h3>Command Lines</h3>
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP2268.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/Bishop.pdb" /map:"Release/Bishop.map" /debug /machine:I386 /out:"Release/Bishop.exe" 
+.\Release\Application.obj
+.\Release\Bishop.obj
+.\Release\Event.obj
+.\Release\GamePlayer.obj
+.\Release\GameServer.obj
+.\Release\Intercessor.obj
+.\Release\Network.obj
+.\Release\PlayerCreator.obj
+.\Release\SmartClient.obj
+.\Release\StdAfx.obj
+.\Release\Bishop.res
+..\..\..\Lib\release\common.lib
+..\..\..\Lib\release\engine.lib
+]
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP2268.tmp"
+<h3>Output Window</h3>
+Linking...
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP22E6.bat" with contents
+[
+@echo off
+md ..\..\..\..\bin\Server
+copy release\Bishop.exe ..\..\..\..\bin\Server\Bishop.exe
+copy release\Bishop.map ..\..\..\..\bin\Server\Bishop.map
+copy release\Bishop.pdb ..\..\..\..\bin\Server\Bishop.pdb
+md ..\..\..\..\bin\Server\release\
+copy release\Bishop.exe ..\..\..\..\bin\Server\release\Bishop.exe
+copy release\Bishop.map ..\..\..\..\bin\Server\release\Bishop.map
+copy release\Bishop.pdb ..\..\..\..\bin\Server\release\Bishop.pdb
+]
+Creating command line "C:\Users\ADMINI~1\AppData\Local\Temp\RSP22E6.bat"
+
+A subdirectory or file ..\..\..\..\bin\Server already exists.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+A subdirectory or file ..\..\..\..\bin\Server\release\ already exists.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
 
 
 
@@ -15,13 +57,7 @@ Bishop.exe - 0 error(s), 0 warning(s)
 --------------------Configuration: Core - Win32 Server Release--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPD10.tmp" with contents
-[
-/nologo /MT /W2 /GX /O2 /I "..\engine\src" /I "..\engine\include" /I "..\Network" /I "..\..\Headers" /D "NDEBUG" /D "_SERVER" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "CORE_EXPORTS" /FR"ServerRelease/" /Fp"ServerRelease/Core.pch" /Yu"KCore.h" /Fo"ServerRelease/" /Fd"ServerRelease/" /FD /c 
-"D:\HuyenThietKiemNguyenThuy\SwordOnline\Sources\Core\Src\ScriptFuns.cpp"
-]
-Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPD10.tmp" 
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPD11.tmp" with contents
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP2345.tmp" with contents
 [
 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib lualibdll.lib Ws2_32.lib Winmm.lib Shlwapi.lib /nologo /dll /incremental:no /pdb:"ServerRelease/CoreServer.pdb" /map:"ServerRelease/CoreServer.map" /debug /machine:I386 /out:"ServerRelease\CoreServer.dll" /implib:"ServerRelease/CoreServer.lib" 
 .\ServerRelease\KPartnerSkill.obj
@@ -108,14 +144,12 @@ kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32
 .\Src\USBKey\EP1KDL20.LIB
 .\Src\USBKey\EpsForJoLib.lib
 ]
-Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPD11.tmp"
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP2345.tmp"
 <h3>Output Window</h3>
-Compiling...
-ScriptFuns.cpp
 Linking...
    Creating library ServerRelease/CoreServer.lib and object ServerRelease/CoreServer.exp
-ServerRelease\CoreServer.dll : warning LNK4084: total image size 674734080 exceeds max (268435456); image may not run
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPF63.bat" with contents
+ServerRelease\CoreServer.dll : warning LNK4084: total image size 674738176 exceeds max (268435456); image may not run
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP23E2.bat" with contents
 [
 @echo off
 md ..\..\lib\release
@@ -129,7 +163,7 @@ copy ServerRelease\CoreServer.map ..\..\..\bin\Server\release\Coreserver.map
 copy ServerRelease\CoreServer.pdb ..\..\..\bin\Server\release\Coreserver.pdb
 copy ServerRelease\CoreServer.dll ..\..\..\bin\Server\release\Coreserver.dll
 ]
-Creating command line "C:\Users\ADMINI~1\AppData\Local\Temp\RSPF63.bat"
+Creating command line "C:\Users\ADMINI~1\AppData\Local\Temp\RSP23E2.bat"
 
 A subdirectory or file ..\..\lib\release already exists.
         1 file(s) copied.
@@ -150,13 +184,13 @@ CoreServer.dll - 0 error(s), 1 warning(s)
 --------------------Configuration: Core - Win32 Client Release--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPFC2.tmp" with contents
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP2441.tmp" with contents
 [
 /nologo /MD /W2 /GX /Zi /O2 /I "..\engine\src" /I "..\engine\include" /I "..\Network" /I "..\..\Headers" /I "src" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "CORE_EXPORTS" /FR"ClientRelease/" /Fp"ClientRelease/Core.pch" /Yu"KCore.h" /Fo"ClientRelease/" /Fd"ClientRelease/" /FD /c 
-"D:\HuyenThietKiemNguyenThuy\SwordOnline\Sources\Core\Src\ScriptFuns.cpp"
+"D:\HuyenThietKiemNguyenThuy\SwordOnline\Sources\Core\Src\CoreShell.cpp"
 ]
-Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPFC2.tmp" 
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPFC3.tmp" with contents
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP2441.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP2442.tmp" with contents
 [
 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib lualibdll.lib Shlwapi.lib Winmm.lib /nologo /dll /incremental:no /pdb:"ClientRelease/CoreClient.pdb" /map:"ClientRelease/CoreClient.map" /debug /machine:I386 /out:"ClientRelease\CoreClient.dll" /implib:"ClientRelease/CoreClient.lib" /libpath:"../../lib/" 
 .\ClientRelease\KPartnerSkill.obj
@@ -249,13 +283,13 @@ kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32
 .\Src\USBKey\EP1KDL20.LIB
 .\Src\USBKey\EpsForJoLib.lib
 ]
-Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPFC3.tmp"
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP2442.tmp"
 <h3>Output Window</h3>
 Compiling...
-ScriptFuns.cpp
+CoreShell.cpp
 Linking...
    Creating library ClientRelease/CoreClient.lib and object ClientRelease/CoreClient.exp
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP111C.bat" with contents
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP2702.bat" with contents
 [
 @echo off
 md ..\..\..\bin\Client\release
@@ -268,14 +302,13 @@ copy ClientRelease\CoreClient.lib ..\..\lib\release\CoreClient.lib
 copy ClientRelease\CoreClient.map ..\..\..\bin\Client\release\CoreClient.map
 copy ClientRelease\CoreClient.pdb ..\..\..\bin\Client\release\CoreClient.pdb
 ]
-Creating command line "C:\Users\ADMINI~1\AppData\Local\Temp\RSP111C.bat"
+Creating command line "C:\Users\ADMINI~1\AppData\Local\Temp\RSP2702.bat"
 
 A subdirectory or file ..\..\..\bin\Client\release already exists.
 A subdirectory or file ..\..\lib\release already exists.
         1 file(s) copied.
         1 file(s) copied.
-The process cannot access the file because it is being used by another process.
-        0 file(s) copied.
+        1 file(s) copied.
         1 file(s) copied.
         1 file(s) copied.
         1 file(s) copied.
@@ -397,6 +430,76 @@ Game.exe - 0 error(s), 0 warning(s)
 --------------------Configuration: S3Relay - Win32 Release--------------------
 </h3>
 <h3>Command Lines</h3>
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP2780.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib Ws2_32.lib lualibdll.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/S3Relay.pdb" /map:"Release/S3Relay.map" /debug /machine:I386 /out:"Release/S3Relay.exe" 
+.\Release\ChannelMgr.obj
+.\Release\ChatConnect.obj
+.\Release\ChatServer.obj
+.\Release\DBConnect.obj
+.\Release\DBTable.obj
+.\Release\DealRelay.obj
+.\Release\DoScript.obj
+.\Release\FriendMgr.obj
+.\Release\GatewayCenter.obj
+.\Release\GatewayClient.obj
+.\Release\Global.obj
+.\Release\HeavenLib.obj
+.\Release\HostConnect.obj
+.\Release\HostServer.obj
+.\Release\KThread.obj
+.\Release\Lock.obj
+.\Release\LogFile.obj
+.\Release\Memory.obj
+.\Release\NetCenter.obj
+.\Release\NetClient.obj
+.\Release\NetConnect.obj
+.\Release\NetServer.obj
+.\Release\NetSockDupEx.obj
+.\Release\RainbowLib.obj
+.\Release\RelayCenter.obj
+.\Release\RelayClient.obj
+.\Release\RelayConnect.obj
+.\Release\RelayServer.obj
+.\Release\RootCenter.obj
+.\Release\RootClient.obj
+.\Release\S3Relay.obj
+.\Release\SockThread.obj
+.\Release\StdAfx.obj
+.\Release\TongConnect.obj
+.\Release\TongServer.obj
+.\Release\KTongControl.obj
+.\Release\KTongSet.obj
+.\Release\TONGDB.OBJ
+.\Release\S3Relay.res
+..\..\..\Lib\release\engine.lib
+.\libdb41s.lib
+]
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP2780.tmp"
+<h3>Output Window</h3>
+Linking...
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP27FE.bat" with contents
+[
+@echo off
+md ..\..\..\..\bin\Server
+copy release\S3Relay.exe ..\..\..\..\bin\Server\S3Relay.exe
+copy release\S3Relay.map ..\..\..\..\bin\Server\S3Relay.map
+copy release\S3Relay.pdb ..\..\..\..\bin\Server\S3Relay.pdb
+md ..\..\..\..\bin\Server\release\
+copy release\S3Relay.exe ..\..\..\..\bin\Server\release\S3Relay.exe
+copy release\S3Relay.map ..\..\..\..\bin\Server\release\S3Relay.map
+copy release\S3Relay.pdb ..\..\..\..\bin\Server\release\S3Relay.pdb
+]
+Creating command line "C:\Users\ADMINI~1\AppData\Local\Temp\RSP27FE.bat"
+
+A subdirectory or file ..\..\..\..\bin\Server already exists.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+A subdirectory or file ..\..\..\..\bin\Server\release\ already exists.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
 
 
 

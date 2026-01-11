@@ -37,11 +37,11 @@ static int HexToBytes(const char* src, unsigned char* dst, int maxDst) {
     return n;
 }
 
-// Trả về 1 nếu decode OK, copy ra plain IPv4; nếu không phải ENC: thì copy nguyên văn (giữ tương thích)
+// Tr? v? 1 n?u decode OK, copy ra plain IPv4; n?u kh�ng ph?i ENC: th� copy nguy�n van (gi? tuong th�ch)
 static int DecodeAddressField(const char* szField, char* szPlainOut, int outSize) {
     if (!szField || !szPlainOut || outSize <= 0) return 0;
 
-    // Bỏ khoảng trắng đầu/cuối (chống lỗi khi ghi ini)
+    // B? kho?ng tr?ng d?u/cu?i (ch?ng l?i khi ghi ini)
     while (*szField==' '||*szField=='\t') ++szField;
 
     if (szField[0]=='E' && szField[1]=='N' && szField[2]=='C' && szField[3]==':') {
@@ -55,7 +55,7 @@ static int DecodeAddressField(const char* szField, char* szPlainOut, int outSize
         lstrcpynA(szPlainOut, (const char*)buf, outSize);
         return 1;
     } else {
-        // Dạng cũ: IPv4 “x.x.x.x”
+        // D?ng cu: IPv4 �x.x.x.x�
         lstrcpynA(szPlainOut, szField, outSize);
         return 1;
     }
@@ -440,7 +440,7 @@ void KLogin::ProcessAccountLoginResponse(KLoginStructHead* pResponse)
 					m_Status = LL_S_WAIT_INPUT_ACCOUNT;
 					break;
 				case LOGIN_R_ACCOUNT_EXIST:
-					eResult = LL_R_ACCOUNT_LOCKED;
+					eResult = LL_R_ACCOUNT_IN_USE;  // Account dang du?c s? d?ng
 					m_Status = LL_S_WAIT_INPUT_ACCOUNT;
 					break;
 				case LOGIN_R_FREEZE:
@@ -656,7 +656,7 @@ void KLogin::ProcessToLoginGameServResponse(tagNotifyPlayerLogin* pResponse)
 				// Previous bug: Disconnected immediately causing Bishop to cleanup before GS connected
 				// Now: Keep Bishop connection alive briefly while connecting to GameServer
 				// Bishop will detect disconnect naturally when client fully transitions to GS
-				// g_NetConnectAgent.DisconnectClient();  // ❌ REMOVED - Don't disconnect yet
+				// g_NetConnectAgent.DisconnectClient();  // ? REMOVED - Don't disconnect yet
 			}
 			else
 			{
@@ -908,14 +908,14 @@ KLoginServer*	KLogin::GetServerRegionList(int& nCount, int& nAdviceChoice)
 	return pServers;
 }
 
-// ==== [BEGIN] KLogin::GetServerList (đã cập nhật hỗ trợ ENC:<hex>) ====
+// ==== [BEGIN] KLogin::GetServerList (d� c?p nh?t h? tr? ENC:<hex>) ====
 KLoginServer* KLogin::GetServerList(int nRegion, int& nCount, int& nAdviceChoice)
 {
     KLoginServer* pServers = NULL;
     nCount = 0;
     nAdviceChoice = 0;
 
-    // Lấy region mặc định từ setting nếu caller truyền nRegion < 0
+    // L?y region m?c d?nh t? setting n?u caller truy?n nRegion < 0
     if (nRegion < 0)
     {
         KIniFile* pSetting = g_UiBase.GetCommSettingFile();
@@ -932,11 +932,11 @@ KLoginServer* KLogin::GetServerList(int nRegion, int& nCount, int& nAdviceChoice
         int regionCount = 0;
         File.GetInteger("List", "RegionCount", 0, &regionCount);
 
-        // Ràng buộc nRegion hợp lệ
+        // R�ng bu?c nRegion h?p l?
         if (regionCount > 0)
         {
             if (nRegion < 0 || nRegion >= regionCount)
-                nRegion = 0; // fallback an toàn
+                nRegion = 0; // fallback an to�n
 
             m_Choices.nServerRegionIndex = nRegion;
 
@@ -954,24 +954,24 @@ KLoginServer* KLogin::GetServerList(int nRegion, int& nCount, int& nAdviceChoice
                     int i;
                     for (i = 0; i < nReadCount; i++)
                     {
-                        // --- Đọc Address: dùng buffer RỘNG để không cắt cụt ENC:<hex> ---
+                        // --- �?c Address: d�ng buffer R?NG d? kh�ng c?t c?t ENC:<hex> ---
                         char szKey[32];
-                        char szAddrRaw[256];   // raw từ file (ENC:<hex> dài)
+                        char szAddrRaw[256];   // raw t? file (ENC:<hex> d�i)
                         char szAddrPlain[64];  // sau decode (IPv4 x.x.x.x)
 
                         wsprintfA(szKey, "%d_Address", i);
                         if (!File.GetString(szSection, szKey, "", szAddrRaw, sizeof(szAddrRaw)))
                             continue;
 
-                        // Giải mã nếu có ENC:, hoặc giữ nguyên nếu là IPv4 thường
+                        // Gi?i m� n?u c� ENC:, ho?c gi? nguy�n n?u l� IPv4 thu?ng
                         if (!DecodeAddressField(szAddrRaw, szAddrPlain, sizeof(szAddrPlain)))
                             continue;
 
-                        // Parse IPv4 (x.x.x.x) thành 4 byte Address
+                        // Parse IPv4 (x.x.x.x) th�nh 4 byte Address
                         if (!GetIpAddress(szAddrPlain, pServers[nCount].Address))
                             continue;
 
-                        // --- Đọc Title như cũ ---
+                        // --- �?c Title nhu cu ---
                         wsprintfA(szKey, "%d_Title", i);
                         if (File.GetString(szSection, szKey, "", pServers[nCount].Title,
                                            sizeof(pServers[nCount].Title)) &&
@@ -991,7 +991,7 @@ KLoginServer* KLogin::GetServerList(int nRegion, int& nCount, int& nAdviceChoice
         }
     }
 
-    // Giữ logic chọn nAdviceChoice + m_Choices.AccountServer như cũ
+    // Gi? logic ch?n nAdviceChoice + m_Choices.AccountServer nhu cu
     if (nCount)
     {
         int i;
