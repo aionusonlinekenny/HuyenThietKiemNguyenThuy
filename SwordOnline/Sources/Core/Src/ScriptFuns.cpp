@@ -10153,8 +10153,458 @@ int LuaOpenTrembleItem(Lua_State * L)
 	sMsg.m_wLength = sizeof(SHOW_MSG_SYNC) - 1;
 	if(g_pServer && Player[nPlayerIndex].m_nNetConnectIdx != -1)
 	g_pServer->PackDataToClient(Player[nPlayerIndex].m_nNetConnectIdx, &sMsg, sMsg.m_wLength + 1);
-	
 	return 0;
+}
+// ------------------------------------------------------------
+// Open Upgrade Attribute UI
+// ------------------------------------------------------------
+int LuaOpenUpgradeAttribUI(Lua_State * L)
+{
+	g_DebugLog("[UPGRADE_ATTRIB] LuaOpenUpgradeAttribUI called");
+
+	int nPlayerIndex = GetPlayerIndex(L);
+	g_DebugLog("[UPGRADE_ATTRIB] PlayerIndex = %d", nPlayerIndex);
+
+	if (nPlayerIndex <= 0)
+	{
+		g_DebugLog("[UPGRADE_ATTRIB] Invalid player index, returning");
+		return 0;
+	}
+
+	g_DebugLog("[UPGRADE_ATTRIB] Creating SHOW_MSG_SYNC");
+	SHOW_MSG_SYNC sMsg;
+	sMsg.ProtocolType = s2c_msgshow;
+	sMsg.m_wMsgID = enumMSG_ID_UPGRADE_ATTRIB;
+	sMsg.m_lpBuf = 0;
+	sMsg.m_wLength = sizeof(SHOW_MSG_SYNC) - 1;
+
+	g_DebugLog("[UPGRADE_ATTRIB] MsgID=%d, Length=%d", sMsg.m_wMsgID, sMsg.m_wLength);
+
+	if (g_pServer && Player[nPlayerIndex].m_nNetConnectIdx != -1)
+	{
+		g_DebugLog("[UPGRADE_ATTRIB] Sending to client, ConnectIdx=%d", Player[nPlayerIndex].m_nNetConnectIdx);
+		g_pServer->PackDataToClient(Player[nPlayerIndex].m_nNetConnectIdx, &sMsg, sMsg.m_wLength + 1);
+		g_DebugLog("[UPGRADE_ATTRIB] Packet sent successfully");
+	}
+	else
+	{
+		g_DebugLog("[UPGRADE_ATTRIB] Server null or invalid connection idx");
+	}
+
+	return 0;
+}
+// ------------------------------------------------------------
+// Get Item Magic Attribute Info (Type, Value, Min, Max)
+// Lua: nType, nValue, nMin, nMax = GetItemMagicAttribInfo(nItemIdx, nSlot)
+// ------------------------------------------------------------
+int LuaGetItemMagicAttribInfo(Lua_State * L)
+{
+	if (Lua_GetTopIndex(L) < 2)
+	{
+		Lua_PushNumber(L, 0);
+		Lua_PushNumber(L, 0);
+		Lua_PushNumber(L, 0);
+		Lua_PushNumber(L, 0);
+		return 4;
+	}
+
+	int nPlayerIndex = GetPlayerIndex(L);
+	if (nPlayerIndex <= 0 || nPlayerIndex >= MAX_PLAYER)
+	{
+		Lua_PushNumber(L, 0);
+		Lua_PushNumber(L, 0);
+		Lua_PushNumber(L, 0);
+		Lua_PushNumber(L, 0);
+		return 4;
+	}
+
+	int nItemIdx = (int)Lua_ValueToNumber(L, 1);
+	if (nItemIdx <= 0 || nItemIdx >= MAX_ITEM)
+	{
+		Lua_PushNumber(L, 0);
+		Lua_PushNumber(L, 0);
+		Lua_PushNumber(L, 0);
+		Lua_PushNumber(L, 0);
+		return 4;
+	}
+
+	int nSlot = (int)Lua_ValueToNumber(L, 2);
+	if (nSlot < 0 || nSlot >= 6)
+	{
+		Lua_PushNumber(L, 0);
+		Lua_PushNumber(L, 0);
+		Lua_PushNumber(L, 0);
+		Lua_PushNumber(L, 0);
+		return 4;
+	}
+
+	// Return: nAttribType, nValue[0], nMin, nMax
+	Lua_PushNumber(L, Item[nItemIdx].m_aryMagicAttrib[nSlot].nAttribType);
+	Lua_PushNumber(L, Item[nItemIdx].m_aryMagicAttrib[nSlot].nValue[0]);
+	Lua_PushNumber(L, Item[nItemIdx].m_aryMagicAttrib[nSlot].nMin);
+	Lua_PushNumber(L, Item[nItemIdx].m_aryMagicAttrib[nSlot].nMax);
+
+	return 4;
+}
+
+// ------------------------------------------------------------
+// Set Item Magic Attribute Value and Sync to Client
+// Lua: bSuccess = SetItemMagicAttribValueAndSync(nItemIdx, nSlot, nNewValue)
+// ------------------------------------------------------------
+int LuaSetItemMagicAttribValueAndSync(Lua_State * L)
+{
+	if (Lua_GetTopIndex(L) < 3)
+	{
+		Lua_PushNumber(L, 0);
+		return 1;
+	}
+
+	int nPlayerIndex = GetPlayerIndex(L);
+	if (nPlayerIndex <= 0 || nPlayerIndex >= MAX_PLAYER)
+	{
+		Lua_PushNumber(L, 0);
+		return 1;
+	}
+
+	int nItemIdx = (int)Lua_ValueToNumber(L, 1);
+	if (nItemIdx <= 0 || nItemIdx >= MAX_ITEM)
+	{
+		Lua_PushNumber(L, 0);
+		return 1;
+	}
+
+	int nSlot = (int)Lua_ValueToNumber(L, 2);
+	if (nSlot < 0 || nSlot >= 6)
+	{
+		Lua_PushNumber(L, 0);
+		return 1;
+	}
+
+	int nNewValue = (int)Lua_ValueToNumber(L, 3);
+	if (nNewValue < 0)
+		nNewValue = 0;
+
+	// Check if attribute exists
+	if (Item[nItemIdx].m_aryMagicAttrib[nSlot].nAttribType <= 0)
+	{
+		Lua_PushNumber(L, 0);
+		return 1;
+	}
+
+	// Set the magic attribute value directly
+	// DO NOT modify generator level - it will cause regeneration to 0!
+	Item[nItemIdx].m_aryMagicAttrib[nSlot].nValue[0] = nNewValue;
+
+	// Item will sync to client when UI closes or item is moved
+	// DO NOT force refresh - it causes regeneration from generator params!
+
+	Lua_PushNumber(L, 1);  // Success
+	return 1;
+}
+
+// ------------------------------------------------------------
+// Get Item Generator Levels - Returns all 6 generator level values
+// Lua: l1, l2, l3, l4, l5, l6 = GetItemGeneratorLevels(nItemIdx)
+// ------------------------------------------------------------
+int LuaGetItemGeneratorLevels(Lua_State * L)
+{
+	// Default return all 0s if any validation fails
+	if (Lua_GetTopIndex(L) < 1)
+	{
+		for (int i = 0; i < 6; i++)
+			Lua_PushNumber(L, 0);
+		return 6;
+	}
+
+	int nPlayerIndex = GetPlayerIndex(L);
+	if (nPlayerIndex <= 0 || nPlayerIndex >= MAX_PLAYER)
+	{
+		for (int i = 0; i < 6; i++)
+			Lua_PushNumber(L, 0);
+		return 6;
+	}
+
+	int nItemIdx = (int)Lua_ValueToNumber(L, 1);
+	if (nItemIdx <= 0 || nItemIdx >= MAX_ITEM)
+	{
+		for (int i = 0; i < 6; i++)
+			Lua_PushNumber(L, 0);
+		return 6;
+	}
+
+	// Get generator params
+	KItemGeneratorParam* pGenParam = Item[nItemIdx].GetGeneratorParam();
+	if (!pGenParam)
+	{
+		for (int i = 0; i < 6; i++)
+			Lua_PushNumber(L, 0);
+		return 6;
+	}
+
+	// Return all 6 generator levels (tiers 1-10, not attribute values!)
+	for (int i = 0; i < 6; i++)
+	{
+		Lua_PushNumber(L, pGenParam->nGeneratorLevel[i]);
+	}
+
+	return 6;
+}
+
+// ------------------------------------------------------------
+// Upgrade Item Attributes - Create upgraded item with exact attribute values
+// Lua: nItemIdx = UpgradeItemAttributes(nOldItemIdx, nUpgradeSlot, nUpgradePercent, nPos)
+// Takes old item, calculates new attribute values, creates upgraded item
+// ------------------------------------------------------------
+int LuaUpgradeItemAttributes(Lua_State * L)
+{
+
+	if (Lua_GetTopIndex(L) < 4)
+	{
+		Lua_PushNumber(L, 0);
+		return 1;
+	}
+
+	int nPlayerIndex = GetPlayerIndex(L);
+	if (nPlayerIndex <= 0 || nPlayerIndex >= MAX_PLAYER)
+	{
+		Lua_PushNumber(L, 0);
+		return 1;
+	}
+
+	int nOldItemIdx = (int)Lua_ValueToNumber(L, 1);
+	if (nOldItemIdx <= 0 || nOldItemIdx >= MAX_ITEM)
+	{
+		Lua_PushNumber(L, 0);
+		return 1;
+	}
+
+	int nUpgradeSlot = (int)Lua_ValueToNumber(L, 2);  // Which attribute slot to upgrade (0-5)
+	int nUpgradePercent = (int)Lua_ValueToNumber(L, 3);  // Upgrade percentage
+	int nPos = (int)Lua_ValueToNumber(L, 4);  // Position to place new item
+
+	// Get old item properties
+	int nGenre = Item[nOldItemIdx].GetGenre();
+	int nDetail = Item[nOldItemIdx].GetDetailType();
+	int nParti = Item[nOldItemIdx].GetParticular();
+	int nLevel = Item[nOldItemIdx].GetLevel();
+	int nSeries = Item[nOldItemIdx].GetSeries();
+
+	// Get old generator params
+	KItemGeneratorParam* pOldGenParam = Item[nOldItemIdx].GetGeneratorParam();
+	if (!pOldGenParam)
+	{
+		Lua_PushNumber(L, 0);
+		return 1;
+	}
+
+	int nLuck = pOldGenParam->nLuck;
+	int nVersion = pOldGenParam->nVersion;
+	DWORD dwRandSeed = pOldGenParam->dwRandomSeed;
+
+#ifdef _DEBUG
+	g_DebugLog("[UpgradeItem] --- START UPGRADE ---");
+	g_DebugLog("[UpgradeItem] Old Item: Genre=%d, Detail=%d, Parti=%d, Level=%d, Series=%d",
+	           nGenre, nDetail, nParti, nLevel, nSeries);
+	g_DebugLog("[UpgradeItem] Old GenParams: Luck=%d, Version=%d, Seed=0x%08X",
+	           nLuck, nVersion, dwRandSeed);
+#endif
+
+	// Copy all 6 generator levels
+	int nGenLevels[6];
+	for (int i = 0; i < 6; i++)
+	{
+		nGenLevels[i] = pOldGenParam->nGeneratorLevel[i];
+	}
+
+#ifdef _DEBUG
+	g_DebugLog("[UpgradeItem] Generator Levels: [%d, %d, %d, %d, %d, %d]",
+	           nGenLevels[0], nGenLevels[1], nGenLevels[2], nGenLevels[3], nGenLevels[4], nGenLevels[5]);
+#endif
+
+	// STEP 1: Store ALL 6 attributes (type, value, min, max) from old item
+	int nAttribTypes[6];
+	int nAttribValues[6];
+	int nAttribMins[6];
+	int nAttribMaxs[6];
+
+	for (int j = 0; j < 6; j++)
+	{
+		nAttribTypes[j] = Item[nOldItemIdx].m_aryMagicAttrib[j].nAttribType;
+		nAttribValues[j] = Item[nOldItemIdx].m_aryMagicAttrib[j].nValue[0];
+		nAttribMins[j] = Item[nOldItemIdx].m_aryMagicAttrib[j].nMin;
+		nAttribMaxs[j] = Item[nOldItemIdx].m_aryMagicAttrib[j].nMax;
+	}
+
+#ifdef _DEBUG
+	g_DebugLog("[UpgradeItem] Old Attributes:");
+	for (int j = 0; j < 6; j++)
+	{
+		if (nAttribTypes[j] > 0)
+		{
+			g_DebugLog("  Slot[%d]: Type=%d, Value=%d, Min=%d, Max=%d",
+			           j, nAttribTypes[j], nAttribValues[j], nAttribMins[j], nAttribMaxs[j]);
+		}
+	}
+#endif
+
+	// STEP 2: Calculate new value for the upgraded slot
+	int nOldValue = nAttribValues[nUpgradeSlot];
+	int nMax = nAttribMaxs[nUpgradeSlot];
+
+
+	int nIncrease = (nOldValue * nUpgradePercent) / 100;
+	// Only force minimum increase of 1 when actually upgrading (percent > 0)
+	// When percent = 0 (failure case), keep original value (increase = 0)
+	if (nUpgradePercent > 0 && nIncrease < 1) nIncrease = 1;
+	int nNewValue = nOldValue + nIncrease;
+
+	// STEP 3: Compare with MagicAttrib max - cap if needed
+	if (nMax > 0 && nNewValue > nMax)
+	{
+		nNewValue = nMax;
+	}
+
+	// Update the value array with new upgraded value
+
+	nAttribValues[nUpgradeSlot] = nNewValue;
+
+#ifdef _DEBUG
+	g_DebugLog("[UpgradeItem] Upgrade Slot %d: OldVal=%d + Inc=%d (=%d%%) = NewVal=%d (max=%d)",
+	           nUpgradeSlot, nOldValue, nIncrease, nUpgradePercent, nNewValue, nMax);
+#endif
+
+	// Get old item's position BEFORE deleting
+	int nOldX = ItemSet.m_psItemInfo[nOldItemIdx].m_nX;
+	int nOldY = ItemSet.m_psItemInfo[nOldItemIdx].m_nY;
+
+	// STEP 4: NEW ENCODING SCHEME for exact attribute preservation
+	// Problem: Random seed changes ? different attribute TYPES selected
+	// Solution: Store BOTH types and values in generator params
+	//
+	// Encoding:
+	// - m_Luck = 999900000 + original_luck (exact mode flag)
+	// - m_MagicLevel[i] = attribute VALUES directly (0-255)
+	// - dwRandomSeed (32 bits) = pack attribute TYPES 0-3 (4 types x 8 bits)
+	// - nVersion (16 bits) = pack attribute TYPES 4-5 (2 types x 8 bits)
+
+	// Encode attribute VALUES into generator levels
+	int nEncodedLevels[6];
+	for (int k = 0; k < 6; k++)
+	{
+		nEncodedLevels[k] = nAttribValues[k]; // Store value directly (0-255)
+	}
+
+	// Encode attribute TYPES into random seed (types 0-3) and version (types 4-5)
+	DWORD dwEncodedSeed = 0;
+	dwEncodedSeed |= ((DWORD)(nAttribTypes[0] & 0xFF) << 0);   // bits 0-7
+	dwEncodedSeed |= ((DWORD)(nAttribTypes[1] & 0xFF) << 8);   // bits 8-15
+	dwEncodedSeed |= ((DWORD)(nAttribTypes[2] & 0xFF) << 16);  // bits 16-23
+	dwEncodedSeed |= ((DWORD)(nAttribTypes[3] & 0xFF) << 24);  // bits 24-31
+
+	int nEncodedVersion = 0;
+	nEncodedVersion |= ((nAttribTypes[4] & 0xFF) << 0);  // bits 0-7
+	nEncodedVersion |= ((nAttribTypes[5] & 0xFF) << 8);  // bits 8-15
+
+	// Set special luck value to flag exact value mode
+	int nUpgradedLuck = 999900000 + (nLuck % 100000);
+
+#ifdef _DEBUG
+	g_DebugLog("[UpgradeItem] --- ENCODING EXACT ATTRIBUTES ---");
+	g_DebugLog("[UpgradeItem] Luck: %d -> %d (exact mode flag)", nLuck, nUpgradedLuck);
+	g_DebugLog("[UpgradeItem] Encoded Seed: 0x%08X (stores types 0-3)", dwEncodedSeed);
+	g_DebugLog("[UpgradeItem] Encoded Version: 0x%04X (stores types 4-5)", nEncodedVersion);
+	g_DebugLog("[UpgradeItem] Encoded Levels (values):");
+	for (int k = 0; k < 6; k++)
+	{
+		if (nAttribTypes[k] > 0)
+		{
+			g_DebugLog("  Slot[%d]: Type=%d, Value=%d (min=%d, max=%d)",
+			           k, nAttribTypes[k], nAttribValues[k], nAttribMins[k], nAttribMaxs[k]);
+		}
+	}
+#endif
+
+	// STEP 5: Remove old item from container (frees space)
+
+	Player[nPlayerIndex].m_ItemList.Remove(nOldItemIdx);
+
+	// STEP 6: Create new item with EXACT ATTRIBUTE MODE encoding
+	// - nEncodedLevels contains VALUES
+	// - dwEncodedSeed contains TYPES 0-3
+	// - nEncodedVersion contains TYPES 4-5
+	// - nUpgradedLuck flags exact mode
+	int nNewItemIdx = ItemSet.Add(nGenre, nSeries, nLevel, 0, nUpgradedLuck, nDetail, nParti,
+	                              nEncodedLevels, nEncodedVersion, dwEncodedSeed);
+
+	if (nNewItemIdx <= 0 || nNewItemIdx >= MAX_ITEM)
+	{
+		// Failed to create - restore old item
+		Player[nPlayerIndex].m_ItemList.Add(nOldItemIdx, nPos, nOldX, nOldY);
+		Lua_PushNumber(L, 0);
+		return 1;
+	}
+
+#ifdef _DEBUG
+	g_DebugLog("[UpgradeItem] --- NEW ITEM CREATED ---");
+
+	// Check new item properties
+	int nNewGenre = Item[nNewItemIdx].GetGenre();
+	int nNewDetail = Item[nNewItemIdx].GetDetailType();
+	int nNewLevel = Item[nNewItemIdx].GetLevel();
+	int nNewSeries = Item[nNewItemIdx].GetSeries();
+	KItemGeneratorParam* pNewGenParam = Item[nNewItemIdx].GetGeneratorParam();
+
+	g_DebugLog("[UpgradeItem] New Item Props: Genre=%d, Detail=%d, Level=%d, Series=%d",
+	           nNewGenre, nNewDetail, nNewLevel, nNewSeries);
+
+	if (pNewGenParam)
+	{
+		g_DebugLog("[UpgradeItem] New GenParams: Luck=%d, Version=%d, Seed=0x%08X",
+		           pNewGenParam->nLuck, pNewGenParam->nVersion, pNewGenParam->dwRandomSeed);
+		g_DebugLog("[UpgradeItem] New GenLevels: [%d, %d, %d, %d, %d, %d]",
+		           pNewGenParam->nGeneratorLevel[0], pNewGenParam->nGeneratorLevel[1],
+		           pNewGenParam->nGeneratorLevel[2], pNewGenParam->nGeneratorLevel[3],
+		           pNewGenParam->nGeneratorLevel[4], pNewGenParam->nGeneratorLevel[5]);
+	}
+
+	// STEP 7: Verify attributes were generated correctly
+	g_DebugLog("[UpgradeItem] New Attributes (verification):");
+	for (int m = 0; m < 6; m++)
+	{
+		int nGenType = Item[nNewItemIdx].m_aryMagicAttrib[m].nAttribType;
+		int nGenValue = Item[nNewItemIdx].m_aryMagicAttrib[m].nValue[0];
+		int nGenMin = Item[nNewItemIdx].m_aryMagicAttrib[m].nMin;
+		int nGenMax = Item[nNewItemIdx].m_aryMagicAttrib[m].nMax;
+		int nExpectedValue = nAttribValues[m];
+
+		if (nGenType > 0)
+		{
+			g_DebugLog("  Slot[%d]: Type=%d, Value=%d (expected=%d) %s, Min=%d, Max=%d",
+			           m, nGenType, nGenValue, nExpectedValue,
+			           (nGenValue == nExpectedValue) ? "[OK]" : "[MISMATCH]",
+			           nGenMin, nGenMax);
+		}
+	}
+	g_DebugLog("[UpgradeItem] --- END UPGRADE ---");
+#endif
+
+	// STEP 8: Add new item to player's inventory
+	if (!Player[nPlayerIndex].m_ItemList.Add(nNewItemIdx, nPos, nOldX, nOldY))
+	{
+		// Failed to add - cleanup and restore
+		ItemSet.Remove(nNewItemIdx);
+		Player[nPlayerIndex].m_ItemList.Add(nOldItemIdx, nPos, nOldX, nOldY);
+		Lua_PushNumber(L, 0);
+		return 1;
+	}
+
+	// STEP 9: Delete old item from global pool
+
+	ItemSet.Remove(nOldItemIdx);
+
+	// Return new item index
+	Lua_PushNumber(L, nNewItemIdx);
+	return 1;
 }
 // --
 // LockSongJin by kinnox
@@ -10670,6 +11120,12 @@ TLua_Funcs GameScriptFuns[] =
 	{"SetPItemID",			LuaSetPItemID},
 	{"GetPOItem",			LuaGetPOItem},
 	{"TrembleItem",			LuaOpenTrembleItem},
+	//UpgradeAttrib - Upgrade equipment attributes
+	{"OpenUpgradeAttribUI", LuaOpenUpgradeAttribUI},
+	{"GetItemMagicAttribInfo", LuaGetItemMagicAttribInfo},
+	{"SetItemMagicAttribValueAndSync", LuaSetItemMagicAttribValueAndSync},	
+	{"GetItemGeneratorLevels",	LuaGetItemGeneratorLevels},
+	{"UpgradeItemAttributes",	LuaUpgradeItemAttributes},
 	//
 	{"SetLockSongJin",		LuaSetLockSongJin},
 	{"GetLockSongJin",		LuaGetLockSongJin},

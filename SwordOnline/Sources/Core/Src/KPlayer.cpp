@@ -8927,26 +8927,48 @@ void	KPlayer::ExeScriptButton(BYTE* pProtocol)
 
 			char szScriptFile[64];
 			char* pId = NULL;
+			// Parse parameter - support both "|" and "#" delimiters
+			// Format: "FunctionName|param" or "FunctionName#param"
 			pId = strstr(pExe->m_szContent, "|");
+			if (!pId)
+			{
+				pId = strstr(pExe->m_szContent, "#");
+			}
+
 			if(pId)
 			{
 				*pId++ = 0;
 			}
-			// Allow both ExeTremble and ExeUpgradeAttrib functions
-			if( strcmp(pExe->m_szContent, "ExeTremble") && strcmp(pExe->m_szContent, "ExeUpgradeAttrib") )
+
+			g_DebugLog("[SERVER KPLAYER] GOI_EXESCRIPT_BUTTON received, function: %s, param: %s", pExe->m_szContent, pId ? pId : "NULL");
+
+			// Allow ExeTremble, ExeUpgradeAttrib, PerformUpgrade functions
+			if( strcmp(pExe->m_szContent, "ExeTremble") &&
+			    strcmp(pExe->m_szContent, "ExeUpgradeAttrib") &&
+			    strcmp(pExe->m_szContent, "PerformUpgrade") )
+			{
+				g_DebugLog("[SERVER KPLAYER] ERROR: Function '%s' not allowed! Only ExeTremble, ExeUpgradeAttrib, PerformUpgrade allowed", pExe->m_szContent);
 				break;
+			}
+
+			g_DebugLog("[SERVER KPLAYER] Function '%s' is allowed, proceeding...", pExe->m_szContent);
 			StopMove();
 
 			// Load script file based on function name
-			if( strcmp(pExe->m_szContent, "ExeUpgradeAttrib") == 0 )
+			if( strcmp(pExe->m_szContent, "ExeUpgradeAttrib") == 0 || strcmp(pExe->m_szContent, "PerformUpgrade") == 0 )
 			{
 				g_GameSettingFile.GetString("UPGRADEATTRIB", "Script", "", szScriptFile, sizeof(szScriptFile));
+				g_DebugLog("[SERVER KPLAYER] ExeUpgradeAttrib/PerformUpgrade: Script file = %s", szScriptFile);
 			}
 			else
 			{
 				g_GameSettingFile.GetString("TREMBLEITEM", "Script", "", szScriptFile, sizeof(szScriptFile));
+				g_DebugLog("[SERVER KPLAYER] ExeTremble: Script file = %s", szScriptFile);
 			}
+
+			g_DebugLog("[SERVER KPLAYER] Calling ExecuteScript(%s, %s, %s)", szScriptFile, pExe->m_szContent, pId ? pId : "NULL");
 			this->ExecuteScript(szScriptFile, pExe->m_szContent, pId);
+			g_DebugLog("[SERVER KPLAYER] ExecuteScript completed");
 		}
 		break;
 	default:

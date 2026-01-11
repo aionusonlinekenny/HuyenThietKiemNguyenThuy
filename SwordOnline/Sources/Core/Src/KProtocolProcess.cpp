@@ -3008,6 +3008,11 @@ void	KProtocolProcess::s2cShowMsg(BYTE *pMsg)
 			CoreDataChanged(GDCNI_OPEN_TREMBLE, 0, 0);
 		}
 		break;	
+	case enumMSG_ID_UPGRADE_ATTRIB://UpgradeAttrib - Upgrade equipment attributes
+		{
+			CoreDataChanged(GDCNI_OPEN_UPGRADE_ATTRIB, 0, 0);
+		}
+		break;
 	default:
 		break;
 	}

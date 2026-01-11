@@ -1,6 +1,7 @@
 #include "KCore.h"
 #include "GameDataDef.h"
 #include "CoreShell.h"
+#include "KItemGenerator.h"						   
 
 #include "CoreDrawGameObj.h"
 #include "ImgRef.h"
@@ -102,6 +103,8 @@ public:
 	int 	GetSeriesItem(unsigned int uId );
 	int 	GetNumStack(unsigned int uId );
 	int 	CheckPositionBarrier(int nMapX, int nMapY);
+	BOOL 	GetItemMagicAttribInfo(unsigned int uItemId, int nSlot, int* pnType, int* pnValue, int* pnMin, int* pnMax);
+	int 	GetMagicAttribMaxValue(int nAttribType, int nSeries, int nLevel);																											  
 };
 
 static KCoreShell	g_CoreShell;
@@ -5607,5 +5610,55 @@ int KCoreShell::CheckPositionBarrier(int nMapX, int nMapY)
 	// Get barrier at position
 	// Returns 0 if no barrier (Obstacle_NULL), >0 if has barrier
 	return SubWorld[nSubWorldIndex].GetBarrier(nMapX, nMapY);
+}
+
+// Get magic attribute info for equipment
+// Returns TRUE if attribute exists, FALSE if empty slot
+// FIX: Access nMin/nMax directly from m_aryMagicAttrib (not via GetMagicAttrib which only returns nValue[])																											
+BOOL KCoreShell::GetItemMagicAttribInfo(unsigned int uItemId, int nSlot, int* pnType, int* pnValue, int* pnMin, int* pnMax)
+{
+	// Validate parameters
+	if (uItemId == 0 || uItemId >= MAX_ITEM || nSlot < 0 || nSlot >= 6)
+		return FALSE;
+
+	if (!pnType || !pnValue || !pnMin || !pnMax)
+		return FALSE;
+
+	// Check if item exists by checking genre
+	if (Item[uItemId].GetGenre() < 0)
+		return FALSE;
+
+	// Get attribute type - access directly from m_aryMagicAttrib (which is public)
+	int nType = Item[uItemId].m_aryMagicAttrib[nSlot].nAttribType;
+	if (nType <= 0)
+		return FALSE; // Empty attribute slot
+
+	// FIX: Access nMin/nMax directly from struct, NOT via GetMagicAttrib()
+	// GetMagicAttrib(slot, 2/3) returns nValue[1]/nValue[2], NOT nMin/nMax!
+	// nMin/nMax are stored separately in KMagicAttrib struct from MagicAttrib.txt
+	*pnType = nType;
+	*pnValue = Item[uItemId].m_aryMagicAttrib[nSlot].nValue[0];  // Current value
+	*pnMin = Item[uItemId].m_aryMagicAttrib[nSlot].nMin;         // Min value from MagicAttrib.txt
+	*pnMax = Item[uItemId].m_aryMagicAttrib[nSlot].nMax;         // Max value from MagicAttrib.txt
+
+	return TRUE;
+}
+// Get max value for an attribute type from the definition table
+// Returns the GLOBAL MAX value for this attribute type across ALL levels
+// This uses the existing GetGlobalMinMax function which scans all records
+// Returns 0 if not found or error
+int KCoreShell::GetMagicAttribMaxValue(int nAttribType, int nSeries, int nLevel)
+{
+	if (nAttribType <= 0)
+		return 0;
+
+	// Use the existing GetGlobalMinMax function which scans all magic attribute
+	// records and returns the global min/max across all levels for this attribute type
+	// This is the same function used when generating blue equipment
+	int nGlobalMin = 0, nGlobalMax = 0;
+	ItemGen.GetGlobalMinMax(nAttribType, nGlobalMin, nGlobalMax);
+
+	// Return the global max value
+	return nGlobalMax;
 }
 //
