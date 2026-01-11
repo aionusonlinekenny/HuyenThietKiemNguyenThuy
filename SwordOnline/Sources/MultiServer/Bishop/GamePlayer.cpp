@@ -1248,7 +1248,7 @@ UINT CGamePlayer::WaitForAccPwd()
                     LoginLog("[WaitForAccPwd][ID=%ld] TEMP-LOCK FAILED for \"%s\" -> duplicate/pending (after recovery)",
                              m_lnIdentityID, accBuf);
 
-                    _VerifyAccount_ToPlayer(LOGIN_A_LOGIN | LOGIN_R_ACCOUNT_OR_PASSWORD_ERROR, 0);
+                    _VerifyAccount_ToPlayer(LOGIN_A_LOGIN | LOGIN_R_ACCOUNT_EXIST, 0);
 										 
 																  
 								 
