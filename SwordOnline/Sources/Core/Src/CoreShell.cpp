@@ -5570,31 +5570,59 @@ int	KCoreShell::SceneMapFindPosOperation(unsigned int uOper, unsigned int uParam
 //
 int KCoreShell::GetGenreItem(unsigned int uId )
 {
+	// Bounds check to prevent crash
+	if (uId == 0 || uId >= MAX_ITEM)
+		return -1;
 	return Item[uId].GetGenre();
 }
 
 int KCoreShell::GetDetailItem(unsigned int uId )
 {
+	// Bounds check to prevent crash
+	if (uId == 0 || uId >= MAX_ITEM)
+		return -1;
+	if (Item[uId].GetGenre() < 0)
+		return -1;
 	return Item[uId].GetDetailType();
 }
 
 int KCoreShell::GetParticularItem(unsigned int uId )
 {
+	// Bounds check to prevent crash
+	if (uId == 0 || uId >= MAX_ITEM)
+		return 0;
+	if (Item[uId].GetGenre() < 0)
+		return 0;
 	return Item[uId].GetParticular();
 }
 
 int KCoreShell::GetLevelItem(unsigned int uId )
 {
+	// Bounds check to prevent crash
+	if (uId == 0 || uId >= MAX_ITEM)
+		return 0;
+	if (Item[uId].GetGenre() < 0)
+		return 0;
 	return Item[uId].GetLevel();
 }
 
 int KCoreShell::GetSeriesItem(unsigned int uId )
 {
+	// Bounds check to prevent crash
+	if (uId == 0 || uId >= MAX_ITEM)
+		return -1;
+	if (Item[uId].GetGenre() < 0)
+		return -1;
 	return Item[uId].GetSeries();
 }
 
 int KCoreShell::GetNumStack(unsigned int uId )
 {
+	// Bounds check to prevent crash
+	if (uId == 0 || uId >= MAX_ITEM)
+		return 0;
+	if (Item[uId].GetGenre() < 0)
+		return 0;
 	return Item[uId].GetStackCount();
 }
 int KCoreShell::CheckPositionBarrier(int nMapX, int nMapY)
