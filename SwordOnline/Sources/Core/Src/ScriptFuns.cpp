@@ -10817,7 +10817,7 @@ TLua_Funcs GameScriptFuns[] =
 	{"GetPOItem",			LuaGetPOItem},
 	{"TrembleItem",			LuaOpenTrembleItem},
 	//UpgradeAttrib - Upgrade equipment attributes
-	{"UpgradeAttrib",		LuaOpenUpgradeAttribUI},
+	{"OpenUpgradeAttribUI",		LuaOpenUpgradeAttribUI},
 	{"GetItemMagicAttribInfo", LuaGetItemMagicAttribInfo},
 	{"SetItemMagicAttribValueAndSync", LuaSetItemMagicAttribValueAndSync},
 	//
